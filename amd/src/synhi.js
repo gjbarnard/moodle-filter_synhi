@@ -36,12 +36,14 @@ define(['jquery', 'core/log'], function($, log) {
 
     return {
         init: function(data) {
-            log.debug('SynHi AMD init: ' + data.init);
+            log.debug('SynHi AMD init');
 
             if (!done) {
                 var $body = $('body');
-                $body.append('<script id="synhi-script">console.log("' + data.init + '");</script>');
                 $body.append('<script type="text/javascript" charset="utf-8" src="' + data.js + '"></script>');
+                if (data.init) {
+                    $body.append('<script type="text/javascript" charset="utf-8">' + data.init + '</script>');
+                }
                 $('head').append('<link rel="stylesheet" type="text/css" href="' + data.css + '">');
 
                 done = true;

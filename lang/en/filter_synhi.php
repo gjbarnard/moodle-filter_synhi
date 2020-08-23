@@ -24,3 +24,14 @@
  */
 
 $string['filtername'] = 'SynHi filter';
+
+// Settings.
+$string['engine'] = 'Engine';
+$string['enginedesc'] = 'Engine to use.  Either \'<a href="https://github.com/EnlighterJS/EnlighterJS" target="_blank">EnlighterJS</a> - Mozilla Public License 2.0 (MPL-2.0)\' or \'<a href="https://github.com/syntaxhighlighter/syntaxhighlighter" target="_blank">SyntaxHighlighter</a> - MIT licensed\'.';
+$string['enlighterjs'] = 'EnlighterJS';
+$string['syntaxhighlighter'] = 'SyntaxHighlighter';
+
+$string['enlighterjsstyle'] = 'EnlighterJS style';
+$string['syntaxhighlighterstyle'] = 'SyntaxHighlighter style';
+$string['styledesc'] = 'Choose the sytle you wish to use.';
+
