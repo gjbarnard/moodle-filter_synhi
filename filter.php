@@ -48,7 +48,7 @@ class filter_synhi extends moodle_text_filter {
             if ((strpos($text, '<pre') !== false) || (strpos($text, '<code') !== false)) {
                 global $PAGE;
 
-                if (!filter_synhi::$done) {
+                if (!self::$done) {
                     $config = get_config('filter_synhi');
 
                     if (!empty($config->engine)) {
@@ -64,7 +64,7 @@ class filter_synhi extends moodle_text_filter {
 
                         $PAGE->requires->js_call_amd('filter_synhi/synhi', 'init', $data);
 
-                        filter_synhi::$done = true;
+                        self::$done = true;
                     }
                 }
             }
@@ -82,7 +82,8 @@ class filter_synhi extends moodle_text_filter {
      */
     private function enlighterjs_init($config) {
         $js = new moodle_url('/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js');
-        $css = new moodle_url('/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.'.$config->enlighterjsstyle.'.min.css');
+        $css = new moodle_url(
+            '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.'.$config->enlighterjsstyle.'.min.css');
 
         return array(
             'js' => $js,
