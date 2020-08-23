@@ -24,13 +24,20 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+
 /**
- * This filter looks for content tags in Moodle text and
- * replaces them with specified user-defined content.
- * @see filter_manager::apply_filter_chain()
+ * SynHi filter.
+ *
+ * @package    filter_synhi
+ * @copyright  &copy; 2020-onwards G J Barnard.
+ * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class filter_synhi extends moodle_text_filter {
 
+    /**
+     * @var bool $done - true if the engine has been initialised already.
+     */
     private static $done = false;
 
     /**
