@@ -53,71 +53,15 @@ class filter_synhi extends moodle_text_filter {
         if (is_string($text)) {
             // Do a quick check to see if we have a tag.
             if ((strpos($text, '<pre') !== false) || (strpos($text, '<code') !== false)) {
-                global $PAGE;
-
                 if (!self::$done) {
-                    $config = get_config('filter_synhi');
+                    $toolbox = \filter_synhi\toolbox::get_instance();
+                    $toolbox->highlight_page();
 
-                    if (!empty($config->engine)) {
-                        $enginemethod = $config->engine.'_init';
-                        $init = $this->$enginemethod($config);
-
-                        $data = array('data' => array());
-                        $data['data']['css'] = $init['css']->out();
-                        $data['data']['js'] = $init['js']->out();
-                        if (!empty($init['init'])) {
-                            $data['data']['init'] = $init['init'];
-                        }
-
-                        $PAGE->requires->js_call_amd('filter_synhi/synhi', 'init', $data);
-
-                        self::$done = true;
-                    }
+                    self::$done = true;
                 }
             }
         }
 
         return $text;
     }
-
-    /**
-     * EnlighterJS files.
-     *
-     * @param stdClass $config Filter config
-     *
-     * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
-     */
-    private function enlighterjs_init($config) {
-        $js = new moodle_url('/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js');
-        $css = new moodle_url(
-            '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.'.$config->enlighterjsstyle.'.min.css');
-
-        return array(
-            'js' => $js,
-            'css' => $css,
-            'init' => "EnlighterJS.init('pre', 'code', {
-                theme: '".$config->enlighterjsstyle."',
-                indent : 4
-            });"
-        );
-    }
-
-    /**
-     * Syntax Highlighter files.
-     *
-     * @param stdClass $config Filter config
-     *
-     * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
-     */
-    private function syntaxhighlighter_init($config) {
-        $js = new moodle_url('/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js');
-        $css = new moodle_url('/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/'.$config->syntaxhighlighterstyle.'.css');
-
-        return array(
-            'js' => $js,
-            'css' => $css
-        );
-    }
-
-
 }
