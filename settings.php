@@ -83,4 +83,10 @@ if ($ADMIN->fulltree) {
     );
     $settings->add($setting);
 
+    // Syntax Highlighter example.
+    $name = 'filter_synhi/syntaxhighlighterexample';
+    $title = get_string('syntaxhighlighterexample', 'filter_synhi');
+    $description = get_string('syntaxhighlighterexampledesc', 'filter_synhi');
+    $setting = new \filter_synhi\admin_setting_highlight($name, $title, $description);
+    $settings->add($setting);
 }

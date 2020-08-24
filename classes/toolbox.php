@@ -70,14 +70,26 @@ class toolbox {
             $init = $this->$enginemethod($config);
 
             $data = array('data' => array());
-            $data['data']['css'] = $init['css']->out();
-            $data['data']['js'] = $init['js']->out();
-            if (!empty($init['init'])) {
-                $data['data']['init'] = $init['init'];
+            $data['data']['thecss'] = $init['thecss']->out();
+            $data['data']['thejs'] = $init['thejs']->out();
+            if (!empty($init['theinit'])) {
+                $data['data']['theinit'] = $init['theinit'];
             }
-
+error_log(print_r($data, true));
             $PAGE->requires->js_call_amd('filter_synhi/synhi', 'init', $data);
         }
+    }
+
+    public function setting_highlight_example() {
+        $initdata = array();
+
+        $config = get_config('filter_synhi');
+        if (!empty($config->engine)) {
+            $enginemethod = $config->engine.'_init';
+            $initdata = $this->$enginemethod($config);
+        }
+
+        return $initdata;
     }
 
     /**
@@ -93,9 +105,9 @@ class toolbox {
             '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.'.$config->enlighterjsstyle.'.min.css');
 
         return array(
-            'js' => $js,
-            'css' => $css,
-            'init' => "EnlighterJS.init('pre', 'code', {
+            'thejs' => $js,
+            'thecss' => $css,
+            'theinit' => "EnlighterJS.init('pre', 'code', {
                 theme: '".$config->enlighterjsstyle."',
                 indent : 4
             });"
@@ -114,8 +126,8 @@ class toolbox {
         $css = new moodle_url('/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/'.$config->syntaxhighlighterstyle.'.css');
 
         return array(
-            'js' => $js,
-            'css' => $css
+            'thejs' => $js,
+            'thecss' => $css
         );
     }
 }

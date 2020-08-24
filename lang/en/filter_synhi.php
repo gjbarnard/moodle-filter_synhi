@@ -35,3 +35,5 @@ $string['enlighterjsstyle'] = 'EnlighterJS style';
 $string['syntaxhighlighterstyle'] = 'SyntaxHighlighter style';
 $string['styledesc'] = 'Choose the sytle you wish to use.';
 
+$string['syntaxhighlighterexample'] = 'Example';
+$string['syntaxhighlighterexampledesc'] = 'Example from the current values.';

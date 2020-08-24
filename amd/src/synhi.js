@@ -40,11 +40,11 @@ define(['jquery', 'core/log'], function($, log) {
 
             if (!done) {
                 var $body = $('body');
-                $body.append('<script type="text/javascript" charset="utf-8" src="' + data.js + '"></script>');
-                if (data.init) {
-                    $body.append('<script type="text/javascript" charset="utf-8">' + data.init + '</script>');
+                $body.append('<script type="text/javascript" charset="utf-8" src="' + data.thejs + '"></script>');
+                if (data.theinit) {
+                    $body.append('<script type="text/javascript" charset="utf-8">' + data.theinit + '</script>');
                 }
-                $('head').append('<link rel="stylesheet" type="text/css" href="' + data.css + '">');
+                $('head').append('<link rel="stylesheet" type="text/css" href="' + data.thecss + '">');
 
                 done = true;
             }
