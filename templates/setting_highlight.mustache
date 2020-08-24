@@ -29,11 +29,16 @@
         "title": "Setting title",
         "name": "Name",
         "description": "Description goes here",
-        "code": "<pre>echo 'Code to highlight';</pre>"
+        "code": "<pre>echo 'Code to highlight';</pre>",
+        "exampledata": [
+            "thejs": "Moodle url",
+            "thecss": "Moodle url",
+            "theinit": "Init JS"
+        ]
     }
 }}
 {{!
-    Setting description.
+    Setting highlight.
 }}
 <div class="form-item row">
     <div class="form-label col-sm-3 text-sm-right">
@@ -50,3 +55,33 @@
         </div>
     </div>
 </div>
+{{#js}}
+require(['jquery', 'core/templates', 'core/notification', 'core/log'],
+    function($, templates, notification, log) {
+    log.debug('Setting Highlight {{#settingdata}}{{{moodleurl}}}{{/settingdata}}');
+    log.debug('Setting Highlight {{#exampledata}}{{{thejs}}}{{/exampledata}}');
+
+    var engine = 'enlighterjs';
+    var thecss = '{{#settingdata}}{{{moodleurl}}}{{{EnlighterJSCSSPre}}}atomic{{{EnlighterJSCSSPost}}}{{/settingdata}}';
+    var thejs = '{{#settingdata}}{{{moodleurl}}}{{{EnlighterJSJS}}}{{/settingdata}}';
+
+    var context = {
+        "code": "<pre>echo 'Code to highlight';</pre>",
+        "exampledata": {
+            "thecss": thecss,
+            "thejs": thejs,
+            "enlighterjsinit": "atomic"
+        }
+    };
+ 
+    // This will call the function to load and render our template. 
+    templates.render('filter_synhi/setting_highlight_example', context)
+        .then(function(html, js) {
+            log.debug('Template rendered ' + html);
+            //templates.replaceNodeContents('#setting_highlight_example_frame', html, js);
+            $('#setting_highlight_example_frame').replaceWith(html);
+        }).fail(function(ex) {
+            
+        });
+});
+{{/js}}

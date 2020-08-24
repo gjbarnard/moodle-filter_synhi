@@ -43,6 +43,13 @@ class toolbox {
      */
     protected static $instance = null;
 
+    private const EnlighterJSJS = '/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js';
+    private const EnlighterJSCSSPre = '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.';
+    private const EnlighterJSCSSPost = '.min.css';
+    private const SyntaxHighlighterJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js';
+    private const SyntaxHighlighterCSSPre = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/';
+    private const SyntaxHighlighterCSSPost = '.css';
+
     /**
      * This is a lonely object.
      */
@@ -75,7 +82,6 @@ class toolbox {
             if (!empty($init['theinit'])) {
                 $data['data']['theinit'] = $init['theinit'];
             }
-error_log(print_r($data, true));
             $PAGE->requires->js_call_amd('filter_synhi/synhi', 'init', $data);
         }
     }
@@ -86,7 +92,17 @@ error_log(print_r($data, true));
         $config = get_config('filter_synhi');
         if (!empty($config->engine)) {
             $enginemethod = $config->engine.'_init';
-            $initdata = $this->$enginemethod($config);
+            $initdata['exampledata'] = $this->$enginemethod($config);
+            $moourl = new \moodle_url('');
+            $initdata['settingdata'] = array(
+                'moodleurl' => $moourl->out(),
+                'EnlighterJSJS' => toolbox::EnlighterJSJS,
+                'EnlighterJSCSSPre' => toolbox::EnlighterJSCSSPre,
+                'EnlighterJSCSSPost' => toolbox::EnlighterJSCSSPost,
+                'SyntaxHighlighterJS' => toolbox::SyntaxHighlighterJS,
+                'SyntaxHighlighterCSSPre' => toolbox::SyntaxHighlighterCSSPre,
+                'SyntaxHighlighterCSSPost' => toolbox::SyntaxHighlighterCSSPost
+            );
         }
 
         return $initdata;
@@ -100,9 +116,8 @@ error_log(print_r($data, true));
      * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
      */
     private function enlighterjs_init($config) {
-        $js = new moodle_url('/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js');
-        $css = new moodle_url(
-            '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.'.$config->enlighterjsstyle.'.min.css');
+        $js = new moodle_url(toolbox::EnlighterJSJS);
+        $css = new moodle_url(toolbox::EnlighterJSCSSPre.$config->enlighterjsstyle.toolbox::EnlighterJSCSSPost);
 
         return array(
             'thejs' => $js,
@@ -122,8 +137,8 @@ error_log(print_r($data, true));
      * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
      */
     private function syntaxhighlighter_init($config) {
-        $js = new moodle_url('/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js');
-        $css = new moodle_url('/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/'.$config->syntaxhighlighterstyle.'.css');
+        $js = new moodle_url(toolbox::SyntaxHighlighterJS);
+        $css = new moodle_url(toolbox::SyntaxHighlighterCSSPre.$config->syntaxhighlighterstyle.toolbox::SyntaxHighlighterCSSPost);
 
         return array(
             'thejs' => $js,

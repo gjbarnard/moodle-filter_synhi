@@ -26,10 +26,16 @@
 
     Example context (json):
     {
+        "code": "<pre>echo 'Code to highlight';</pre>",
+        "exampledata": [
+            "thejs": "Moodle url",
+            "thecss": "Moodle url",
+            "theinit": "Init JS"
+        ]
     }
 }}
 {{!
-    Setting description.
+    Setting highlight example.
 }}
 
 <iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
@@ -52,6 +58,14 @@
             {{#theinit}}
                 <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
             {{/theinit}}
+            {{#enlighterjsinit}}
+                <script type='text/javascript' charset='utf-8'>
+                    EnlighterJS.init('pre', 'code', {
+                        theme: '{{{enlighterjsinit}}}',
+                        indent : 4
+                    });
+                </script>
+            {{/enlighterjsinit}}
         {{/exampledata}}
     </html>
 "></iframe>
