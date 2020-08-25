@@ -43,12 +43,12 @@ class toolbox {
      */
     protected static $instance = null;
 
-    private const EnlighterJSJS = '/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js';
-    private const EnlighterJSCSSPre = '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.';
-    private const EnlighterJSCSSPost = '.min.css';
-    private const SyntaxHighlighterJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js';
-    private const SyntaxHighlighterCSSPre = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/';
-    private const SyntaxHighlighterCSSPost = '.css';
+    private const ENLIGHTERJSJS = '/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js';
+    private const ENLIGHTERJSCSSPRE = '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.';
+    private const ENLIGHTERJSCSSPOST = '.min.css';
+    private const SYNTAXHIGHLIGHTERJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js';
+    private const SYNTAXHIGHLIGHTERCSSPRE = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/';
+    private const SYNTAXHIGHLIGHTERCSSPOST = '.css';
 
     /**
      * This is a lonely object.
@@ -68,6 +68,9 @@ class toolbox {
         return self::$instance;
     }
 
+    /**
+     * Highlights the page using the current values.
+     */
     public function highlight_page() {
         $config = get_config('filter_synhi');
 
@@ -87,6 +90,11 @@ class toolbox {
         }
     }
 
+    /**
+     * Gets the admin_setting_highlight data for its template.
+     *
+     * @return array The data.
+     */
     public function setting_highlight() {
         $data = array();
 
@@ -101,10 +109,14 @@ class toolbox {
         return $data;
     }
 
+    /**
+     * Renders the example code in an template that has an iframe with given highlighter engine and style.
+     *
+     * @return string The markup.
+     */
     public function setting_highlight_example($engine, $style) {
         $markup = '';
 
-        //$config = get_config('filter_synhi', 'code');
         if (!empty($engine)) {
             global $OUTPUT, $PAGE;
 
@@ -132,8 +144,8 @@ class toolbox {
      * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
      */
     private function enlighterjs_init($config) {
-        $js = new moodle_url(toolbox::EnlighterJSJS);
-        $css = new moodle_url(toolbox::EnlighterJSCSSPre.$config->enlighterjsstyle.toolbox::EnlighterJSCSSPost);
+        $js = new moodle_url(self::ENLIGHTERJSJS);
+        $css = new moodle_url(self::ENLIGHTERJSCSSPRE.$config->enlighterjsstyle.self::ENLIGHTERJSCSSPOST);
 
         return array(
             'thejs' => $js,
@@ -153,8 +165,8 @@ class toolbox {
      * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
      */
     private function syntaxhighlighter_init($config) {
-        $js = new moodle_url(toolbox::SyntaxHighlighterJS);
-        $css = new moodle_url(toolbox::SyntaxHighlighterCSSPre.$config->syntaxhighlighterstyle.toolbox::SyntaxHighlighterCSSPost);
+        $js = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
+        $css = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE.$config->syntaxhighlighterstyle.self::SYNTAXHIGHLIGHTERCSSPOST);
 
         return array(
             'thejs' => $js,

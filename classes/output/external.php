@@ -40,6 +40,9 @@ class external extends \core\output\external {
     /**
      * Return generated markup.
      *
+     * @param string $engine Highlighter engine.
+     * @param string $style Highlighter style.
+     *
      * @return string the markup.
      */
     public static function setting_highlight_example($engine, $style) {
