@@ -69,10 +69,11 @@ class toolbox {
     }
 
     public function highlight_page() {
-        global $PAGE;
         $config = get_config('filter_synhi');
 
         if (!empty($config->engine)) {
+            global $PAGE;
+
             $enginemethod = $config->engine.'_init';
             $init = $this->$enginemethod($config);
 
@@ -86,26 +87,40 @@ class toolbox {
         }
     }
 
-    public function setting_highlight_example() {
-        $initdata = array();
+    public function setting_highlight() {
+        $data = array();
 
         $config = get_config('filter_synhi');
         if (!empty($config->engine)) {
             $enginemethod = $config->engine.'_init';
-            $initdata['exampledata'] = $this->$enginemethod($config);
-            $moourl = new \moodle_url('');
-            $initdata['settingdata'] = array(
-                'moodleurl' => $moourl->out(),
-                'EnlighterJSJS' => toolbox::EnlighterJSJS,
-                'EnlighterJSCSSPre' => toolbox::EnlighterJSCSSPre,
-                'EnlighterJSCSSPost' => toolbox::EnlighterJSCSSPost,
-                'SyntaxHighlighterJS' => toolbox::SyntaxHighlighterJS,
-                'SyntaxHighlighterCSSPre' => toolbox::SyntaxHighlighterCSSPre,
-                'SyntaxHighlighterCSSPost' => toolbox::SyntaxHighlighterCSSPost
-            );
+
+            $data['highlightdata'] = $this->$enginemethod($config);
+            $data['code'] = "<pre>echo 'Code to highlight';</pre>";
         }
 
-        return $initdata;
+        return $data;
+    }
+
+    public function setting_highlight_example($engine, $style) {
+        $markup = '';
+
+        //$config = get_config('filter_synhi', 'code');
+        if (!empty($engine)) {
+            global $OUTPUT;
+
+            $enginemethod = $engine.'_init';
+            $config = new \stdClass;
+            $config->enlighterjsstyle = $style;
+            $config->syntaxhighlighterstyle = $style;
+
+            $context = new \stdClass;
+            $context->highlightdata = $this->$enginemethod($config);
+            $context->code = "<pre>echo 'Code to highlight';</pre>";
+
+            $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
+        }
+
+        return $markup;
     }
 
     /**

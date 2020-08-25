@@ -91,13 +91,12 @@ class admin_setting_highlight extends \admin_setting {
         $context = new \stdClass();
         $context->title = $this->visiblename;
         $context->description = $this->description;
-        $context->code = "<pre>echo 'Code to highlight';</pre>";
 
         $toolbox = \filter_synhi\toolbox::get_instance();
-        $examplecontext = $toolbox->setting_highlight_example();
-        if (!empty($examplecontext)) {
-            $context->exampledata = $examplecontext['exampledata'];
-            $context->settingdata = $examplecontext['settingdata'];
+        $highlightcontext = $toolbox->setting_highlight();
+        if (!empty($highlightcontext)) {
+            $context->highlightdata = $highlightcontext['highlightdata'];
+            $context->code = $highlightcontext['code'];
         }
 
         return $OUTPUT->render_from_template('filter_synhi/setting_highlight', $context);

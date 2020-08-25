@@ -27,7 +27,7 @@
     Example context (json):
     {
         "code": "<pre>echo 'Code to highlight';</pre>",
-        "exampledata": [
+        "highlightdata": [
             "thejs": "Moodle url",
             "thecss": "Moodle url",
             "theinit": "Init JS"
@@ -42,30 +42,22 @@
     <html>
         <head>
             <title>Example</title>
-            {{#exampledata}}
+            {{#highlightdata}}
                 {{#thecss}}
                     <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
                 {{/thecss}}
-            {{/exampledata}}
+            {{/highlightdata}}
         </head>
         <body>
             {{{code}}}
         </body>
-        {{#exampledata}}
+        {{#highlightdata}}
             {{#thejs}}
                 <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
             {{/thejs}}
             {{#theinit}}
                 <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
             {{/theinit}}
-            {{#enlighterjsinit}}
-                <script type='text/javascript' charset='utf-8'>
-                    EnlighterJS.init('pre', 'code', {
-                        theme: '{{{enlighterjsinit}}}',
-                        indent : 4
-                    });
-                </script>
-            {{/enlighterjsinit}}
-        {{/exampledata}}
+        {{/highlightdata}}
     </html>
 "></iframe>
