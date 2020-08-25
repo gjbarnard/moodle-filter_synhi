@@ -95,7 +95,7 @@ class toolbox {
             $enginemethod = $config->engine.'_init';
 
             $data['highlightdata'] = $this->$enginemethod($config);
-            $data['code'] = "<pre>echo 'Code to highlight';</pre>";
+            $data['code'] = "<pre class='brush: php'>echo 'Code to highlight';</pre>";
         }
 
         return $data;
@@ -115,7 +115,7 @@ class toolbox {
 
             $context = new \stdClass;
             $context->highlightdata = $this->$enginemethod($config);
-            $context->code = "<pre>echo 'Code to highlight';</pre>";
+            $context->code = "<pre class='brush: php'>echo 'Code to highlight';</pre>";
 
             $PAGE->set_context(\context_system::instance());
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
