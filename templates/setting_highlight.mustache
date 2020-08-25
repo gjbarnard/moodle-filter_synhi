@@ -56,7 +56,8 @@
     </div>
 </div>
 {{#js}}
-require(['jquery', 'core/ajax', 'core/log'], function($, Ajax, log) {
+require(['jquery', 'core/ajax', 'core/notification', 'core/log'], 
+    function($, Ajax, Notification, log) {
 
     var engine = 'enlighterjs';
     var style = 'default';
@@ -68,10 +69,13 @@ require(['jquery', 'core/ajax', 'core/log'], function($, Ajax, log) {
             'style': style
         },
     }])[0].done(function(response) {
-        // We have the data now update the UI.
-        //$('#setting_highlight_example_frame').replaceWith(response.markup);
         log.debug(response.markup);
-    });
+        // We have the data now update the UI.
+        $('#setting_highlight_example_frame').replaceWith(response.markup);
+    }).fail(function() {
+            Notification.exception(new Error('Failed to get highlighted markup'));
+            return;
+    });;
 
 });
 {{/js}}

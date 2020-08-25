@@ -106,7 +106,7 @@ class toolbox {
 
         //$config = get_config('filter_synhi', 'code');
         if (!empty($engine)) {
-            global $OUTPUT;
+            global $OUTPUT, $PAGE;
 
             $enginemethod = $engine.'_init';
             $config = new \stdClass;
@@ -117,6 +117,7 @@ class toolbox {
             $context->highlightdata = $this->$enginemethod($config);
             $context->code = "<pre>echo 'Code to highlight';</pre>";
 
+            $PAGE->set_context(\context_system::instance());
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
         }
 
