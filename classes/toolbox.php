@@ -109,6 +109,9 @@ class toolbox {
     );
 
 
+    /**
+     * @var string Default example code.
+     */
     public const EXAMPLECODE = '
     <pre class="brush: java">package test;<br>
 
@@ -195,8 +198,15 @@ class toolbox {
      */
     public function setting_highlight_example($engine, $style) {
         $markup = '';
+        $proceed = false;
 
-        if (!empty($engine)) {
+        if (($engine == 'enlighterjs') && (array_key_exists($style, self::ENLIGHTERJSSTYLES))) {
+            $proceed = true;
+        } else if (($engine == 'syntaxhighlighter') && (array_key_exists($style, self::SYNTAXHIGHLIGHTERSTYLES))) {
+            $proceed = true;
+        }
+
+        if ($proceed) {
             global $OUTPUT, $PAGE;
 
             $enginemethod = $engine.'_init';
@@ -210,6 +220,9 @@ class toolbox {
 
             $PAGE->set_context(\context_system::instance());
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
+        } else {
+            $markup = '<p id="setting_highlight_example_frame">';
+            $markup .= 'Invalid parameters passed to \'setting_highlight_example('.$engine.', '.$style.')\'</p>';
         }
 
         return $markup;
