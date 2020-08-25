@@ -47,6 +47,11 @@
                     <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
                 {{/thecss}}
             {{/highlightdata}}
+            <style>
+                body .syntaxhighlighter {
+                    overflow: visible !important;
+                }
+            </style>
         </head>
         <body>
             {{{code}}}
@@ -60,4 +65,9 @@
             {{/theinit}}
         {{/highlightdata}}
     </html>
-"></iframe>
+" onload="resize_setting_highlight_example_frame(this)"></iframe>
+<script>
+    function resize_setting_highlight_example_frame(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }
+</script>

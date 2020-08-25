@@ -43,12 +43,88 @@ class toolbox {
      */
     protected static $instance = null;
 
+    /**
+     * @var string EnlighterJS JS file.
+     */
     private const ENLIGHTERJSJS = '/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js';
+
+    /**
+     * @var string EnlighterJS CSS file start.
+     */
     private const ENLIGHTERJSCSSPRE = '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.';
+
+    /**
+     * @var string EnlighterJS CSS file end.
+     */
     private const ENLIGHTERJSCSSPOST = '.min.css';
+
+    /**
+     * @var string Syntax Highlighter JS file.
+     */
     private const SYNTAXHIGHLIGHTERJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js';
+
+    /**
+     * @var string Syntax Highlighter CSS file start.
+     */
     private const SYNTAXHIGHLIGHTERCSSPRE = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/';
+
+    /**
+     * @var string Syntax Highlighter CSS file end.
+     */
     private const SYNTAXHIGHLIGHTERCSSPOST = '.css';
+
+    /**
+     * @var string Enlighter JS styles.
+     */
+    public const ENLIGHTERJSSTYLES = array(
+        'default' => 'Default',
+        'atomic' => 'Atomic',
+        'beyond' => 'Beyond',
+        'bootstrap4' => 'Bootstrap 4',
+        'classic' => 'Classic',
+        'dracula' => 'Dracula',
+        'droide' => 'Droide',
+        'eclipse' => 'Eclipse',
+        'enlighter' => 'Enlighter',
+        'godzilla' => 'Godzilla',
+        'minimal' => 'Minimal',
+        'monokai' => 'Monokai',
+        'mowtwo' => 'Mow Two',
+        'rowhammer' => 'Row Hammer'
+    );
+
+    /**
+     * @var string Syntax Highlighter styles.
+     */
+    public const SYNTAXHIGHLIGHTERSTYLES = array(
+        'default' => 'Default',
+        'django' => 'Django',
+        'eclipse' => 'Eclipse',
+        'emacs' => 'Emacs',
+        'fadetogrey' => 'Fade To Grey',
+        'mdultra' => 'MD ultra',
+        'midnight' => 'Midnight',
+        'rdark' => 'R Dark',
+        'swift' => 'Swift'
+    );
+
+
+    public const EXAMPLECODE = '
+    <pre class="brush: java">package test;<br>
+
+    public class Test {
+        private final String name = "Java program";
+
+        public static void main (String args[]) {
+            Test us = new Test();
+            System.out.println(us.getName());
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+    </pre>';
 
     /**
      * This is a lonely object.
@@ -103,7 +179,7 @@ class toolbox {
             $enginemethod = $config->engine.'_init';
 
             $data['highlightdata'] = $this->$enginemethod($config);
-            $data['code'] = "<pre class='brush: php'>echo 'Code to highlight';</pre>";
+            $data['code'] = htmlentities($config->codeexample);
         }
 
         return $data;
@@ -111,6 +187,9 @@ class toolbox {
 
     /**
      * Renders the example code in an template that has an iframe with given highlighter engine and style.
+     *
+     * @param string $engine Highlighter engine.
+     * @param string $style Highlighter style.
      *
      * @return string The markup.
      */
@@ -127,7 +206,7 @@ class toolbox {
 
             $context = new \stdClass;
             $context->highlightdata = $this->$enginemethod($config);
-            $context->code = "<pre class='brush: php'>echo 'Code to highlight';</pre>";
+            $context->code = htmlentities(get_config('filter_synhi', 'codeexample'));
 
             $PAGE->set_context(\context_system::instance());
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);

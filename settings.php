@@ -44,22 +44,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('styledesc', 'filter_synhi');
     $default = 'default';
     $setting = new admin_setting_configselect($name, $title, $description, $default,
-        array(
-            'default' => 'Default',
-            'atomic' => 'Atomic',
-            'beyond' => 'Beyond',
-            'bootstrap4' => 'Bootstrap 4',
-            'classic' => 'Classic',
-            'dracula' => 'Dracula',
-            'droide' => 'Droide',
-            'eclipse' => 'Eclipse',
-            'enlighter' => 'Enlighter',
-            'godzilla' => 'Godzilla',
-            'minimal' => 'Minimal',
-            'monokai' => 'Monokai',
-            'mowtwo' => 'Mow Two',
-            'rowhammer' => 'Row Hammer'
-        )
+        \filter_synhi\toolbox::ENLIGHTERJSSTYLES
     );
     $settings->add($setting);
 
@@ -69,17 +54,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('styledesc', 'filter_synhi');
     $default = 'default';
     $setting = new admin_setting_configselect($name, $title, $description, $default,
-        array(
-            'default' => 'Default',
-            'django' => 'Django',
-            'eclipse' => 'Eclipse',
-            'emacs' => 'Emacs',
-            'fadetogrey' => 'Fade To Grey',
-            'mdultra' => 'MD ultra',
-            'midnight' => 'Midnight',
-            'rdark' => 'R Dark',
-            'swift' => 'Swift'
-        )
+        \filter_synhi\toolbox::SYNTAXHIGHLIGHTERSTYLES
     );
     $settings->add($setting);
 
@@ -88,5 +63,24 @@ if ($ADMIN->fulltree) {
     $title = get_string('syntaxhighlighterexample', 'filter_synhi');
     $description = get_string('syntaxhighlighterexampledesc', 'filter_synhi');
     $setting = new \filter_synhi\admin_setting_highlight($name, $title, $description);
+    $settings->add($setting);
+
+    // Code for the example.
+    $name = 'filter_synhi/codeexample';
+    $title = get_string('codeexample', 'filter_synhi');
+    $description = get_string('codeexampledesc', 'filter_synhi');
+    $default = '<pre class="brush: java">'.PHP_EOL;
+    $default .= 'package test;'.PHP_EOL.PHP_EOL;
+    $default .= 'public class Test {'.PHP_EOL;
+    $default .= '    private final String name = "Java program";'.PHP_EOL.PHP_EOL;
+    $default .= '    public static void main (String args[]) {'.PHP_EOL;
+    $default .= '        Test us = new Test();'.PHP_EOL;
+    $default .= '        System.out.println(us.getName());'.PHP_EOL;
+    $default .= '    }'.PHP_EOL.PHP_EOL;
+    $default .= '    public String getName() {'.PHP_EOL;
+    $default .= '        return name;'.PHP_EOL;
+    $default .= '    }'.PHP_EOL;
+    $default .= '}</pre>';
+    $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
     $settings->add($setting);
 }

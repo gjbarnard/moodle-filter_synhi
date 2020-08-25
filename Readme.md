@@ -103,6 +103,11 @@ Version Information
 ===================
 See Changes.md
 
+Refs
+====
+
+iframe resize: https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using.
+
 Me
 ==
 G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.
