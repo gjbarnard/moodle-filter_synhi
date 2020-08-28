@@ -51,13 +51,15 @@ class filter_synhi extends moodle_text_filter {
     public function filter($text, array $options = array()) {
         // Basic test to avoid work.
         if (is_string($text)) {
-            // Do a quick check to see if we have a tag.
-            if ((strpos($text, '<pre') !== false) || (strpos($text, '<code') !== false)) {
-                if (!self::$done) {
-                    $toolbox = \filter_synhi\toolbox::get_instance();
-                    $toolbox->highlight_page();
+            if (($this->context->contextlevel >= CONTEXT_COURSE) && ($this->context->contextlevel <= CONTEXT_BLOCK)) {
+                // Do a quick check to see if we have a tag.
+                if ((strpos($text, '<pre') !== false) || (strpos($text, '<code') !== false)) {
+                    if (!self::$done) {
+                        $toolbox = \filter_synhi\toolbox::get_instance();
+                        $toolbox->highlight_page();
 
-                    self::$done = true;
+                        self::$done = true;
+                    }
                 }
             }
         }
