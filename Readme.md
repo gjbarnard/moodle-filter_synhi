@@ -52,11 +52,14 @@ Sponsorships may allow me to provide you with more or better features in less ti
 
 Required version of Moodle
 ==========================
-This version works with Moodle 3.9 version 2020061500.00 (Build: 20200615) and above within the 3.9 branch until the
-next release.
+This version works with:
+ - Moodle 3.7 version 2019052000.00 (Build: 20190520) and above within the 3.7 branch.
+ - Moodle 3.8 version 2019111800.00 (Build: 20191118) and above within the 3.8 branch.
+ - Moodle 3.9 version 2020061500.00 (Build: 20200615) and above within the 3.9 branch.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/39/en/Installing_Moodle'.
+'docs.moodle.org/37/en/Installing_Moodle', 'docs.moodle.org/38/en/Installing_Moodle' or
+'docs.moodle.org/39/en/Installing_Moodle' respectively.
 
 Installation
 ============
@@ -81,10 +84,10 @@ Upgrading
 
 Uninstallation
 ==============
-TODO - update!
  1. Put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.
- 2. In '/filter/' remove the folder 'synhi'.
- 3. Put Moodle out of Maintenance Mode.
+ 2. Go to Site administration -> Plugins -> Filters -> Manage filters.
+ 3. Click on 'Uninstall' and follow the on screen instructions.
+ 4. Put Moodle out of Maintenance Mode.
 
 Reporting Issues
 ================
