@@ -29,10 +29,9 @@ use \filter_synhi\privacy\provider;
 
 /**
  * Privacy unit tests for the SynHi filter.
- * @group filter_synhi
  *
+ * @group filter_synhi
  * @copyright  &copy; 2020-onwards G J Barnard.
- * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class filter_synhi_privacy_testcase extends \core_privacy\tests\provider_testcase {

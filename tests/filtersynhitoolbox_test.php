@@ -26,7 +26,10 @@ defined('MOODLE_INTERNAL') || die();
 
 /**
  * Toolbox unit tests for the SynHi filter.
+ *
  * @group filter_synhi
+ * @copyright  &copy; 2020-onwards G J Barnard.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class filter_synhi_toolbox_testcase extends advanced_testcase {
 
@@ -124,7 +127,9 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '    <html>'.PHP_EOL;
         $theexpectedoutput .= '        <head>'.PHP_EOL;
         $theexpectedoutput .= '            <title>Example</title>'.PHP_EOL;
-        $theexpectedoutput .= '                    <link rel=\'stylesheet\' type=\'text/css\' href=\'https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.godzilla.min.css\'>'.PHP_EOL;
+        $theexpectedoutput .= '                    <link rel=\'stylesheet\' type=\'text/css\' ';
+        $theexpectedoutput .= 'href=\'https://www.example.com/moodle/filter/synhi/javascript';
+        $theexpectedoutput .= '/EnlighterJS_3_4_0/styles/enlighterjs.godzilla.min.css\'>'.PHP_EOL;
         $theexpectedoutput .= '            <style>'.PHP_EOL;
         $theexpectedoutput .= '                body .syntaxhighlighter {'.PHP_EOL;
         $theexpectedoutput .= '                    overflow: visible !important;'.PHP_EOL;
@@ -145,13 +150,17 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '    }'.PHP_EOL;
         $theexpectedoutput .= '}&lt;/pre&gt;'.PHP_EOL;
         $theexpectedoutput .= '        </body>'.PHP_EOL;
-        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' src=\'https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js\'></script>'.PHP_EOL;
-        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\'>EnlighterJS.init(\'pre\', \'code\', {theme: \'godzilla\', indent : 4});</script>'.PHP_EOL;
+        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' ';
+        $theexpectedoutput .= 'src=\'https://www.example.com/moodle/filter/';
+        $theexpectedoutput .= 'synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js\'></script>'.PHP_EOL;
+        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\'>';
+        $theexpectedoutput .= 'EnlighterJS.init(\'pre\', \'code\', {theme: \'godzilla\', indent : 4});</script>'.PHP_EOL;
         $theexpectedoutput .= '    </html>'.PHP_EOL;
         $theexpectedoutput .= '" onload="resize_setting_highlight_example_frame(this)"></iframe>'.PHP_EOL;
         $theexpectedoutput .= '<script>'.PHP_EOL;
         $theexpectedoutput .= '    function resize_setting_highlight_example_frame(obj) {'.PHP_EOL;
-        $theexpectedoutput .= '        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + \'px\';'.PHP_EOL;
+        $theexpectedoutput .= '        obj.style.height = obj.contentWindow.document.';
+        $theexpectedoutput .= 'documentElement.scrollHeight + \'px\';'.PHP_EOL;
         $theexpectedoutput .= '    }'.PHP_EOL;
         $theexpectedoutput .= '</script>';
         $this->assertEquals($theexpectedoutput, $thereturneddata);
@@ -159,7 +168,8 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $engine = 'valenta';
         $style = 'class43';
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = '<p id="setting_highlight_example_frame">Invalid parameters passed to \'setting_highlight_example(\'valenta\', \'class43\')\'</p>';
+        $theexpectedoutput = '<p id="setting_highlight_example_frame">Invalid parameters passed to ';
+        $theexpectedoutput .= '\'setting_highlight_example(\'valenta\', \'class43\')\'</p>';
         $this->assertEquals($theexpectedoutput, $thereturneddata);
 
         $engine = 'syntaxhighlighter';
@@ -169,7 +179,9 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '    <html>'.PHP_EOL;
         $theexpectedoutput .= '        <head>'.PHP_EOL;
         $theexpectedoutput .= '            <title>Example</title>'.PHP_EOL;
-        $theexpectedoutput .= '                    <link rel=\'stylesheet\' type=\'text/css\' href=\'https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/fadetogrey.css\'>'.PHP_EOL;
+        $theexpectedoutput .= '                    <link rel=\'stylesheet\' type=\'text/css\' href=';
+        $theexpectedoutput .= '\'https://www.example.com/moodle/filter/synhi';
+        $theexpectedoutput .= '/javascript/syntaxhighlighter_4_0_1/styles/fadetogrey.css\'>'.PHP_EOL;
         $theexpectedoutput .= '            <style>'.PHP_EOL;
         $theexpectedoutput .= '                body .syntaxhighlighter {'.PHP_EOL;
         $theexpectedoutput .= '                    overflow: visible !important;'.PHP_EOL;
@@ -190,12 +202,15 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '    }'.PHP_EOL;
         $theexpectedoutput .= '}&lt;/pre&gt;'.PHP_EOL;
         $theexpectedoutput .= '        </body>'.PHP_EOL;
-        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' src=\'https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js\'></script>'.PHP_EOL;
+        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' src=';
+        $theexpectedoutput .= '\'https://www.example.com/moodle/filter/synhi/';
+        $theexpectedoutput .= 'javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js\'></script>'.PHP_EOL;
         $theexpectedoutput .= '    </html>'.PHP_EOL;
         $theexpectedoutput .= '" onload="resize_setting_highlight_example_frame(this)"></iframe>'.PHP_EOL;
         $theexpectedoutput .= '<script>'.PHP_EOL;
         $theexpectedoutput .= '    function resize_setting_highlight_example_frame(obj) {'.PHP_EOL;
-        $theexpectedoutput .= '        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + \'px\';'.PHP_EOL;
+        $theexpectedoutput .= '        obj.style.height = obj.contentWindow.document.';
+        $theexpectedoutput .= 'documentElement.scrollHeight + \'px\';'.PHP_EOL;
         $theexpectedoutput .= '    }'.PHP_EOL;
         $theexpectedoutput .= '</script>';
         $this->assertEquals($theexpectedoutput, $thereturneddata);
