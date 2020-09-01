@@ -222,7 +222,7 @@ class toolbox {
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
         } else {
             $markup = '<p id="setting_highlight_example_frame">';
-            $markup .= 'Invalid parameters passed to \'setting_highlight_example('.$engine.', '.$style.')\'</p>';
+            $markup .= 'Invalid parameters passed to \'setting_highlight_example(\''.$engine.'\', \''.$style.'\')\'</p>';
         }
 
         return $markup;
@@ -242,10 +242,7 @@ class toolbox {
         return array(
             'thejs' => $js,
             'thecss' => $css,
-            'theinit' => "EnlighterJS.init('pre', 'code', {
-                theme: '".$config->enlighterjsstyle."',
-                indent : 4
-            });"
+            'theinit' => "EnlighterJS.init('pre', 'code', {theme: '".$config->enlighterjsstyle."', indent : 4});"
         );
     }
 

@@ -1,0 +1,21 @@
+Ref: https://docs.moodle.org/dev/PHPUnit
+
+composer install
+
+php admin/tool/phpunit/cli/init.php
+
+Linux/Unix/MacOS
+or
+Windows\
+
+vendor/bin/phpunit filter_synhi_toolbox_testcase filter/synhi/tests/filtersynhitoolbox_test.php
+or
+vendor\bin\phpunit filter_synhi_toolbox_testcase filter/synhi/tests/filtersynhitoolbox_test.php
+
+vendor/bin/phpunit filter_synhi_privacy_testcase filter/synhi/tests/privacy_provider_test.php
+or
+vendor\bin\phpunit filter_synhi_privacy_testcase filter/synhi/tests/privacy_provider_test.php
+
+vendor/bin/phpunit --group filter_synhi
+or
+vendor\bin\phpunit --group filter_synhi

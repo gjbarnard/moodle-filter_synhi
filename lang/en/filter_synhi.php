@@ -40,3 +40,6 @@ $string['codeexampledesc'] = 'Code to use in the example.';
 
 $string['syntaxhighlighterexample'] = 'Example';
 $string['syntaxhighlighterexampledesc'] = 'from the \'codeexample\' setting...';
+
+// Privacy.
+$string['privacy:nop'] = 'The SynHi filter stores settings that pertain to its configuration.  None of the settings are related to a specific user.  It is your responsibilty to ensure that no user data is entered in any free text fields.  Setting a setting will result in that action being logged within the core Moodle logging system against the user whom changed it, this is outside of the filters control, please see the core logging system for privacy compliance for this.  Please examine the code carefully to be sure that it complies with your interpretation of your privacy laws.  I am not a lawyer and my analysis is based on my interpretation.  If you have any doubt then remove the filter forthwith.';
