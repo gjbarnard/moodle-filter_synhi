@@ -174,6 +174,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
 
         $engine = 'syntaxhighlighter';
         $style = 'fadetogrey';
+        set_config('codeexample', '<pre class="brush: php">echo \'This is a test not a drill\';</pre>', 'filter_synhi');
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
         $theexpectedoutput = '<iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="'.PHP_EOL;
         $theexpectedoutput .= '    <html>'.PHP_EOL;
@@ -189,18 +190,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '            </style>'.PHP_EOL;
         $theexpectedoutput .= '        </head>'.PHP_EOL;
         $theexpectedoutput .= '        <body>'.PHP_EOL;
-        $theexpectedoutput .= '            &lt;pre class=&quot;brush: java&quot;&gt;'.PHP_EOL;
-        $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= 'public class Test {'.PHP_EOL;
-        $theexpectedoutput .= '    private final String name = &quot;Java program&quot;;'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= '    public static void main (String args[]) {'.PHP_EOL;
-        $theexpectedoutput .= '        Test us = new Test();'.PHP_EOL;
-        $theexpectedoutput .= '        System.out.println(us.getName());'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= '    public String getName() {'.PHP_EOL;
-        $theexpectedoutput .= '        return name;'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL;
-        $theexpectedoutput .= '}&lt;/pre&gt;'.PHP_EOL;
+        $theexpectedoutput .= '            &lt;pre class=&quot;brush: php&quot;&gt;echo \'This is a test not a drill\';&lt;/pre&gt;'.PHP_EOL;
         $theexpectedoutput .= '        </body>'.PHP_EOL;
         $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' src=';
         $theexpectedoutput .= '\'https://www.example.com/moodle/filter/synhi/';
