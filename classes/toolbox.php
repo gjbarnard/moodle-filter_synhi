@@ -77,7 +77,6 @@ class toolbox {
      * @var string Enlighter JS styles.
      */
     public const ENLIGHTERJSSTYLES = array(
-        'default' => 'Default',
         'atomic' => 'Atomic',
         'beyond' => 'Beyond',
         'bootstrap4' => 'Bootstrap 4',

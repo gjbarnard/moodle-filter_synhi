@@ -42,7 +42,7 @@ if ($ADMIN->fulltree) {
     $name = 'filter_synhi/enlighterjsstyle';
     $title = get_string('enlighterjsstyle', 'filter_synhi');
     $description = get_string('styledesc', 'filter_synhi');
-    $default = 'default';
+    $default = 'enlighter';
     $setting = new admin_setting_configselect($name, $title, $description, $default,
         \filter_synhi\toolbox::ENLIGHTERJSSTYLES
     );
