@@ -2,6 +2,13 @@ Introduction
 ============
 SynHi Filter.
 
+A syntax highlighter filter for Moodle with the choice of either EnlighterJS or SyntaxHighlighter
+as the 'engine'.  The administrator has 'preview' settings to see what the look will be on example
+code before the saving.
+
+When active, content with a 'pre' or 'code' tag within a course, module or block will be highlighted.
+Specifically between the Course and Block contexts - https://docs.moodle.org/39/en/Context.
+
 Features
 ========
 * Syntax Highlighting.
@@ -10,7 +17,7 @@ About
 =====
 Copyright  &copy; 2020-onwards G J Barnard.
 Author     G J Barnard - http://about.me/gjbarnard and http://moodle.org/user/profile.php?id=442195
-License    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+License    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.  For Moodle plugin code only.
 
 Developed and maintained by
 ===========================
@@ -20,10 +27,11 @@ Web profile | http://about.me/gjbarnard
 
 Free Software
 =============
-The SynHi filter is 'free' software under the terms of the GNU GPLv3 License, please see 'COPYING.txt'.
+The SynHi filter is 'free' software under the terms of the GNU GPLv3 License, please see 'LICENSE'.  It
+contains third party 'highlighers' which are licensed differenty, see 'Highlighters'.
 
 It can be obtained for free from:
-github.com/gjb2048/moodle-filter_synhi/releases
+https://github.com/gjb2048/moodle-filter_synhi/releases
 
 You have all the rights granted to you by the GPLv3 license.  If you are unsure about anything, then the
 FAQ - www.gnu.org/licenses/gpl-faq.html - is a good place to look.
@@ -31,14 +39,19 @@ FAQ - www.gnu.org/licenses/gpl-faq.html - is a good place to look.
 If you reuse any of the code then I kindly ask that you make reference to the filter.
 
 If you make improvements or bug fixes then I would appreciate if you would send them back to me by forking from
-github.com/gjb2048/moodle-filter_synhi and doing a 'Pull Request' so that the rest of the Moodle community
+https://github.com/gjb2048/moodle-filter_synhi and doing a 'Pull Request' so that the rest of the Moodle community
 benefits.
+
+Highlighters
+------------
+EnlighterJS - https://github.com/EnlighterJS/EnlighterJS - Mozilla Public License 2.0 (MPL-2.0).
+SyntaxHighlighter - https://github.com/syntaxhighlighter/syntaxhighlighter - MIT licensed.
 
 Support
 =======
 As SynHi is licensed under the GNU GPLv3 License it comes with NO support.  If you would like support from
-me then I'm happy to provide it for a fee (please see my contact details above).  Otherwise, the 'Themes' forum:
-moodle.org/mod/forum/view.php?id=46 is an excellent place to ask questions.
+me then I'm happy to provide it for a fee (please see my contact details above).  Otherwise, the 'General plugins'
+forum: moodle.org/mod/forum/view.php?id=44 is an excellent place to ask questions.
 
 Sponsorships
 ============
@@ -91,7 +104,7 @@ Uninstallation
 
 Reporting Issues
 ================
-Before reporting an issue, please ensure that you are running the latest version for your release of Moodle.  It is essential
+Before reporting an issue, please ensure that you are running the current version for your release of Moodle.  It is essential
 that you are operating the required version of Moodle as stated at the top - this is because the theme relies on core
 functionality that is out of its control.
 
@@ -102,6 +115,8 @@ It is essential that you provide as much information as possible, the critical i
 version.php file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
 can be really useful in visualising the issue along with any files you consider to be relevant.
 
+Report issues on: https://github.com/gjb2048/moodle-filter_synhi/issues
+
 Version Information
 ===================
 See Changes.md
@@ -109,7 +124,7 @@ See Changes.md
 Refs
 ====
 
-iframe resize: https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using.
+iframe resize: https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using
 
 Me
 ==
