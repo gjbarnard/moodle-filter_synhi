@@ -28,7 +28,6 @@ matrix:
 env:
  global:
   - MOODLE_BRANCH=MOODLE_39_STABLE
-  - IGNORE_PATHS=javascript/syntaxhighlighter_4_0_1/,javascript/EnlighterJS_3_4_0
   - IGNORE_NAMES=*.txt
 
 before_install:
