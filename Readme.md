@@ -13,6 +13,15 @@ Features
 ========
 * Syntax Highlighting.
 
+Screenshots
+-----------
+
+![Example](/pix/synhi_example.png "Example of code being highlighted")
+
+![System administration](/pix/synhi_admin.png "The system admininstration screen")
+
+![Highlight preview](/pix/synhi_admin_anim.gif "Previewing the engine and style before setting on the systems administration screen")
+
 About
 =====
 Copyright  &copy; 2020-onwards G J Barnard.
