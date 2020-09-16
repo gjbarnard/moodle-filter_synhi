@@ -30,7 +30,7 @@ define(['jquery', 'core/log'], function($, log) {
 
     var done = false;
 
-    $(document).ready(function($) {
+    $(document).ready(function() {
         log.debug('SynHi AMD document ready');
     });
 
@@ -49,6 +49,6 @@ define(['jquery', 'core/log'], function($, log) {
                 done = true;
             }
         }
-    }
+    };
 });
 /* jshint ignore:end */

@@ -51,18 +51,6 @@ module.exports = function(grunt) { // jshint ignore:line
         grunt.fail.fatal('Node version too old. Require ' + expected + ', version installed: ' + actual);
     }
 
-    /* Windows users can't run grunt in a subdirectory, so allow them to set
-       the root by passing --root=path/to/dir. */
-    if (grunt.option('root')) {
-        var root = grunt.option('root');
-        if (grunt.file.exists(__dirname, root)) { // jshint ignore:line
-            cwd = path.join(__dirname, root); // jshint ignore:line
-            grunt.log.ok('Setting root to ' + cwd);
-        } else {
-            grunt.fail.fatal('Setting root to ' + root + ' failed - path does not exist');
-        }
-    }
-
     // PHP strings for exec task.
     var moodleroot = path.dirname(path.dirname(__dirname)), // jshint ignore:line
         dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || ''; // jshint ignore:line

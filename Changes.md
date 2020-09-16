@@ -2,6 +2,8 @@ Version Information
 ===================
 Version 3.7.0.4 - TBD
 1. Release candidiate.
+2. Add screenshots to Readme.md.
+3. Tidy code.
 
 Version 3.7.0.3 - 14/9/20
 1. Fix 'missing thirdpartylibs.xml' - #1.
