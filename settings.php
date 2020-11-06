@@ -83,4 +83,21 @@ if ($ADMIN->fulltree) {
     $default .= '}</pre>';
     $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
     $settings->add($setting);
+
+    // Information
+    $settings->add(new admin_setting_heading('filter_synhi_information_heading',
+        get_string('informationheading', 'filter_synhi'),
+        format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_TEXT)));
+
+    $settings->add(new admin_setting_description('filter_synhi_general_information',
+        'generalinformation',
+        '<p>'.get_string('generalinformation', 'filter_synhi').'</p>'));
+
+    $settings->add(new admin_setting_description('filter_synhi_enlighter_information',
+        'enlighterinformation',
+        '<p>'.get_string('enlighterinformation', 'filter_synhi').'</p>'));
+
+    $settings->add(new admin_setting_description('filter_synhi_syntaxhighlighter_information',
+        'syntaxhighlighterinformation',
+        '<p>'.get_string('syntaxhighlighterinformation', 'filter_synhi').'</p>'));
 }
