@@ -87,7 +87,7 @@ if ($ADMIN->fulltree) {
     // Information
     $settings->add(new admin_setting_heading('filter_synhi_information_heading',
         get_string('informationheading', 'filter_synhi'),
-        format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_TEXT)));
+        format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_PLAIN)));
 
     $settings->add(new admin_setting_description('filter_synhi_general_information',
         'generalinformation',
