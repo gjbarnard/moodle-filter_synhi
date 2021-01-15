@@ -148,10 +148,9 @@ class toolbox {
 
     /**
      * Highlights the page using the current values.
+     * @param array $engine Highlighter config.
      */
-    public function highlight_page() {
-        $config = get_config('filter_synhi');
-
+    public function highlight_page($config) {
         if (!empty($config->engine)) {
             global $PAGE;
 
@@ -241,7 +240,7 @@ class toolbox {
         return array(
             'thejs' => $js,
             'thecss' => $css,
-            'theinit' => "EnlighterJS.init('pre', 'code', {theme: '".$config->enlighterjsstyle."', indent : 4});"
+            'theinit' => "EnlighterJS.init('pre.synhi, code.synhi', 'pre.synhi, code.synhi', {theme: '".$config->enlighterjsstyle."', indent : 4});"
         );
     }
 
