@@ -53,18 +53,12 @@ class filter_synhi extends moodle_text_filter {
         if (is_string($text)) {
             if (($this->context->contextlevel >= CONTEXT_COURSE) && ($this->context->contextlevel <= CONTEXT_BLOCK)) {
                 // Do a quick check to see if we have a tag.
-                $prepos = strpos($text, '<pre');
-                $synpos = false;
-                if ($prepos !== false) {
-                    $synpos = $prepos + 4; // Number of characters in '<pre'.
-                } else {
-                    $codepos = strpos($text, '<code');
-                    if ($codepos !== false) {
-                        $synpos = $codepos + 5; // Number of characters in '<code'.
-                    }
+                $synpos = strpos($text, '<pre');
+                if ($synpos === false) {
+                    $synpos = strpos($text, '<code');
                 }
                 if ($synpos !== false) {
-                    // Don't alter MathJax -> https://docs.moodle.org/310/en/MathJax_filter.
+                    // Don't alter MathJax -> https://docs.moodle.org/en/MathJax_filter.
                     if ((strpos($text, '$$') === false) &&
                         (strpos($text, '[tex]') === false) &&
                         (strpos($text, '<tex>') === false) &&
@@ -74,7 +68,7 @@ class filter_synhi extends moodle_text_filter {
                         $config = get_config('filter_synhi');
                         if (!empty($config->engine)) {
                             if ($config->engine == 'enlighterjs') {
-                                $text = substr($text, 0, $synpos).' class="synhi"'.substr($text, $synpos);
+                                $text = '<synhi>'.$text.'</synhi>';
                             }
                             if (!self::$done) {
                                 $toolbox = \filter_synhi\toolbox::get_instance();

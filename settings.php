@@ -84,7 +84,7 @@ if ($ADMIN->fulltree) {
     $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
     $settings->add($setting);
 
-    // Information
+    // Information.
     $settings->add(new admin_setting_heading('filter_synhi_information_heading',
         get_string('informationheading', 'filter_synhi'),
         format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_PLAIN)));

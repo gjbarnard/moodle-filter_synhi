@@ -136,7 +136,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '                }'.PHP_EOL;
         $theexpectedoutput .= '            </style>'.PHP_EOL;
         $theexpectedoutput .= '        </head>'.PHP_EOL;
-        $theexpectedoutput .= '        <body>'.PHP_EOL;
+        $theexpectedoutput .= '        <body><synhi>'.PHP_EOL;
         $theexpectedoutput .= '            &lt;pre class=&quot;brush: java&quot;&gt;'.PHP_EOL;
         $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
         $theexpectedoutput .= 'public class Test {'.PHP_EOL;
@@ -149,12 +149,12 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '        return name;'.PHP_EOL;
         $theexpectedoutput .= '    }'.PHP_EOL;
         $theexpectedoutput .= '}&lt;/pre&gt;'.PHP_EOL;
-        $theexpectedoutput .= '        </body>'.PHP_EOL;
+        $theexpectedoutput .= '        </synhi></body>'.PHP_EOL;
         $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' ';
         $theexpectedoutput .= 'src=\'https://www.example.com/moodle/filter/';
         $theexpectedoutput .= 'synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js\'></script>'.PHP_EOL;
         $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\'>';
-        $theexpectedoutput .= 'EnlighterJS.init(\'pre\', \'code\', {theme: \'godzilla\', indent : 4});</script>'.PHP_EOL;
+        $theexpectedoutput .= 'EnlighterJS.init(\'synhi pre, synhi code\', \'synhi pre, synhi code\', {theme: \'godzilla\', indent : 4});</script>'.PHP_EOL;
         $theexpectedoutput .= '    </html>'.PHP_EOL;
         $theexpectedoutput .= '" onload="resize_setting_highlight_example_frame(this)"></iframe>'.PHP_EOL;
         $theexpectedoutput .= '<script>'.PHP_EOL;
@@ -189,9 +189,9 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '                }'.PHP_EOL;
         $theexpectedoutput .= '            </style>'.PHP_EOL;
         $theexpectedoutput .= '        </head>'.PHP_EOL;
-        $theexpectedoutput .= '        <body>'.PHP_EOL;
+        $theexpectedoutput .= '        <body><synhi>'.PHP_EOL;
         $theexpectedoutput .= '            &lt;pre class=&quot;brush: php&quot;&gt;echo \'This is a test not a drill\';&lt;/pre&gt;'.PHP_EOL;
-        $theexpectedoutput .= '        </body>'.PHP_EOL;
+        $theexpectedoutput .= '        </synhi></body>'.PHP_EOL;
         $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' src=';
         $theexpectedoutput .= '\'https://www.example.com/moodle/filter/synhi/';
         $theexpectedoutput .= 'javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js\'></script>'.PHP_EOL;
