@@ -1,6 +1,6 @@
 Version Information
 ===================
-Version 3.7.1.1 - TBD
+Version 3.7.1.1 - 23/01/21
 1. Don't highlight MathJax / Tex -> https://docs.moodle.org/310/en/MathJax_filter.
 
 Version 3.7.1 - 8/11/20
