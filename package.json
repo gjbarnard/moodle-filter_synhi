@@ -15,7 +15,7 @@
     "url": "https://github.com/gjb2048/moodle-filter_synhi/issues"
   },
   "devDependencies": {
-    "grunt": "1.0.1",
+    "grunt": "1.4.0",
     "grunt-exec": "~0.4.6",
     "grunt-contrib-jshint": "2.0.0",
     "grunt-contrib-uglify": "1.0.1",
