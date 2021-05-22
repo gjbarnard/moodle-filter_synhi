@@ -240,7 +240,7 @@ class toolbox {
         return array(
             'thejs' => $js,
             'thecss' => $css,
-            'theinit' => "EnlighterJS.init('synhi pre, synhi code', 'synhi pre, synhi code', {theme: '".$config->enlighterjsstyle."', indent : 4});"
+            'theinit' => "EnlighterJS.init('synhi pre', 'synhi code', {theme: '".$config->enlighterjsstyle."', indent : 4});"
         );
     }
 
