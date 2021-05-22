@@ -2,6 +2,8 @@ Version Information
 ===================
 Version 3.7.1.2 - TBR
 --------------------------
+1. Fix 'The EnlighterJS engine turns inline elements to block elements', thanks to
+   Tyson Whitehead (https://github.com/twhitehead) for the patch - #2 & #3.
 
 Version 3.7.1.1 - 23/01/21
 --------------------------
