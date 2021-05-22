@@ -154,7 +154,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= 'src=\'https://www.example.com/moodle/filter/';
         $theexpectedoutput .= 'synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js\'></script>'.PHP_EOL;
         $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\'>';
-        $theexpectedoutput .= 'EnlighterJS.init(\'synhi pre, synhi code\', \'synhi pre, synhi code\', {theme: \'godzilla\', indent : 4});</script>'.PHP_EOL;
+        $theexpectedoutput .= 'EnlighterJS.init(\'synhi pre\', \'synhi code\', {theme: \'godzilla\', indent : 4});</script>'.PHP_EOL;
         $theexpectedoutput .= '    </html>'.PHP_EOL;
         $theexpectedoutput .= '" onload="resize_setting_highlight_example_frame(this)"></iframe>'.PHP_EOL;
         $theexpectedoutput .= '<script>'.PHP_EOL;
