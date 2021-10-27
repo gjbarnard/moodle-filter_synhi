@@ -8,14 +8,10 @@ Linux/Unix/MacOS
 or
 Windows\
 
-vendor/bin/phpunit filter_synhi_toolbox_testcase filter/synhi/tests/filtersynhitoolbox_test.php
+vendor/bin/phpunit filter/synhi/tests/filtersynhitoolbox_test.php
 or
-vendor\bin\phpunit filter_synhi_toolbox_testcase filter/synhi/tests/filtersynhitoolbox_test.php
+vendor\bin\phpunit filter/synhi/tests/filtersynhitoolbox_test.php
 
-vendor/bin/phpunit filter_synhi_privacy_testcase filter/synhi/tests/privacy_provider_test.php
+vendor/bin/phpunit filter/synhi/tests/privacy_provider_test.php
 or
-vendor\bin\phpunit filter_synhi_privacy_testcase filter/synhi/tests/privacy_provider_test.php
-
-vendor/bin/phpunit --group filter_synhi
-or
-vendor\bin\phpunit --group filter_synhi
+vendor\bin\phpunit filter/synhi/tests/privacy_provider_test.php

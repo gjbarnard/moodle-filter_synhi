@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class filter_synhi_toolbox_testcase extends advanced_testcase {
+class filtersynhitoolbox_test extends advanced_testcase {
 
     /**
      * @var string EnlighterJS JS file.
@@ -87,9 +87,9 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
     }
 
     /**
-     * Set up.
+     * Own set up to avoid use of setUp() as it has a different specification depending on version of PHPUnit.
      */
-    protected function setUp() {
+    protected function set_up() {
         $this->resetAfterTest(true);
 
         $this->instance = \filter_synhi\toolbox::get_instance();
@@ -99,6 +99,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
      * Test the setting highlight.
      */
     public function test_setting_highlight() {
+        $this->set_up();
         set_config('engine', 'enlighterjs', 'filter_synhi');
         set_config('enlighterjsstyle', 'default', 'filter_synhi');
         set_config('codeexample', '<pre>echo \'This is a test not a drill\';</pre>', 'filter_synhi');
@@ -119,24 +120,14 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
      * Test the setting highlight.
      */
     public function test_setting_highlight_example() {
+        global $CFG;
+
+        $this->set_up();
         $engine = 'enlighterjs';
         $style = 'godzilla';
 
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = '<iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="'.PHP_EOL;
-        $theexpectedoutput .= '    <html>'.PHP_EOL;
-        $theexpectedoutput .= '        <head>'.PHP_EOL;
-        $theexpectedoutput .= '            <title>Example</title>'.PHP_EOL;
-        $theexpectedoutput .= '                    <link rel=\'stylesheet\' type=\'text/css\' ';
-        $theexpectedoutput .= 'href=\'https://www.example.com/moodle/filter/synhi/javascript';
-        $theexpectedoutput .= '/EnlighterJS_3_4_0/styles/enlighterjs.godzilla.min.css\'>'.PHP_EOL;
-        $theexpectedoutput .= '            <style>'.PHP_EOL;
-        $theexpectedoutput .= '                body .syntaxhighlighter {'.PHP_EOL;
-        $theexpectedoutput .= '                    overflow: visible !important;'.PHP_EOL;
-        $theexpectedoutput .= '                }'.PHP_EOL;
-        $theexpectedoutput .= '            </style>'.PHP_EOL;
-        $theexpectedoutput .= '        </head>'.PHP_EOL;
-        $theexpectedoutput .= '        <body>'.PHP_EOL;
+        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt');
         $theexpectedoutput .= '            <synhi>&lt;pre class=&quot;brush: java&quot;&gt;'.PHP_EOL;
         $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
         $theexpectedoutput .= 'public class Test {'.PHP_EOL;
@@ -148,21 +139,8 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $theexpectedoutput .= '    public String getName() {'.PHP_EOL;
         $theexpectedoutput .= '        return name;'.PHP_EOL;
         $theexpectedoutput .= '    }'.PHP_EOL;
-        $theexpectedoutput .= '}&lt;/pre&gt;</synhi>'.PHP_EOL;
-        $theexpectedoutput .= '        </body>'.PHP_EOL;
-        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' ';
-        $theexpectedoutput .= 'src=\'https://www.example.com/moodle/filter/';
-        $theexpectedoutput .= 'synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js\'></script>'.PHP_EOL;
-        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\'>';
-        $theexpectedoutput .= 'EnlighterJS.init(\'synhi pre\', \'synhi code\', {theme: \'godzilla\', indent : 4});</script>'.PHP_EOL;
-        $theexpectedoutput .= '    </html>'.PHP_EOL;
-        $theexpectedoutput .= '" onload="resize_setting_highlight_example_frame(this)"></iframe>'.PHP_EOL;
-        $theexpectedoutput .= '<script>'.PHP_EOL;
-        $theexpectedoutput .= '    function resize_setting_highlight_example_frame(obj) {'.PHP_EOL;
-        $theexpectedoutput .= '        obj.style.height = obj.contentWindow.document.';
-        $theexpectedoutput .= 'documentElement.scrollHeight + \'px\';'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL;
-        $theexpectedoutput .= '</script>';
+        $theexpectedoutput .= '}&lt;/pre&gt;</synhi>';
+        $theexpectedoutput .= file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_bottom.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
 
         $engine = 'valenta';
@@ -176,33 +154,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
         $style = 'fadetogrey';
         set_config('codeexample', '<pre class="brush: php">echo \'This is a test not a drill\';</pre>', 'filter_synhi');
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = '<iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="'.PHP_EOL;
-        $theexpectedoutput .= '    <html>'.PHP_EOL;
-        $theexpectedoutput .= '        <head>'.PHP_EOL;
-        $theexpectedoutput .= '            <title>Example</title>'.PHP_EOL;
-        $theexpectedoutput .= '                    <link rel=\'stylesheet\' type=\'text/css\' href=';
-        $theexpectedoutput .= '\'https://www.example.com/moodle/filter/synhi';
-        $theexpectedoutput .= '/javascript/syntaxhighlighter_4_0_1/styles/fadetogrey.css\'>'.PHP_EOL;
-        $theexpectedoutput .= '            <style>'.PHP_EOL;
-        $theexpectedoutput .= '                body .syntaxhighlighter {'.PHP_EOL;
-        $theexpectedoutput .= '                    overflow: visible !important;'.PHP_EOL;
-        $theexpectedoutput .= '                }'.PHP_EOL;
-        $theexpectedoutput .= '            </style>'.PHP_EOL;
-        $theexpectedoutput .= '        </head>'.PHP_EOL;
-        $theexpectedoutput .= '        <body>'.PHP_EOL;
-        $theexpectedoutput .= '            <synhi>&lt;pre class=&quot;brush: php&quot;&gt;echo \'This is a test not a drill\';&lt;/pre&gt;</synhi>'.PHP_EOL;
-        $theexpectedoutput .= '        </body>'.PHP_EOL;
-        $theexpectedoutput .= '                <script type=\'text/javascript\' charset=\'utf-8\' src=';
-        $theexpectedoutput .= '\'https://www.example.com/moodle/filter/synhi/';
-        $theexpectedoutput .= 'javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js\'></script>'.PHP_EOL;
-        $theexpectedoutput .= '    </html>'.PHP_EOL;
-        $theexpectedoutput .= '" onload="resize_setting_highlight_example_frame(this)"></iframe>'.PHP_EOL;
-        $theexpectedoutput .= '<script>'.PHP_EOL;
-        $theexpectedoutput .= '    function resize_setting_highlight_example_frame(obj) {'.PHP_EOL;
-        $theexpectedoutput .= '        obj.style.height = obj.contentWindow.document.';
-        $theexpectedoutput .= 'documentElement.scrollHeight + \'px\';'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL;
-        $theexpectedoutput .= '</script>';
+        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
     }
 
@@ -210,6 +162,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
      * Test the enlighterjs init.
      */
     public function test_enlighterjs_init() {
+        $this->set_up();
         $thedata = new stdClass;
         $thedata->enlighterjsstyle = 'default';
         $thereturneddata = self::call_method($this->instance, 'enlighterjs_init',
@@ -227,6 +180,7 @@ class filter_synhi_toolbox_testcase extends advanced_testcase {
      * Test the syntaxhighlighter init.
      */
     public function test_syntaxhighlighter_init() {
+        $this->set_up();
         $thedata = new stdClass;
         $thedata->syntaxhighlighterstyle = 'default';
         $thereturneddata = self::call_method($this->instance, 'syntaxhighlighter_init',
