@@ -25,8 +25,6 @@
 
 namespace filter_synhi\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * The SynHi filter does not store any user data.
  *

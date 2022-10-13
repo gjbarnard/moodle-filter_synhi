@@ -23,8 +23,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 use \filter_synhi\privacy\provider;
 
 /**
@@ -34,7 +32,7 @@ use \filter_synhi\privacy\provider;
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class privacy_provider_test extends \core_privacy\tests\provider_testcase {
+class filter_synhi_privacy_provider_test extends \core_privacy\tests\provider_testcase {
 
     /**
      * Set up.

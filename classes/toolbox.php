@@ -25,8 +25,6 @@
 
 namespace filter_synhi;
 
-defined('MOODLE_INTERNAL') || die();
-
 use \moodle_url;
 
 /**

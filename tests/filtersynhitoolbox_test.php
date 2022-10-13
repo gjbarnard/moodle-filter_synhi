@@ -22,7 +22,6 @@
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Toolbox unit tests for the SynHi filter.
@@ -31,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class filtersynhitoolbox_test extends advanced_testcase {
+class filter_synhi_toolbox_test extends advanced_testcase {
 
     /**
      * @var string EnlighterJS JS file.

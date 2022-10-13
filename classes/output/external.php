@@ -25,8 +25,6 @@
 
 namespace filter_synhi\output;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * SynHi filter.
  *

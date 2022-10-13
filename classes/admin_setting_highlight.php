@@ -25,8 +25,6 @@
 
 namespace filter_synhi;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * SynHi admin_setting_highlight based on admin_setting_description by Amaia Anabitarte.
  *
