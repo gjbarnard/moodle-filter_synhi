@@ -18,18 +18,25 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 namespace filter_synhi\output;
 
+use dml_exception;
+use external_function_parameters;
+use external_single_structure;
+use external_value;
+use filter_synhi\toolbox;
+use invalid_parameter_exception;
+
 /**
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -41,9 +48,11 @@ class external extends \core\output\external {
      * @param string $engine Highlighter engine.
      * @param string $style  Highlighter style.
      *
-     * @return string the markup.
+     * @return array the markup.
+     * @throws dml_exception
+     * @throws invalid_parameter_exception
      */
-    public static function setting_highlight_example($engine, $style) {
+    public static function setting_highlight_example(string $engine, string $style): array {
         // Parameter validation.
         self::validate_parameters(
             self::setting_highlight_example_parameters(),
@@ -53,12 +62,10 @@ class external extends \core\output\external {
             ]
         );
 
-        $toolbox = \filter_synhi\toolbox::get_instance();
+        $toolbox = toolbox::get_instance();
         $markup = $toolbox->setting_highlight_example($engine, $style);
 
-        $result = ['markup' => $markup];
-
-        return $result;
+        return ['markup' => $markup];
     }
 
     /**
@@ -66,11 +73,11 @@ class external extends \core\output\external {
      *
      * @return external_function_parameters
      */
-    public static function setting_highlight_example_parameters() {
-        return new \external_function_parameters(
+    public static function setting_highlight_example_parameters(): external_function_parameters {
+        return new external_function_parameters(
             [
-                'engine' => new \external_value(PARAM_TEXT, 'Engine', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
-                'style' => new \external_value(PARAM_TEXT, 'Style', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
+                'engine' => new external_value(PARAM_TEXT, 'Engine', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
+                'style' => new external_value(PARAM_TEXT, 'Style', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
             ]
         );
     }
@@ -78,12 +85,12 @@ class external extends \core\output\external {
     /**
      * Returns description of method result value.
      *
-     * @return external_description
+     * @return external_single_structure
      */
-    public static function setting_highlight_example_returns() {
-        return new \external_single_structure(
+    public static function setting_highlight_example_returns(): external_single_structure {
+        return new external_single_structure(
             [
-                'markup' => new \external_value(PARAM_RAW, 'Markup'),
+                'markup' => new external_value(PARAM_RAW, 'Markup'),
             ], 'Mustache template');
     }
 }

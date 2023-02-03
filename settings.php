@@ -18,7 +18,7 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -27,31 +27,53 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     // Engine.
     $name = 'filter_synhi/engine';
-    $title = get_string('engine', 'filter_synhi');
-    $description = get_string('enginedesc', 'filter_synhi');
+    $title = new lang_string('engine', 'filter_synhi');
+    $description = new lang_string('enginedesc', 'filter_synhi');
     $default = 'enlighterjs';
     $setting = new admin_setting_configselect($name, $title, $description, $default,
         [
-            'enlighterjs' => get_string('enlighterjs', 'filter_synhi'),
-            'syntaxhighlighter' => get_string('syntaxhighlighter', 'filter_synhi')
+            'enlighterjs' => new lang_string('enlighterjs', 'filter_synhi'),
+            'syntaxhighlighter' => new lang_string('syntaxhighlighter', 'filter_synhi')
         ]
     );
     $settings->add($setting);
 
     // EnlighterJS style.
     $name = 'filter_synhi/enlighterjsstyle';
-    $title = get_string('enlighterjsstyle', 'filter_synhi');
-    $description = get_string('styledesc', 'filter_synhi');
+    $title = new lang_string('enlighterjsstyle', 'filter_synhi');
+    $description = new lang_string('styledesc', 'filter_synhi');
     $default = 'enlighter';
     $setting = new admin_setting_configselect($name, $title, $description, $default,
         \filter_synhi\toolbox::ENLIGHTERJSSTYLES
     );
     $settings->add($setting);
 
+
+    // EnlighterJS selector 1.
+    $name = 'filter_synhi/enlighterjsselector1';
+    $title = new lang_string('enlighterjsselector1', 'filter_synhi');
+    $description = new lang_string('enlighterjsselector1desc', 'filter_synhi');
+    $default = 'synhi pre';
+    $setting = new admin_setting_configselect($name, $title, $description, $default,
+        \filter_synhi\toolbox::ENLIGHTERSELECTORS
+    );
+    $settings->add($setting);
+
+    // EnlighterJS selector 2.
+    $name = 'filter_synhi/enlighterjsselector2';
+    $title = new lang_string('enlighterjsselector2', 'filter_synhi');
+    $description = new lang_string('enlighterjsselector2desc', 'filter_synhi');
+    $default = 'synhi code';
+    $setting = new admin_setting_configselect($name, $title, $description, $default,
+        \filter_synhi\toolbox::ENLIGHTERSELECTORS
+    );
+    $settings->add($setting);
+
+
     // Syntax Highlighter style.
     $name = 'filter_synhi/syntaxhighlighterstyle';
-    $title = get_string('syntaxhighlighterstyle', 'filter_synhi');
-    $description = get_string('styledesc', 'filter_synhi');
+    $title = new lang_string('syntaxhighlighterstyle', 'filter_synhi');
+    $description = new lang_string('styledesc', 'filter_synhi');
     $default = 'default';
     $setting = new admin_setting_configselect($name, $title, $description, $default,
         \filter_synhi\toolbox::SYNTAXHIGHLIGHTERSTYLES
@@ -60,33 +82,21 @@ if ($ADMIN->fulltree) {
 
     // Syntax Highlighter example.
     $name = 'filter_synhi/syntaxhighlighterexample';
-    $title = get_string('syntaxhighlighterexample', 'filter_synhi');
-    $description = get_string('syntaxhighlighterexampledesc', 'filter_synhi');
+    $title = new lang_string('syntaxhighlighterexample', 'filter_synhi');
+    $description = new lang_string('syntaxhighlighterexampledesc', 'filter_synhi');
     $setting = new \filter_synhi\admin_setting_highlight($name, $title, $description);
     $settings->add($setting);
 
     // Code for the example.
     $name = 'filter_synhi/codeexample';
-    $title = get_string('codeexample', 'filter_synhi');
-    $description = get_string('codeexampledesc', 'filter_synhi');
-    $default = '<pre class="brush: java">' . PHP_EOL;
-    $default .= 'package test;' . PHP_EOL . PHP_EOL;
-    $default .= 'public class Test {' . PHP_EOL;
-    $default .= '    private final String name = "Java program";' . PHP_EOL . PHP_EOL;
-    $default .= '    public static void main (String args[]) {' . PHP_EOL;
-    $default .= '        Test us = new Test();' . PHP_EOL;
-    $default .= '        System.out.println(us.getName());' . PHP_EOL;
-    $default .= '    }' . PHP_EOL . PHP_EOL;
-    $default .= '    public String getName() {' . PHP_EOL;
-    $default .= '        return name;' . PHP_EOL;
-    $default .= '    }' . PHP_EOL;
-    $default .= '}</pre>';
-    $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
+    $title = new lang_string('codeexample', 'filter_synhi');
+    $description = new lang_string('codeexampledesc', 'filter_synhi');
+    $setting = new \admin_setting_configtextarea($name, $title, $description, \filter_synhi\toolbox::EXAMPLECODE);
     $settings->add($setting);
 
     // Information.
     $settings->add(new admin_setting_heading('filter_synhi_information_heading',
-        get_string('informationheading', 'filter_synhi'),
+        new lang_string('informationheading', 'filter_synhi'),
         format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_PLAIN)));
 
     $settings->add(new admin_setting_description('filter_synhi_general_information',

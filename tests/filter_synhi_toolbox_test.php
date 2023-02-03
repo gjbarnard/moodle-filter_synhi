@@ -19,7 +19,7 @@ namespace filter_synhi;
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -28,7 +28,7 @@ namespace filter_synhi;
  * Toolbox unit tests for the SynHi filter.
  *
  * @group      filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class filter_synhi_toolbox_test extends \advanced_testcase {

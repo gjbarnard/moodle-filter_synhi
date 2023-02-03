@@ -18,20 +18,24 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 namespace filter_synhi;
 
+use context_system;
+use dml_exception;
+use moodle_exception;
 use moodle_url;
+use stdClass;
 
 /**
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -90,6 +94,12 @@ class toolbox {
         'rowhammer' => 'Row Hammer'
     ];
 
+    public const ENLIGHTERSELECTORS = [
+        'synhi pre' => 'pre',
+        'synhi code' => 'code',
+        'none' => 'none',
+    ];
+
     /**
      * @var string Syntax Highlighter styles.
      */
@@ -127,17 +137,11 @@ class toolbox {
     </pre>';
 
     /**
-     * This is a lonely object.
-     */
-    private function __construct() {
-    }
-
-    /**
      * Gets the toolbox singleton.
      *
      * @return toolbox The toolbox instance.
      */
-    public static function get_instance() {
+    public static function get_instance(): toolbox {
         if (!is_object(self::$instance)) {
             self::$instance = new self();
         }
@@ -147,12 +151,11 @@ class toolbox {
     /**
      * Highlights the page using the current values.
      *
-     * @param array $config Highlighter config.
+     * @param stdClass $config Highlighter config.
      */
-    public function highlight_page($config) {
+    public function highlight_page(stdClass $config): void {
         if (!empty($config->engine)) {
             global $PAGE;
-
             $enginemethod = $config->engine . '_init';
             $init = $this->$enginemethod($config);
 
@@ -170,18 +173,16 @@ class toolbox {
      * Gets the admin_setting_highlight data for its template.
      *
      * @return array The data.
+     * @throws dml_exception
      */
-    public function setting_highlight() {
+    public function setting_highlight(): array {
         $data = [];
-
         $config = get_config('filter_synhi');
         if (!empty($config->engine)) {
             $enginemethod = $config->engine . '_init';
-
             $data['highlightdata'] = $this->$enginemethod($config);
             $data['code'] = htmlentities($config->codeexample);
         }
-
         return $data;
     }
 
@@ -192,14 +193,13 @@ class toolbox {
      * @param string $style  Highlighter style.
      *
      * @return string The markup.
+     * @throws dml_exception
      */
-    public function setting_highlight_example($engine, $style) {
-        $markup = '';
+    public function setting_highlight_example(string $engine, string $style): string {
         $proceed = false;
-
-        if (($engine == 'enlighterjs') && (array_key_exists($style, self::ENLIGHTERJSSTYLES))) {
+        if ($engine == 'enlighterjs' && array_key_exists($style, self::ENLIGHTERJSSTYLES)) {
             $proceed = true;
-        } else if (($engine == 'syntaxhighlighter') && (array_key_exists($style, self::SYNTAXHIGHLIGHTERSTYLES))) {
+        } else if ($engine == 'syntaxhighlighter' && array_key_exists($style, self::SYNTAXHIGHLIGHTERSTYLES)) {
             $proceed = true;
         }
 
@@ -207,21 +207,20 @@ class toolbox {
             global $OUTPUT, $PAGE;
 
             $enginemethod = $engine . '_init';
-            $config = new \stdClass;
+            $config = new stdClass;
             $config->enlighterjsstyle = $style;
             $config->syntaxhighlighterstyle = $style;
 
-            $context = new \stdClass;
+            $context = new stdClass;
             $context->highlightdata = $this->$enginemethod($config);
             $context->code = htmlentities(get_config('filter_synhi', 'codeexample'));
 
-            $PAGE->set_context(\context_system::instance());
+            $PAGE->set_context(context_system::instance());
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
         } else {
             $markup = '<p id="setting_highlight_example_frame">';
             $markup .= 'Invalid parameters passed to \'setting_highlight_example(\'' . $engine . '\', \'' . $style . '\')\'</p>';
         }
-
         return $markup;
     }
 
@@ -231,15 +230,21 @@ class toolbox {
      * @param stdClass $config Filter config
      *
      * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
+     * @throws moodle_exception
      */
-    private function enlighterjs_init($config) {
+    private function enlighterjs_init(stdClass $config): array {
         $js = new moodle_url(self::ENLIGHTERJSJS);
         $css = new moodle_url(self::ENLIGHTERJSCSSPRE . $config->enlighterjsstyle . self::ENLIGHTERJSCSSPOST);
+        $selector1 = $config->enlighterjsselector1 ?? 'none';
+        $selector1 = $selector1 === 'none' ? 'null' : "'$selector1'";
+
+        $selector2 = $config->enlighterjsselector2 ?? 'none';
+        $selector2 = $selector2 === 'none' ? 'null' : "'$selector2'";
 
         return [
             'thejs' => $js,
             'thecss' => $css,
-            'theinit' => "EnlighterJS.init('synhi pre', 'synhi code', {theme: '" . $config->enlighterjsstyle . "', indent : 4});"
+            'theinit' => "EnlighterJS.init($selector1, $selector2, {theme: '" . $config->enlighterjsstyle . "', indent : 4});"
         ];
     }
 
@@ -249,8 +254,9 @@ class toolbox {
      * @param stdClass $config Filter config
      *
      * @return array CSS & JS file moodle_url's, and any initialisation JS in a string.
+     * @throws moodle_exception
      */
-    private function syntaxhighlighter_init($config) {
+    private function syntaxhighlighter_init(stdClass $config): array {
         $js = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
         $css = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE . $config->syntaxhighlighterstyle . self::SYNTAXHIGHLIGHTERCSSPOST);
 

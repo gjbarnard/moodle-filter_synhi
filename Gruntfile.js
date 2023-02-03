@@ -33,7 +33,7 @@
  *               Done here as core Gruntfile.js currently *nix only.
  *
  * @package filter_synhi.
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @author Based on code originally written by Andrew Nicols, Joby Harding, Bas Brands, David Scotson and many other contributors.
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

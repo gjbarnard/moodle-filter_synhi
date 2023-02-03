@@ -18,14 +18,14 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2020073105;
+$plugin->version = 2023020300;
 $plugin->requires = 2019052000.00; // Moodle Version 3.7 (Build: 20190520).
 $plugin->supported = [37, 400];
 $plugin->component = 'filter_synhi';

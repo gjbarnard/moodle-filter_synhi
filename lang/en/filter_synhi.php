@@ -18,7 +18,7 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -34,6 +34,12 @@ $string['syntaxhighlighter'] = 'SyntaxHighlighter';
 $string['enlighterjsstyle'] = 'EnlighterJS style';
 $string['syntaxhighlighterstyle'] = 'SyntaxHighlighter style';
 $string['styledesc'] = 'Choose the sytle you wish to use.';
+
+$string['enlighterjsselector1'] = 'EnlighterJS selector 1';
+$string['enlighterjsselector1desc'] = 'EnlighterJS selector 1/2.';
+
+$string['enlighterjsselector2'] = 'EnlighterJS selector 2';
+$string['enlighterjsselector2desc'] = 'EnlighterJS selector 2/2.';
 
 $string['codeexample'] = 'Code';
 $string['codeexampledesc'] = 'Code to use in the example.';

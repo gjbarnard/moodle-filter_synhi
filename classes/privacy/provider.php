@@ -18,20 +18,22 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 namespace filter_synhi\privacy;
 
+use core_privacy\local\metadata\null_provider;
+
 /**
  * The SynHi filter does not store any user data.
  *
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class provider implements \core_privacy\local\metadata\null_provider {
+class provider implements null_provider {
 
     /**
      * Get the language string identifier with the component's language

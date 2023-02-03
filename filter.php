@@ -18,16 +18,18 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
+
+use filter_synhi\toolbox;
 
 /**
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -40,11 +42,12 @@ class filter_synhi extends moodle_text_filter {
 
     /**
      * Filter the text.
+     * Todo: Can't typecast this function because the parent filter does not yet support it :/
      *
      * @param string $text    to be processed by the text
      * @param array  $options filter options
-     *
      * @return string text after processing.
+     * @throws dml_exception
      */
     public function filter($text, array $options = []) {
         // Basic test to avoid work.
@@ -69,7 +72,7 @@ class filter_synhi extends moodle_text_filter {
                                 $text = '<synhi>' . $text . '</synhi>';
                             }
                             if (!self::$done) {
-                                $toolbox = \filter_synhi\toolbox::get_instance();
+                                $toolbox = toolbox::get_instance();
                                 $toolbox->highlight_page($config);
                                 self::$done = true;
                             }

@@ -18,22 +18,26 @@
  * SynHi filter.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 namespace filter_synhi;
 
+use admin_setting;
+use dml_exception;
+use stdClass;
+
 /**
  * SynHi admin_setting_highlight based on admin_setting_description by Amaia Anabitarte.
  *
  * @package    filter_synhi
- * @copyright  &copy; 2020-onwards G J Barnard.
+ * @copyright  © 2020-onwards G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class admin_setting_highlight extends \admin_setting {
+class admin_setting_highlight extends admin_setting {
 
     /**
      * Not a setting, just text
@@ -52,7 +56,7 @@ class admin_setting_highlight extends \admin_setting {
      *
      * @return bool Always returns true
      */
-    public function get_setting() {
+    public function get_setting(): bool {
         return true;
     }
 
@@ -61,7 +65,7 @@ class admin_setting_highlight extends \admin_setting {
      *
      * @return bool Always returns true
      */
-    public function get_defaultsetting() {
+    public function get_defaultsetting(): bool {
         return true;
     }
 
@@ -71,7 +75,7 @@ class admin_setting_highlight extends \admin_setting {
      * @param mixed $data Gets converted to str for comparison against yes value
      * @return string Always returns an empty string
      */
-    public function write_setting($data) {
+    public function write_setting($data): string {
         // Do not write any setting.
         return '';
     }
@@ -82,21 +86,21 @@ class admin_setting_highlight extends \admin_setting {
      * @param string $data
      * @param string $query
      * @return string Returns an HTML string
+     * @throws dml_exception
      */
-    public function output_html($data, $query = '') {
+    public function output_html($data, $query = ''): string {
         global $OUTPUT;
 
-        $context = new \stdClass();
+        $context = new stdClass();
         $context->title = $this->visiblename;
         $context->description = $this->description;
 
-        $toolbox = \filter_synhi\toolbox::get_instance();
+        $toolbox = toolbox::get_instance();
         $highlightcontext = $toolbox->setting_highlight();
         if (!empty($highlightcontext)) {
             $context->highlightdata = $highlightcontext['highlightdata'];
             $context->code = $highlightcontext['code'];
         }
-
         return $OUTPUT->render_from_template('filter_synhi/setting_highlight', $context);
     }
 }
