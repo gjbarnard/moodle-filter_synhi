@@ -25,7 +25,7 @@
 
 namespace filter_synhi;
 
-use \moodle_url;
+use moodle_url;
 
 /**
  * SynHi filter.
@@ -74,7 +74,7 @@ class toolbox {
     /**
      * @var string Enlighter JS styles.
      */
-    public const ENLIGHTERJSSTYLES = array(
+    public const ENLIGHTERJSSTYLES = [
         'atomic' => 'Atomic',
         'beyond' => 'Beyond',
         'bootstrap4' => 'Bootstrap 4',
@@ -88,12 +88,12 @@ class toolbox {
         'monokai' => 'Monokai',
         'mowtwo' => 'Mow Two',
         'rowhammer' => 'Row Hammer'
-    );
+    ];
 
     /**
      * @var string Syntax Highlighter styles.
      */
-    public const SYNTAXHIGHLIGHTERSTYLES = array(
+    public const SYNTAXHIGHLIGHTERSTYLES = [
         'default' => 'Default',
         'django' => 'Django',
         'eclipse' => 'Eclipse',
@@ -103,7 +103,7 @@ class toolbox {
         'midnight' => 'Midnight',
         'rdark' => 'R Dark',
         'swift' => 'Swift'
-    );
+    ];
 
 
     /**
@@ -146,16 +146,17 @@ class toolbox {
 
     /**
      * Highlights the page using the current values.
+     *
      * @param array $config Highlighter config.
      */
     public function highlight_page($config) {
         if (!empty($config->engine)) {
             global $PAGE;
 
-            $enginemethod = $config->engine.'_init';
+            $enginemethod = $config->engine . '_init';
             $init = $this->$enginemethod($config);
 
-            $data = array('data' => array());
+            $data = ['data' => []];
             $data['data']['thecss'] = $init['thecss']->out();
             $data['data']['thejs'] = $init['thejs']->out();
             if (!empty($init['theinit'])) {
@@ -171,11 +172,11 @@ class toolbox {
      * @return array The data.
      */
     public function setting_highlight() {
-        $data = array();
+        $data = [];
 
         $config = get_config('filter_synhi');
         if (!empty($config->engine)) {
-            $enginemethod = $config->engine.'_init';
+            $enginemethod = $config->engine . '_init';
 
             $data['highlightdata'] = $this->$enginemethod($config);
             $data['code'] = htmlentities($config->codeexample);
@@ -188,7 +189,7 @@ class toolbox {
      * Renders the example code in an template that has an iframe with given highlighter engine and style.
      *
      * @param string $engine Highlighter engine.
-     * @param string $style Highlighter style.
+     * @param string $style  Highlighter style.
      *
      * @return string The markup.
      */
@@ -205,7 +206,7 @@ class toolbox {
         if ($proceed) {
             global $OUTPUT, $PAGE;
 
-            $enginemethod = $engine.'_init';
+            $enginemethod = $engine . '_init';
             $config = new \stdClass;
             $config->enlighterjsstyle = $style;
             $config->syntaxhighlighterstyle = $style;
@@ -218,7 +219,7 @@ class toolbox {
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
         } else {
             $markup = '<p id="setting_highlight_example_frame">';
-            $markup .= 'Invalid parameters passed to \'setting_highlight_example(\''.$engine.'\', \''.$style.'\')\'</p>';
+            $markup .= 'Invalid parameters passed to \'setting_highlight_example(\'' . $engine . '\', \'' . $style . '\')\'</p>';
         }
 
         return $markup;
@@ -233,13 +234,13 @@ class toolbox {
      */
     private function enlighterjs_init($config) {
         $js = new moodle_url(self::ENLIGHTERJSJS);
-        $css = new moodle_url(self::ENLIGHTERJSCSSPRE.$config->enlighterjsstyle.self::ENLIGHTERJSCSSPOST);
+        $css = new moodle_url(self::ENLIGHTERJSCSSPRE . $config->enlighterjsstyle . self::ENLIGHTERJSCSSPOST);
 
-        return array(
+        return [
             'thejs' => $js,
             'thecss' => $css,
-            'theinit' => "EnlighterJS.init('synhi pre', 'synhi code', {theme: '".$config->enlighterjsstyle."', indent : 4});"
-        );
+            'theinit' => "EnlighterJS.init('synhi pre', 'synhi code', {theme: '" . $config->enlighterjsstyle . "', indent : 4});"
+        ];
     }
 
     /**
@@ -251,11 +252,11 @@ class toolbox {
      */
     private function syntaxhighlighter_init($config) {
         $js = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
-        $css = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE.$config->syntaxhighlighterstyle.self::SYNTAXHIGHLIGHTERCSSPOST);
+        $css = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE . $config->syntaxhighlighterstyle . self::SYNTAXHIGHLIGHTERCSSPOST);
 
-        return array(
+        return [
             'thejs' => $js,
             'thecss' => $css
-        );
+        ];
     }
 }

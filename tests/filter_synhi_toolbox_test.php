@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace filter_synhi;
 /**
  * SynHi filter.
  *
@@ -26,11 +27,11 @@
 /**
  * Toolbox unit tests for the SynHi filter.
  *
- * @group filter_synhi
+ * @group      filter_synhi
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class filter_synhi_toolbox_test extends advanced_testcase {
+class filter_synhi_toolbox_test extends \advanced_testcase {
 
     /**
      * @var string EnlighterJS JS file.
@@ -72,10 +73,10 @@ class filter_synhi_toolbox_test extends advanced_testcase {
     /**
      * Call protected and private methods for the purpose of testing.
      *
-     * @param stdClass $obj The object.
-     * @param string $name Name of the method.
-     * @param array $args Array of arguments if any, like Monty Python could be no minutes, ten, or even thirty.
-     * @return any What the method returns if anything, go, go on, look at the specification, you know you want to.
+     * @param \stdClass $obj  The object.
+     * @param string    $name Name of the method.
+     * @param array     $args Array of arguments if any, like Monty Python could be no minutes, ten, or even thirty.
+     * @return mixed What the method returns if anything, go, go on, look at the specification, you know you want to.
      */
     protected static function call_method($obj, $name, array $args) {
         // Ref: http://stackoverflow.com/questions/249664/best-practices-to-test-protected-methods-with-phpunit.
@@ -96,6 +97,8 @@ class filter_synhi_toolbox_test extends advanced_testcase {
 
     /**
      * Test the setting highlight.
+     *
+     * @covers  \filter_synhi\toolbox::setting_highlight
      */
     public function test_setting_highlight() {
         $this->set_up();
@@ -105,9 +108,9 @@ class filter_synhi_toolbox_test extends advanced_testcase {
 
         $thereturneddata = $this->instance->setting_highlight();
 
-        $csstarget = self::ENLIGHTERJSCSSPRE.'default'.self::ENLIGHTERJSCSSPOST;
-        $thecssurl = new moodle_url($csstarget);
-        $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
+        $csstarget = self::ENLIGHTERJSCSSPRE . 'default' . self::ENLIGHTERJSCSSPOST;
+        $thecssurl = new \moodle_url($csstarget);
+        $thejsurl = new \moodle_url(self::ENLIGHTERJSJS);
         $thecode = "&lt;pre&gt;echo 'This is a test not a drill';&lt;/pre&gt;";
 
         $this->assertEquals($thecssurl, $thereturneddata['highlightdata']['thecss']);
@@ -117,29 +120,32 @@ class filter_synhi_toolbox_test extends advanced_testcase {
 
     /**
      * Test the setting highlight.
+     *
+     * @covers  \filter_synhi\toolbox::setting_highlight_example
      */
     public function test_setting_highlight_example() {
         global $CFG;
+        $phpudata = $CFG->dirroot . '/filter/synhi/tests/phpu_data';
 
         $this->set_up();
         $engine = 'enlighterjs';
         $style = 'godzilla';
 
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt');
-        $theexpectedoutput .= '            <synhi>&lt;pre class=&quot;brush: java&quot;&gt;'.PHP_EOL;
-        $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= 'public class Test {'.PHP_EOL;
-        $theexpectedoutput .= '    private final String name = &quot;Java program&quot;;'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= '    public static void main (String args[]) {'.PHP_EOL;
-        $theexpectedoutput .= '        Test us = new Test();'.PHP_EOL;
-        $theexpectedoutput .= '        System.out.println(us.getName());'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= '    public String getName() {'.PHP_EOL;
-        $theexpectedoutput .= '        return name;'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL;
+        $theexpectedoutput = file_get_contents($phpudata . '/test_setting_highlight_example_enlighterjs_top.txt');
+        $theexpectedoutput .= '            <synhi>&lt;pre class=&quot;brush: java&quot;&gt;' . PHP_EOL;
+        $theexpectedoutput .= 'package test;' . PHP_EOL . PHP_EOL;
+        $theexpectedoutput .= 'public class Test {' . PHP_EOL;
+        $theexpectedoutput .= '    private final String name = &quot;Java program&quot;;' . PHP_EOL . PHP_EOL;
+        $theexpectedoutput .= '    public static void main (String args[]) {' . PHP_EOL;
+        $theexpectedoutput .= '        Test us = new Test();' . PHP_EOL;
+        $theexpectedoutput .= '        System.out.println(us.getName());' . PHP_EOL;
+        $theexpectedoutput .= '    }' . PHP_EOL . PHP_EOL;
+        $theexpectedoutput .= '    public String getName() {' . PHP_EOL;
+        $theexpectedoutput .= '        return name;' . PHP_EOL;
+        $theexpectedoutput .= '    }' . PHP_EOL;
         $theexpectedoutput .= '}&lt;/pre&gt;</synhi>';
-        $theexpectedoutput .= file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_bottom.txt');
+        $theexpectedoutput .= file_get_contents($phpudata . '/test_setting_highlight_example_enlighterjs_bottom.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
 
         $engine = 'valenta';
@@ -153,23 +159,26 @@ class filter_synhi_toolbox_test extends advanced_testcase {
         $style = 'fadetogrey';
         set_config('codeexample', '<pre class="brush: php">echo \'This is a test not a drill\';</pre>', 'filter_synhi');
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs.txt');
+        $theexpectedoutput = file_get_contents($phpudata . '/test_setting_highlight_example_enlighterjs.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
     }
 
     /**
      * Test the enlighterjs init.
+     *
+     * @covers  \filter_synhi\toolbox::enlighterjs_init
      */
     public function test_enlighterjs_init() {
         $this->set_up();
-        $thedata = new stdClass;
+        $thedata = new \stdClass;
         $thedata->enlighterjsstyle = 'default';
-        $thereturneddata = self::call_method($this->instance, 'enlighterjs_init',
-            array($thedata));
+        $thereturneddata = self::call_method($this->instance,
+            'enlighterjs_init',
+            [$thedata]);
 
-        $csstarget = self::ENLIGHTERJSCSSPRE.$thedata->enlighterjsstyle.self::ENLIGHTERJSCSSPOST;
-        $thecssurl = new moodle_url($csstarget);
-        $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
+        $csstarget = self::ENLIGHTERJSCSSPRE . $thedata->enlighterjsstyle . self::ENLIGHTERJSCSSPOST;
+        $thecssurl = new \moodle_url($csstarget);
+        $thejsurl = new \moodle_url(self::ENLIGHTERJSJS);
 
         $this->assertEquals($thecssurl, $thereturneddata['thecss']);
         $this->assertEquals($thejsurl, $thereturneddata['thejs']);
@@ -177,17 +186,20 @@ class filter_synhi_toolbox_test extends advanced_testcase {
 
     /**
      * Test the syntaxhighlighter init.
+     *
+     * @covers  \filter_synhi\toolbox::syntaxhighlighter_init
      */
     public function test_syntaxhighlighter_init() {
         $this->set_up();
-        $thedata = new stdClass;
+        $thedata = new \stdClass;
         $thedata->syntaxhighlighterstyle = 'default';
-        $thereturneddata = self::call_method($this->instance, 'syntaxhighlighter_init',
-            array($thedata));
+        $thereturneddata = self::call_method($this->instance,
+            'syntaxhighlighter_init',
+            [$thedata]);
 
-        $csstarget = self::SYNTAXHIGHLIGHTERCSSPRE.$thedata->syntaxhighlighterstyle.self::SYNTAXHIGHLIGHTERCSSPOST;
-        $thecssurl = new moodle_url($csstarget);
-        $thejsurl = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
+        $csstarget = self::SYNTAXHIGHLIGHTERCSSPRE . $thedata->syntaxhighlighterstyle . self::SYNTAXHIGHLIGHTERCSSPOST;
+        $thecssurl = new \moodle_url($csstarget);
+        $thejsurl = new \moodle_url(self::SYNTAXHIGHLIGHTERJS);
 
         $this->assertEquals($thecssurl, $thereturneddata['thecss']);
         $this->assertEquals($thejsurl, $thereturneddata['thejs']);

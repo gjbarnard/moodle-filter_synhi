@@ -39,7 +39,7 @@ class external extends \core\output\external {
      * Return generated markup.
      *
      * @param string $engine Highlighter engine.
-     * @param string $style Highlighter style.
+     * @param string $style  Highlighter style.
      *
      * @return string the markup.
      */
@@ -47,16 +47,16 @@ class external extends \core\output\external {
         // Parameter validation.
         self::validate_parameters(
             self::setting_highlight_example_parameters(),
-            array(
+            [
                 'engine' => $engine,
                 'style' => $style
-            )
+            ]
         );
 
         $toolbox = \filter_synhi\toolbox::get_instance();
         $markup = $toolbox->setting_highlight_example($engine, $style);
 
-        $result = array('markup' => $markup);
+        $result = ['markup' => $markup];
 
         return $result;
     }
@@ -68,11 +68,11 @@ class external extends \core\output\external {
      */
     public static function setting_highlight_example_parameters() {
         return new \external_function_parameters(
-                array(
-                    'engine' => new \external_value(PARAM_TEXT, 'Engine', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
-                    'style' => new \external_value(PARAM_TEXT, 'Style', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
-                )
-         );
+            [
+                'engine' => new \external_value(PARAM_TEXT, 'Engine', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
+                'style' => new \external_value(PARAM_TEXT, 'Style', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
+            ]
+        );
     }
 
     /**
@@ -82,8 +82,8 @@ class external extends \core\output\external {
      */
     public static function setting_highlight_example_returns() {
         return new \external_single_structure(
-                array(
-                    'markup' => new \external_value(PARAM_RAW, 'Markup'),
-                ), 'Mustache template');
+            [
+                'markup' => new \external_value(PARAM_RAW, 'Markup'),
+            ], 'Mustache template');
     }
 }

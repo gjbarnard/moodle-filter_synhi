@@ -41,12 +41,12 @@ class filter_synhi extends moodle_text_filter {
     /**
      * Filter the text.
      *
-     * @param string $text to be processed by the text
-     * @param array $options filter options
+     * @param string $text    to be processed by the text
+     * @param array  $options filter options
      *
      * @return string text after processing.
      */
-    public function filter($text, array $options = array()) {
+    public function filter($text, array $options = []) {
         // Basic test to avoid work.
         if (is_string($text)) {
             if (($this->context->contextlevel >= CONTEXT_COURSE) && ($this->context->contextlevel <= CONTEXT_BLOCK)) {
@@ -66,7 +66,7 @@ class filter_synhi extends moodle_text_filter {
                         $config = get_config('filter_synhi');
                         if (!empty($config->engine)) {
                             if ($config->engine == 'enlighterjs') {
-                                $text = '<synhi>'.$text.'</synhi>';
+                                $text = '<synhi>' . $text . '</synhi>';
                             }
                             if (!self::$done) {
                                 $toolbox = \filter_synhi\toolbox::get_instance();

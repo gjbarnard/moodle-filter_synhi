@@ -53,49 +53,49 @@
     </div>
 </div>
 {{#js}}
-require(['jquery', 'core/ajax', 'core/notification', 'core/log'],
+    require(['jquery', 'core/ajax', 'core/notification', 'core/log'],
     function($, Ajax, Notification, log) {
 
     var updateExample = function(engine, style) {
-        Ajax.call([{
-            methodname: 'filter_synhi_setting_highlight_example',
-            args: {
-                'engine': engine,
-                'style': style
-            },
-        }])[0].done(function(response) {
-            log.debug(response.markup);
-            // We have the data now update the UI.
-            $('#setting_highlight_example_frame').replaceWith(response.markup);
-        }).fail(function() {
-                Notification.exception(new Error('Failed to get highlighted markup'));
-                return;
-        });
+    Ajax.call([{
+    methodname: 'filter_synhi_setting_highlight_example',
+    args: {
+    'engine': engine,
+    'style': style
+    },
+    }])[0].done(function(response) {
+    log.debug(response.markup);
+    // We have the data now update the UI.
+    $('#setting_highlight_example_frame').replaceWith(response.markup);
+    }).fail(function() {
+    Notification.exception(new Error('Failed to get highlighted markup'));
+    return;
+    });
     };
 
     log.debug($("#id_s_filter_synhi_engine").val());
     $('#id_s_filter_synhi_engine').change(function() {
-        log.debug( this.value );
+    log.debug( this.value );
 
-        if (this.value == 'enlighterjs') {
-            updateExample(this.value, $("#id_s_filter_synhi_enlighterjsstyle").val());
-        } else if (this.value == 'syntaxhighlighter') {
-            updateExample(this.value, $("#id_s_filter_synhi_syntaxhighlighterstyle").val());
-        }
+    if (this.value == 'enlighterjs') {
+    updateExample(this.value, $("#id_s_filter_synhi_enlighterjsstyle").val());
+    } else if (this.value == 'syntaxhighlighter') {
+    updateExample(this.value, $("#id_s_filter_synhi_syntaxhighlighterstyle").val());
+    }
     });
 
     $('#id_s_filter_synhi_enlighterjsstyle').change(function() {
-        var engine = $("#id_s_filter_synhi_engine").val();
-        if (engine == 'enlighterjs') {
-            updateExample(engine, this.value);
-        }
+    var engine = $("#id_s_filter_synhi_engine").val();
+    if (engine == 'enlighterjs') {
+    updateExample(engine, this.value);
+    }
     });
 
     $('#id_s_filter_synhi_syntaxhighlighterstyle').change(function() {
-        var engine = $("#id_s_filter_synhi_engine").val();
-        if (engine == 'syntaxhighlighter') {
-            updateExample(engine, this.value);
-        }
+    var engine = $("#id_s_filter_synhi_engine").val();
+    if (engine == 'syntaxhighlighter') {
+    updateExample(engine, this.value);
+    }
     });
-});
+    });
 {{/js}}

@@ -23,12 +23,14 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-use \filter_synhi\privacy\provider;
+namespace filter_synhi;
+
+use filter_synhi\privacy\provider;
 
 /**
  * Privacy unit tests for the SynHi filter.
  *
- * @group filter_synhi
+ * @group      filter_synhi
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -43,6 +45,7 @@ class filter_synhi_privacy_provider_test extends \core_privacy\tests\provider_te
 
     /**
      * Ensure that get_reason gives a reason.
+     * @covers \provider::get_reason
      */
     public function test_get_reason() {
         $this->set_up();

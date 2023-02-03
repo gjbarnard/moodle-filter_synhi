@@ -83,7 +83,7 @@ class admin_setting_highlight extends \admin_setting {
      * @param string $query
      * @return string Returns an HTML string
      */
-    public function output_html($data, $query='') {
+    public function output_html($data, $query = '') {
         global $OUTPUT;
 
         $context = new \stdClass();

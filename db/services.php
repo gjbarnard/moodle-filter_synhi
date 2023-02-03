@@ -25,21 +25,21 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$functions = array(
-    'filter_synhi_setting_highlight_example' => array(
+$functions = [
+    'filter_synhi_setting_highlight_example' => [
         'classname' => 'filter_synhi\output\external',
         'methodname' => 'setting_highlight_example',
         'description' => 'Generate the admin setting example highlighted code',
         'type' => 'read',
         'loginrequired' => true,
         'ajax' => true
-    )
-);
+    ]
+];
 
-$services = array(
-    'SynHi Filter admin setting example' => array(
-            'functions' => array('filter_synhi_setting_highlight_example'),
-            'restrictedusers' => 0,
-            'enabled' => 1
-    )
-);
+$services = [
+    'SynHi Filter admin setting example' => [
+        'functions' => ['filter_synhi_setting_highlight_example'],
+        'restrictedusers' => 0,
+        'enabled' => 1
+    ]
+];

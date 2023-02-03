@@ -39,10 +39,10 @@
         <head>
             <title>Example</title>
             {{#highlightdata}}
-                {{#thecss}}
+    {{#thecss}}
                     <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
                 {{/thecss}}
-            {{/highlightdata}}
+{{/highlightdata}}
             <style>
                 body .syntaxhighlighter {
                     overflow: visible !important;
@@ -53,13 +53,13 @@
             <synhi>{{{code}}}</synhi>
         </body>
         {{#highlightdata}}
-            {{#thejs}}
+    {{#thejs}}
                 <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
             {{/thejs}}
-            {{#theinit}}
+    {{#theinit}}
                 <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
             {{/theinit}}
-        {{/highlightdata}}
+{{/highlightdata}}
     </html>
 " onload="resize_setting_highlight_example_frame(this)"></iframe>
 <script>

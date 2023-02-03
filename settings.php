@@ -31,10 +31,10 @@ if ($ADMIN->fulltree) {
     $description = get_string('enginedesc', 'filter_synhi');
     $default = 'enlighterjs';
     $setting = new admin_setting_configselect($name, $title, $description, $default,
-        array(
+        [
             'enlighterjs' => get_string('enlighterjs', 'filter_synhi'),
             'syntaxhighlighter' => get_string('syntaxhighlighter', 'filter_synhi')
-        )
+        ]
     );
     $settings->add($setting);
 
@@ -69,17 +69,17 @@ if ($ADMIN->fulltree) {
     $name = 'filter_synhi/codeexample';
     $title = get_string('codeexample', 'filter_synhi');
     $description = get_string('codeexampledesc', 'filter_synhi');
-    $default = '<pre class="brush: java">'.PHP_EOL;
-    $default .= 'package test;'.PHP_EOL.PHP_EOL;
-    $default .= 'public class Test {'.PHP_EOL;
-    $default .= '    private final String name = "Java program";'.PHP_EOL.PHP_EOL;
-    $default .= '    public static void main (String args[]) {'.PHP_EOL;
-    $default .= '        Test us = new Test();'.PHP_EOL;
-    $default .= '        System.out.println(us.getName());'.PHP_EOL;
-    $default .= '    }'.PHP_EOL.PHP_EOL;
-    $default .= '    public String getName() {'.PHP_EOL;
-    $default .= '        return name;'.PHP_EOL;
-    $default .= '    }'.PHP_EOL;
+    $default = '<pre class="brush: java">' . PHP_EOL;
+    $default .= 'package test;' . PHP_EOL . PHP_EOL;
+    $default .= 'public class Test {' . PHP_EOL;
+    $default .= '    private final String name = "Java program";' . PHP_EOL . PHP_EOL;
+    $default .= '    public static void main (String args[]) {' . PHP_EOL;
+    $default .= '        Test us = new Test();' . PHP_EOL;
+    $default .= '        System.out.println(us.getName());' . PHP_EOL;
+    $default .= '    }' . PHP_EOL . PHP_EOL;
+    $default .= '    public String getName() {' . PHP_EOL;
+    $default .= '        return name;' . PHP_EOL;
+    $default .= '    }' . PHP_EOL;
     $default .= '}</pre>';
     $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
     $settings->add($setting);
@@ -91,13 +91,13 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_description('filter_synhi_general_information',
         'generalinformation',
-        '<p>'.get_string('generalinformation', 'filter_synhi').'</p>'));
+        '<p>' . get_string('generalinformation', 'filter_synhi') . '</p>'));
 
     $settings->add(new admin_setting_description('filter_synhi_enlighter_information',
         'enlighterinformation',
-        '<p>'.get_string('enlighterinformation', 'filter_synhi').'</p>'));
+        '<p>' . get_string('enlighterinformation', 'filter_synhi') . '</p>'));
 
     $settings->add(new admin_setting_description('filter_synhi_syntaxhighlighter_information',
         'syntaxhighlighterinformation',
-        '<p>'.get_string('syntaxhighlighterinformation', 'filter_synhi').'</p>'));
+        '<p>' . get_string('syntaxhighlighterinformation', 'filter_synhi') . '</p>'));
 }
