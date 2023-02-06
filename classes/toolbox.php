@@ -105,6 +105,11 @@ class toolbox {
         'swift' => 'Swift'
     );
 
+    public const ENLIGHTERSELECTORS = array(
+        'synhi pre' => 'synhi pre',
+        'synhi code' => 'synhi code',
+        'none' => 'none'
+    );
 
     /**
      * @var string Default example code.
@@ -234,11 +239,15 @@ class toolbox {
     private function enlighterjs_init($config) {
         $js = new moodle_url(self::ENLIGHTERJSJS);
         $css = new moodle_url(self::ENLIGHTERJSCSSPRE.$config->enlighterjsstyle.self::ENLIGHTERJSCSSPOST);
+        $selector1 = $config->enlighterjsselectorone ?? 'none';
+        $selector1 = $selector1 === 'none' ? 'null' : "'$selector1'";
+        $selector2 = $config->enlighterjsselectortwo ?? 'none';
+        $selector2 = $selector2 === 'none' ? 'null' : "'$selector2'";
 
         return array(
             'thejs' => $js,
             'thecss' => $css,
-            'theinit' => "EnlighterJS.init('synhi pre', 'synhi code', {theme: '".$config->enlighterjsstyle."', indent : 4});"
+            'theinit' => "EnlighterJS.init($selector1, $selector2, {theme: '".$config->enlighterjsstyle."', indent : 4});"
         );
     }
 

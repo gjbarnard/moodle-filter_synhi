@@ -58,6 +58,25 @@ if ($ADMIN->fulltree) {
     );
     $settings->add($setting);
 
+    // EnlighterJS selector one.
+    $name = 'filter_synhi/enlighterjsselectorone';
+    $title = new lang_string('enlighterjsselectorone', 'filter_synhi');
+    $description = new lang_string('enlighterjsselectoronedesc', 'filter_synhi');
+    $default = 'synhi pre';
+    $setting = new admin_setting_configselect($name, $title, $description, $default,
+        \filter_synhi\toolbox::ENLIGHTERSELECTORS
+    );
+    $settings->add($setting);
+    // EnlighterJS selector two.
+    $name = 'filter_synhi/enlighterjsselectortwo';
+    $title = new lang_string('enlighterjsselectortwo', 'filter_synhi');
+    $description = new lang_string('enlighterjsselectortwodesc', 'filter_synhi');
+    $default = 'synhi code';
+    $setting = new admin_setting_configselect($name, $title, $description, $default,
+        \filter_synhi\toolbox::ENLIGHTERSELECTORS
+    );
+    $settings->add($setting);
+
     // Syntax Highlighter example.
     $name = 'filter_synhi/syntaxhighlighterexample';
     $title = get_string('syntaxhighlighterexample', 'filter_synhi');

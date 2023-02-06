@@ -35,6 +35,11 @@ $string['enlighterjsstyle'] = 'EnlighterJS style';
 $string['syntaxhighlighterstyle'] = 'SyntaxHighlighter style';
 $string['styledesc'] = 'Choose the sytle you wish to use.';
 
+$string['enlighterjsselectorone'] = 'EnlighterJS selector one';
+$string['enlighterjsselectoronedesc'] = 'This is the first of two variables set for enlighterjs. This determines which html tags are used for displaying/formatting code.';
+$string['enlighterjsselectortwo'] = 'EnlighterJS selector two';
+$string['enlighterjsselectortwodesc'] = 'This is the second of two variables set for enlighterjs. This determines which html tags are used for displaying/formatting code.';
+
 $string['codeexample'] = 'Code';
 $string['codeexampledesc'] = 'Code to use in the example.';
 
