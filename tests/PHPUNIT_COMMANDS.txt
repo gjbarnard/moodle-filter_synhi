@@ -8,9 +8,9 @@ Linux/Unix/MacOS
 or
 Windows\
 
-vendor/bin/phpunit filter/synhi/tests/filtersynhitoolbox_test.php
-or
-vendor\bin\phpunit filter/synhi/tests/filtersynhitoolbox_test.php
+vendor/bin/phpunit filter/synhi/tests/toolbox_test.php
+vendor\bin\phpunit filter/synhi/tests/toolbox_test.phpor
+
 
 vendor/bin/phpunit filter/synhi/tests/privacy_provider_test.php
 or

@@ -49,30 +49,29 @@ class filter_synhi extends moodle_text_filter {
     public function filter($text, array $options = array()) {
         // Basic test to avoid work.
         if (is_string($text)) {
-            if (($this->context->contextlevel >= CONTEXT_COURSE) && ($this->context->contextlevel <= CONTEXT_BLOCK)) {
+            global $PAGE;
+            if (($PAGE->pagelayout != 'admin') &&
+                ($this->context->contextlevel >= CONTEXT_COURSE) &&
+                ($this->context->contextlevel <= CONTEXT_BLOCK)
+                ) {
                 // Do a quick check to see if we have a tag.
-                $synpos = strpos($text, '<pre');
-                if ($synpos === false) {
-                    $synpos = strpos($text, '<code');
-                }
+                $synpos = strpos($text, '<code');
                 if ($synpos !== false) {
-                    // Don't alter MathJax -> https://docs.moodle.org/en/MathJax_filter.
-                    if ((strpos($text, '$$') === false) &&
-                        (strpos($text, '[tex]') === false) &&
-                        (strpos($text, '<tex>') === false) &&
-                        // Above when SynHi filter is before MathJax / TeX fiters in admin list and below for below.
-                        (strpos($text, 'MathJax') === false)) {
-
-                        $config = get_config('filter_synhi');
-                        if (!empty($config->engine)) {
-                            if ($config->engine == 'enlighterjs') {
-                                $text = '<synhi>'.$text.'</synhi>';
-                            }
-                            if (!self::$done) {
-                                $toolbox = \filter_synhi\toolbox::get_instance();
-                                $toolbox->highlight_page($config);
-                                self::$done = true;
-                            }
+                    $config = get_config('filter_synhi');
+                    if (!empty($config->engine)) {
+                        $toolbox = \filter_synhi\toolbox::get_instance();
+                        $markup = $toolbox->processtext($text, $synpos);
+                        if ($markup !== false) {
+                            $text = $markup;
+                        } else {
+                            global $OUTPUT;
+                            $context = new stdClass;
+                            $context->text = $text;
+                            $text = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
+                        }
+                        if (!self::$done) {
+                            $toolbox->highlight_page($config);
+                            self::$done = true;
                         }
                     }
                 }

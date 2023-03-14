@@ -29,7 +29,7 @@
         "title": "Setting title",
         "name": "Name",
         "description": "Description goes here",
-        "code": "<pre>echo 'Code to highlight';</pre>",
+        "code": "<code>echo 'Code to highlight';</code>",
         "highlightdata": {
             "thejs": "Moodle url",
             "thecss": "Moodle url",
@@ -47,7 +47,12 @@
         <div class="form-description">{{{description}}}</div>
         <div class="row">
             <div class="col-12">
+                {{#highlightdata}}
                 {{> filter_synhi/setting_highlight_example }}
+                {{/highlightdata}}
+                {{#broken}}
+                {{{broken}}}
+                {{/broken}}
             </div>
         </div>
     </div>
@@ -66,7 +71,7 @@ require(['jquery', 'core/ajax', 'core/notification', 'core/log'],
         }])[0].done(function(response) {
             log.debug(response.markup);
             // We have the data now update the UI.
-            $('#setting_highlight_example_frame').replaceWith(response.markup);
+            $('#setting_highlight_example_wrapper').replaceWith(response.markup);
         }).fail(function() {
                 Notification.exception(new Error('Failed to get highlighted markup'));
                 return;
@@ -75,7 +80,7 @@ require(['jquery', 'core/ajax', 'core/notification', 'core/log'],
 
     log.debug($("#id_s_filter_synhi_engine").val());
     $('#id_s_filter_synhi_engine').change(function() {
-        log.debug( this.value );
+        log.debug(this.value);
 
         if (this.value == 'enlighterjs') {
             updateExample(this.value, $("#id_s_filter_synhi_enlighterjsstyle").val());

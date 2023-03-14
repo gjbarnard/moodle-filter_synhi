@@ -1,12 +1,10 @@
-<iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
-    <html>
-        <head>
-            <title>Example</title>
-                    <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.godzilla.min.css'>
-            <style>
-                body .syntaxhighlighter {
-                    overflow: visible !important;
-                }
-            </style>
-        </head>
-        <body>
+<div id="setting_highlight_example_wrapper">
+    <iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Example</title>
+                <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_6_0/styles/enlighterjs.godzilla.min.css'>
+                <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/styles.css'>
+            </head>
+            <body>

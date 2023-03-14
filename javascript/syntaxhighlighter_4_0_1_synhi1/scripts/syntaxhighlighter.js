@@ -246,6 +246,9 @@
 	      // carry over ID
 	      if ((target.id || '') != '') element.id = target.id;
 	
+          if (target.parentNode.tagName == 'PRE') {
+              target.parentNode.classList.add('synhi');
+          }
 	      target.parentNode.replaceChild(element, target);
 	    }
 	  }
@@ -3341,7 +3344,7 @@
 	  stripBrs: false,
 	
 	  /** Name of the tag that SyntaxHighlighter will automatically look for. */
-	  tagName: 'pre'
+	  tagName: 'code'
 	};
 
 /***/ }),

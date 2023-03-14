@@ -1,11 +1,12 @@
 
-        </body>
-                <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js'></script>
-                <script type='text/javascript' charset='utf-8'>EnlighterJS.init('synhi pre', 'synhi code', {theme: 'godzilla', indent : 4});</script>
-    </html>
-" onload="resize_setting_highlight_example_frame(this)"></iframe>
-<script>
-    function resize_setting_highlight_example_frame(obj) {
-        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-    }
-</script>
+            </body>
+            <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_6_0/scripts/enlighterjs.min.js'></script>
+            <script type='text/javascript' charset='utf-8'>EnlighterJS.init('pre code', 'code', {theme: 'godzilla', indent : 4, collapse: true});</script>
+        </html>
+    " onload="resize_setting_highlight_example_frame(this)"></iframe>
+    <script>
+        function resize_setting_highlight_example_frame(obj) {
+            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+        }
+    </script>
+</div>

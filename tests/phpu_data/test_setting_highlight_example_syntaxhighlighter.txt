@@ -1,0 +1,21 @@
+<div id="setting_highlight_example_wrapper">
+    <iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Example</title>
+                <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/styles/fadetogrey.css'>
+                <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/styles.css'>
+            </head>
+            <body>
+                &lt;code class=&quot;brush: php&quot;&gt;echo 'This is a test not a drill';&lt;/code&gt;
+            </body>
+            <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/scripts/syntaxhighlighter.min.js'></script>
+        </html>
+    " onload="resize_setting_highlight_example_frame(this)"></iframe>
+    <script>
+        function resize_setting_highlight_example_frame(obj) {
+            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+        }
+    </script>
+</div>

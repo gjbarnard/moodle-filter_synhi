@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <libraries>
   <library>
-    <location>javascript/EnlighterJS_3_4_0</location>
+    <location>javascript/EnlighterJS_3_6_0</location>
     <name>EnlighterJS - https://github.com/EnlighterJS/EnlighterJS</name>
-    <version>3.4.0</version>
+    <version>3.6.0</version>
     <license>MPL</license>
     <licenseversion>2.0</licenseversion>
   </library>
   <library>
-    <location>javascript/syntaxhighlighter_4_0_1</location>
+    <location>javascript/syntaxhighlighter_4_0_1_synhi1</location>
     <name>Syntax Highlighter by Alex Gorbatchev - https://github.com/syntaxhighlighter/syntaxhighlighter</name>
     <version>4.0.1</version>
     <license>MIT</license>

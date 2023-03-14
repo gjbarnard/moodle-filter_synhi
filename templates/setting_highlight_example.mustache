@@ -20,50 +20,46 @@
     Setting highlight example.
 
     Context variables required for this template:
-    * labelfor - id of the form element
-    * title - Setting title
-    * name - Setting name
+    * code - The code.
+    * synhicss - The SyhHi styles.
+    * thejs - The engine JS.
+    * thecss - The engine CSS.
+    * theinit - The engine init function.
 
     Example context (json):
     {
-        "code": "<pre>echo 'Code to highlight';</pre>",
-        "highlightdata": {
-            "thejs": "Moodle url",
-            "thecss": "Moodle url",
-            "theinit": "Init JS"
-        }
+        "code": "<code>echo 'Code to highlight';</code>",
+        "synhicss": "Moodle url",
+        "thejs": "Moodle url",
+        "thecss": "Moodle url",
+        "theinit": "Init JS"
     }
 }}
-<iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
-    <html>
-        <head>
-            <title>Example</title>
-            {{#highlightdata}}
+<div id="setting_highlight_example_wrapper">
+    <iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Example</title>
                 {{#thecss}}
-                    <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
+                <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
                 {{/thecss}}
-            {{/highlightdata}}
-            <style>
-                body .syntaxhighlighter {
-                    overflow: visible !important;
-                }
-            </style>
-        </head>
-        <body>
-            <synhi>{{{code}}}</synhi>
-        </body>
-        {{#highlightdata}}
+                <link rel='stylesheet' type='text/css' href='{{{synhicss}}}'>
+            </head>
+            <body>
+                {{{code}}}
+            </body>
             {{#thejs}}
-                <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
+            <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
             {{/thejs}}
             {{#theinit}}
-                <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
+            <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
             {{/theinit}}
-        {{/highlightdata}}
-    </html>
-" onload="resize_setting_highlight_example_frame(this)"></iframe>
-<script>
-    function resize_setting_highlight_example_frame(obj) {
-        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-    }
-</script>
+        </html>
+    " onload="resize_setting_highlight_example_frame(this)"></iframe>
+    <script>
+        function resize_setting_highlight_example_frame(obj) {
+            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+        }
+    </script>
+</div>

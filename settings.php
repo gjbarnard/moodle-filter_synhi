@@ -24,6 +24,31 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
+$settings = null;
+$ADMIN->add('filtersettings', new admin_category('filter_synhi', get_string('filtername', 'filter_synhi')));
+
+// Information.
+$page = new admin_settingpage('filter_synhi_information',
+    get_string('information', 'filter_synhi'));
+
+if ($ADMIN->fulltree) {
+    $page->add(new admin_setting_heading('filter_synhi_information', '',
+        format_text(get_string('informationsettingsdesc', 'filter_synhi'), FORMAT_MARKDOWN)));
+
+    // Information.
+    $page->add(new \filter_synhi\admin_setting_information('filter_synhi/formatinformation', '', '', 39, 401));
+
+    // Readme.md.
+    $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterreadme', '', '', 'Readme.md', 'filter/synhi'));
+
+    // Changes.md.
+    $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterchanges',
+        get_string('informationchanges', 'filter_synhi'), '', 'Changes.md', 'filter/synhi'));
+}
+$ADMIN->add('filter_synhi', $page);
+
+// Settings.
+$page = new admin_settingpage('filter_synhi_settings', get_string('settings', 'filter_synhi'));
 if ($ADMIN->fulltree) {
     // Engine.
     $name = 'filter_synhi/engine';
@@ -36,7 +61,7 @@ if ($ADMIN->fulltree) {
             'syntaxhighlighter' => get_string('syntaxhighlighter', 'filter_synhi')
         )
     );
-    $settings->add($setting);
+    $page->add($setting);
 
     // EnlighterJS style.
     $name = 'filter_synhi/enlighterjsstyle';
@@ -46,7 +71,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default,
         \filter_synhi\toolbox::ENLIGHTERJSSTYLES
     );
-    $settings->add($setting);
+    $page->add($setting);
 
     // Syntax Highlighter style.
     $name = 'filter_synhi/syntaxhighlighterstyle';
@@ -56,48 +81,38 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default,
         \filter_synhi\toolbox::SYNTAXHIGHLIGHTERSTYLES
     );
-    $settings->add($setting);
+    $page->add($setting);
 
     // Syntax Highlighter example.
     $name = 'filter_synhi/syntaxhighlighterexample';
     $title = get_string('syntaxhighlighterexample', 'filter_synhi');
     $description = get_string('syntaxhighlighterexampledesc', 'filter_synhi');
     $setting = new \filter_synhi\admin_setting_highlight($name, $title, $description);
-    $settings->add($setting);
+    $page->add($setting);
 
     // Code for the example.
     $name = 'filter_synhi/codeexample';
     $title = get_string('codeexample', 'filter_synhi');
     $description = get_string('codeexampledesc', 'filter_synhi');
-    $default = '<pre class="brush: java">'.PHP_EOL;
-    $default .= 'package test;'.PHP_EOL.PHP_EOL;
-    $default .= 'public class Test {'.PHP_EOL;
-    $default .= '    private final String name = "Java program";'.PHP_EOL.PHP_EOL;
-    $default .= '    public static void main (String args[]) {'.PHP_EOL;
-    $default .= '        Test us = new Test();'.PHP_EOL;
-    $default .= '        System.out.println(us.getName());'.PHP_EOL;
-    $default .= '    }'.PHP_EOL.PHP_EOL;
-    $default .= '    public String getName() {'.PHP_EOL;
-    $default .= '        return name;'.PHP_EOL;
-    $default .= '    }'.PHP_EOL;
-    $default .= '}</pre>';
+    $default = \filter_synhi\toolbox::EXAMPLECODE;
     $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
-    $settings->add($setting);
+    $page->add($setting);
 
     // Information.
-    $settings->add(new admin_setting_heading('filter_synhi_information_heading',
+    $page->add(new admin_setting_heading('filter_synhi_information_heading',
         get_string('informationheading', 'filter_synhi'),
         format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_PLAIN)));
 
-    $settings->add(new admin_setting_description('filter_synhi_general_information',
+    $page->add(new admin_setting_description('filter_synhi_general_information',
         'generalinformation',
         '<p>'.get_string('generalinformation', 'filter_synhi').'</p>'));
 
-    $settings->add(new admin_setting_description('filter_synhi_enlighter_information',
+    $page->add(new admin_setting_description('filter_synhi_enlighter_information',
         'enlighterinformation',
         '<p>'.get_string('enlighterinformation', 'filter_synhi').'</p>'));
 
-    $settings->add(new admin_setting_description('filter_synhi_syntaxhighlighter_information',
+    $page->add(new admin_setting_description('filter_synhi_syntaxhighlighter_information',
         'syntaxhighlighterinformation',
         '<p>'.get_string('syntaxhighlighterinformation', 'filter_synhi').'</p>'));
 }
+$ADMIN->add('filter_synhi', $page);

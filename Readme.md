@@ -1,13 +1,12 @@
 Introduction
 ============
-SynHi Filter.
 
 A syntax highlighter filter for Moodle with the choice of either EnlighterJS or SyntaxHighlighter
 as the 'engine'.  The administrator has 'preview' settings to see what the look will be on example
 code before the saving.
 
-When active, content with a 'pre' or 'code' tag within a course, module or block will be highlighted.
-Specifically between the Course and Block contexts - https://docs.moodle.org/39/en/Context.
+When active, content with a 'code' tag or 'pre code' tags within a course, module or block will be highlighted.
+Specifically between the [Course and Block contexts](https://docs.moodle.org/39/en/Context).
 
 Features
 ========
@@ -22,25 +21,53 @@ Screenshots
 
 ![Highlight preview](/pix/synhi_admin_anim.gif "Previewing the engine and style before setting on the systems administration screen")
 
-About
+Usage
 =====
-Copyright  &copy; 2020-onwards G J Barnard.
-Author     G J Barnard - http://about.me/gjbarnard and http://moodle.org/user/profile.php?id=442195
-License    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.  For Moodle plugin code only.
 
-Developed and maintained by
-===========================
-G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.
-Moodle profile | http://moodle.org/user/profile.php?id=442195
-Web profile | http://about.me/gjbarnard
+Prior to version 39.1.0, the 'pre' tag was accepted on its own for code to be highlighted.  This proved problematic with the need
+to have non-code preformatted but not highlighted.  To highlight code now, please use the 'code' tag, and surround with a 'pre' tag
+to indicate a block of code.  With 'EnlighterJS', using a 'code' tag on its own indicates 'inline' code.  'SyntaxHighlighter' will
+highlight the code in a block regardless of if there is an enclosing 'pre' tag.
+
+Please add any configuration attributes to the 'code' tag.  Such as '[EnlighterJS - HTML Attribute Options (local)](https://github.com/EnlighterJS/documentation/blob/master/development/Options.md#html-attribute-options-local)' or for SyntaxHighlighter, please look at the information on the settings page.
+
+For example
+-----------
+
+### Single line
+
+`<code data-enlighter-language="java" class="brush: java">System.out.println("SynHi");</code>`
+
+### Muiltiple lines
+
+```
+<pre><code data-enlighter-language="java" class="brush: java">
+   package test;
+
+   public class Test {
+      private final String name = "Java program";
+
+      public static void main (String args[]) {
+         Test us = new Test();
+         System.out.println(us.getName());
+      }
+
+      public String getName() {
+         return name;
+      }
+   }
+</code></pre>
+```
 
 Free Software
 =============
-The SynHi filter is 'free' software under the terms of the GNU GPLv3 License, please see 'LICENSE'.  It
+The SynHi filter is 'free' software under the terms of the GNU GPLv3 License, please see 'COPYING.txt'.  It
 contains third party 'highlighers' which are licensed differenty, see 'Highlighters'.
 
 It can be obtained for free from:
-https://github.com/gjb2048/moodle-filter_synhi/releases
+
+- https://moodle.org/plugins/filter_synhi?lang=pl
+- https://github.com/gjb2048/moodle-filter_synhi/releases
 
 You have all the rights granted to you by the GPLv3 license.  If you are unsure about anything, then the
 FAQ - www.gnu.org/licenses/gpl-faq.html - is a good place to look.
@@ -53,38 +80,37 @@ benefits.
 
 Highlighters
 ------------
-EnlighterJS - https://github.com/EnlighterJS/EnlighterJS - Mozilla Public License 2.0 (MPL-2.0).
-SyntaxHighlighter - https://github.com/syntaxhighlighter/syntaxhighlighter - MIT licensed.
+- EnlighterJS - https://github.com/EnlighterJS/EnlighterJS - Mozilla Public License 2.0 (MPL-2.0).
+- SyntaxHighlighter - https://github.com/syntaxhighlighter/syntaxhighlighter - MIT licensed.
 
 Support
 =======
 As SynHi is licensed under the GNU GPLv3 License it comes with NO support.  If you would like support from
-me then I'm happy to provide it for a fee (please see my contact details above).  Otherwise, the 'General plugins'
-forum: moodle.org/mod/forum/view.php?id=44 is an excellent place to ask questions.
+me then I'm happy to provide it for a fee (please see my contact details above).  Otherwise, the
+'[General plugins](https://moodle.org/mod/forum/view.php?id=44)' forum is an excellent place to ask questions.
 
 Sponsorships
 ============
-This filter is provided to you for free, and if you want to express your gratitude for using this filter, please consider sponsoring
-by:
+If you'd like to sponsor, get support or fund improvements, then please do get in touch via:
 
-PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have
-'buy me now' buttons under their terms.
-
-Sponsorships may allow me to provide you with more or better features in less time.
+- gjbarnard | Gmail dt com address.
+- GitHub | Please outline your issue / improvement on '[GitHub](https://github.com/gjb2048/moodle-format_topcoll/issues)'.
+- @gjbarnard | '[Twitter](https://twitter.com/gjbarnard)'.
 
 Required version of Moodle
 ==========================
 This version works with:
- - Moodle 3.7 version 2019052000.00 (Build: 20190520) and above within the 3.7 branch.
- - Moodle 3.8 version 2019111800.00 (Build: 20191118) and above within the 3.8 branch.
- - Moodle 3.9 version 2020061500.00 (Build: 20200615) and above within the 3.9 branch.
- - Moodle 3.10 version 2020110900.00 (Build: 20201109) and above within the 3.10 branch.
- - Moodle 3.11 version 2021051700.00 (Build: 20210517) and above within the 3.11 branch.
+
+- Moodle 3.9 version 2020061500.00 (Build: 20200615) and above within the 3.9 branch.
+- Moodle 3.10 version 2020110900.00 (Build: 20201109) and above within the 3.10 branch.
+- Moodle 3.11 version 2021051700.00 (Build: 20210517) and above within the 3.11 branch.
+- Moodle 4.0 version 2022041900.00 (Build: 20220419) and above within the 4.0 branch.
+- Moodle 4.1 version 2022112800.00 (Build: 20221128) and above within the 4.1 branch.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/37/en/Installing_Moodle', 'docs.moodle.org/38/en/Installing_Moodle',
-'docs.moodle.org/39/en/Installing_Moodle', 'docs.moodle.org/310/en/Installing_Moodle',
-or 'docs.moodle.org/311/en/Installing_Moodle' respectively.
+[3.9](https://docs.moodle.org/39/en/Installing_Moodle), [3.10](https://docs.moodle.org/310/en/Installing_Moodle),
+[3.11](https://docs.moodle.org/311/en/Installing_Moodle), [4.0](https://docs.moodle.org/400/en/Installing_Moodle),
+or [4.1](https://docs.moodle.org/401/en/Installing_Moodle) respectively.
 
 Installation
 ============
@@ -138,8 +164,11 @@ Refs
 
 iframe resize: https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using
 
-Me
-==
+Developed and maintained by
+===========================
 G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.
-Moodle profile: http://moodle.org/user/profile.php?id=442195
-Web profile   : http://about.me/gjbarnard
+
+- Moodle profile | [Moodle.org](https://moodle.org/user/profile.php?id=442195)
+- @gjbarnard     | [Twitter](https://twitter.com/gjbarnard)
+- Web profile    | [About.me](https://about.me/gjbarnard)
+- Website        | [Website](https://gjbarnard.co.uk)
