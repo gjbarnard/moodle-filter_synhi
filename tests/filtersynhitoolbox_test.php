@@ -50,12 +50,12 @@ class filter_synhi_toolbox_test extends advanced_testcase {
     /**
      * @var string Syntax Highlighter JS file.
      */
-    private const SYNTAXHIGHLIGHTERJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js';
+    private const SYNTAXHIGHLIGHTERJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/scripts/syntaxhighlighter.js';
 
     /**
      * @var string Syntax Highlighter CSS file start.
      */
-    private const SYNTAXHIGHLIGHTERCSSPRE = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/';
+    private const SYNTAXHIGHLIGHTERCSSPRE = '/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/styles/';
 
     /**
      * @var string Syntax Highlighter CSS file end.

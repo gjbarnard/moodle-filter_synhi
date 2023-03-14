@@ -59,12 +59,12 @@ class toolbox {
     /**
      * @var string Syntax Highlighter JS file.
      */
-    private const SYNTAXHIGHLIGHTERJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/scripts/syntaxhighlighter.js';
+    private const SYNTAXHIGHLIGHTERJS = '/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/scripts/syntaxhighlighter.js';
 
     /**
      * @var string Syntax Highlighter CSS file start.
      */
-    private const SYNTAXHIGHLIGHTERCSSPRE = '/filter/synhi/javascript/syntaxhighlighter_4_0_1/styles/';
+    private const SYNTAXHIGHLIGHTERCSSPRE = '/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/styles/';
 
     /**
      * @var string Syntax Highlighter CSS file end.
@@ -110,7 +110,7 @@ class toolbox {
      * @var string Default example code.
      */
     public const EXAMPLECODE = '
-    <pre class="brush: java">package test;<br>
+    <pre><code class="brush: java">package test;
 
     public class Test {
         private final String name = "Java program";
@@ -124,7 +124,7 @@ class toolbox {
             return name;
         }
     }
-    </pre>';
+    </code></pre>';
 
     /**
      * This is a lonely object.
@@ -238,7 +238,7 @@ class toolbox {
         return array(
             'thejs' => $js,
             'thecss' => $css,
-            'theinit' => "EnlighterJS.init('synhi pre', 'synhi code', {theme: '".$config->enlighterjsstyle."', indent : 4});"
+            'theinit' => "EnlighterJS.init('code', null, {theme: '".$config->enlighterjsstyle."', indent : 4});"
         );
     }
 
