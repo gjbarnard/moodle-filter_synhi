@@ -1,4 +1,10 @@
 /* Syntax highlighter fixes */
 body .syntaxhighlighter {
-    overflow: visible !important; // stylelint-disable-line declaration-no-important
+    overflow: visible !important; /* stylelint-disable-line declaration-no-important */
+}
+
+pre.synhi {
+    font-size: inherit;
+    margin: inherit;
+    white-space: inherit;
 }
