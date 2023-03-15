@@ -99,14 +99,18 @@ class filter_synhi extends moodle_text_filter {
 
         $currentpos = $codepos;
         $forwardpos = 0;
+        $temppos = 0;
         $output = array();
         $broken = false;
 
         $output[] = mb_substr($text, 0, $codepos); // The markup up to the first 'code' tag.
         while ($codepos !== false) {
             $forwardpos = strpos($text, '>', $currentpos);
-            if ($forwardpos === false) {
-                // Broken markup.
+            $temppos = strpos($text, '<', $currentpos + 1);
+            if (($forwardpos === false) || ($temppos == false) || ($forwardpos > $temppos)) {
+                /* If the forward position is greater than the temporary position then that
+                   means that the closing greater than sign is missing from the code tag =
+                   Broken markup. */
                 $broken = true;
                 break;
             }
@@ -136,7 +140,10 @@ class filter_synhi extends moodle_text_filter {
         }
 
         if ($broken) {
-            return $text;
+            global $OUTPUT;
+            $context = new stdClass;
+            $context->text = $text;
+            return $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
         }
         return implode($output);
     }
