@@ -75,16 +75,16 @@ Sponsorships may allow me to provide you with more or better features in less ti
 Required version of Moodle
 ==========================
 This version works with:
- - Moodle 3.7 version 2019052000.00 (Build: 20190520) and above within the 3.7 branch.
- - Moodle 3.8 version 2019111800.00 (Build: 20191118) and above within the 3.8 branch.
  - Moodle 3.9 version 2020061500.00 (Build: 20200615) and above within the 3.9 branch.
  - Moodle 3.10 version 2020110900.00 (Build: 20201109) and above within the 3.10 branch.
  - Moodle 3.11 version 2021051700.00 (Build: 20210517) and above within the 3.11 branch.
+ - Moodle 4.0 version 2022041900.00 (Build: 20220419) and above within the 4.0 branch.
+ - Moodle 4.1 version 2022112800.00 (Build: 20221128) and above within the 4.1 branch.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/37/en/Installing_Moodle', 'docs.moodle.org/38/en/Installing_Moodle',
 'docs.moodle.org/39/en/Installing_Moodle', 'docs.moodle.org/310/en/Installing_Moodle',
-or 'docs.moodle.org/311/en/Installing_Moodle' respectively.
+'docs.moodle.org/311/en/Installing_Moodle', 'docs.moodle.org/400/en/Installing_Moodle',
+or 'docs.moodle.org/401/en/Installing_Moodle' respectively.
 
 Installation
 ============
