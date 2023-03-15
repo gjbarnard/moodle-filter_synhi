@@ -2,7 +2,7 @@
     <html>
         <head>
             <title>Example</title>
-                    <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/styles/fadetogrey.css'>
+            <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/styles/fadetogrey.css'>
             <style>
                 body .syntaxhighlighter {
                     overflow: visible !important;
@@ -10,9 +10,9 @@
             </style>
         </head>
         <body>
-            <synhi>&lt;pre class=&quot;brush: php&quot;&gt;echo 'This is a test not a drill';&lt;/pre&gt;</synhi>
+            &lt;code class=&quot;brush: php&quot;&gt;echo 'This is a test not a drill';&lt;/code&gt;
         </body>
-                <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/scripts/syntaxhighlighter.js'></script>
+        <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/scripts/syntaxhighlighter.js'></script>
     </html>
 " onload="resize_setting_highlight_example_frame(this)"></iframe>
 <script>

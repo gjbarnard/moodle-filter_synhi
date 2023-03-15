@@ -2,7 +2,7 @@
     <html>
         <head>
             <title>Example</title>
-                    <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.godzilla.min.css'>
+            <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.godzilla.min.css'>
             <style>
                 body .syntaxhighlighter {
                     overflow: visible !important;

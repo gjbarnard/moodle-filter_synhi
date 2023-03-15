@@ -69,18 +69,7 @@ if ($ADMIN->fulltree) {
     $name = 'filter_synhi/codeexample';
     $title = get_string('codeexample', 'filter_synhi');
     $description = get_string('codeexampledesc', 'filter_synhi');
-    $default = '<pre class="brush: java">'.PHP_EOL;
-    $default .= 'package test;'.PHP_EOL.PHP_EOL;
-    $default .= 'public class Test {'.PHP_EOL;
-    $default .= '    private final String name = "Java program";'.PHP_EOL.PHP_EOL;
-    $default .= '    public static void main (String args[]) {'.PHP_EOL;
-    $default .= '        Test us = new Test();'.PHP_EOL;
-    $default .= '        System.out.println(us.getName());'.PHP_EOL;
-    $default .= '    }'.PHP_EOL.PHP_EOL;
-    $default .= '    public String getName() {'.PHP_EOL;
-    $default .= '        return name;'.PHP_EOL;
-    $default .= '    }'.PHP_EOL;
-    $default .= '}</pre>';
+    $default = \filter_synhi\toolbox::EXAMPLECODE;
     $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
     $settings->add($setting);
 

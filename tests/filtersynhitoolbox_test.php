@@ -101,14 +101,14 @@ class filter_synhi_toolbox_test extends advanced_testcase {
         $this->set_up();
         set_config('engine', 'enlighterjs', 'filter_synhi');
         set_config('enlighterjsstyle', 'default', 'filter_synhi');
-        set_config('codeexample', '<pre>echo \'This is a test not a drill\';</pre>', 'filter_synhi');
+        set_config('codeexample', '<code>echo \'This is a test not a drill\';</code>', 'filter_synhi');
 
         $thereturneddata = $this->instance->setting_highlight();
 
         $csstarget = self::ENLIGHTERJSCSSPRE.'default'.self::ENLIGHTERJSCSSPOST;
         $thecssurl = new moodle_url($csstarget);
         $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
-        $thecode = "&lt;pre&gt;echo 'This is a test not a drill';&lt;/pre&gt;";
+        $thecode = "&lt;code&gt;echo 'This is a test not a drill';&lt;/code&gt;";
 
         $this->assertEquals($thecssurl, $thereturneddata['highlightdata']['thecss']);
         $this->assertEquals($thejsurl, $thereturneddata['highlightdata']['thejs']);
@@ -124,13 +124,14 @@ class filter_synhi_toolbox_test extends advanced_testcase {
         $this->set_up();
         $engine = 'enlighterjs';
         $style = 'godzilla';
+        set_config('codeexample', \filter_synhi\toolbox::EXAMPLECODE, 'filter_synhi');
 
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
         $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt');
-        $theexpectedoutput .= '            <synhi>&lt;pre class=&quot;brush: java&quot;&gt;'.PHP_EOL;
+        $theexpectedoutput .= '            &lt;pre&gt;&lt;code data-enlighter-language=&quot;java&quot; class=&quot;brush: java&quot;&gt;'.PHP_EOL;
         $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
         $theexpectedoutput .= 'public class Test {'.PHP_EOL;
-        $theexpectedoutput .= '    private final String name = &quot;Java program&quot;;'.PHP_EOL.PHP_EOL;
+        $theexpectedoutput .= '    private final String name = &amp;quot;Java program&amp;quot;;'.PHP_EOL.PHP_EOL;
         $theexpectedoutput .= '    public static void main (String args[]) {'.PHP_EOL;
         $theexpectedoutput .= '        Test us = new Test();'.PHP_EOL;
         $theexpectedoutput .= '        System.out.println(us.getName());'.PHP_EOL;
@@ -138,7 +139,7 @@ class filter_synhi_toolbox_test extends advanced_testcase {
         $theexpectedoutput .= '    public String getName() {'.PHP_EOL;
         $theexpectedoutput .= '        return name;'.PHP_EOL;
         $theexpectedoutput .= '    }'.PHP_EOL;
-        $theexpectedoutput .= '}&lt;/pre&gt;</synhi>';
+        $theexpectedoutput .= '}'.PHP_EOL.'&lt;/code&gt;&lt;/pre&gt;';
         $theexpectedoutput .= file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_bottom.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
 
@@ -151,9 +152,9 @@ class filter_synhi_toolbox_test extends advanced_testcase {
 
         $engine = 'syntaxhighlighter';
         $style = 'fadetogrey';
-        set_config('codeexample', '<pre class="brush: php">echo \'This is a test not a drill\';</pre>', 'filter_synhi');
+        set_config('codeexample', '<code class="brush: php">echo \'This is a test not a drill\';</code>', 'filter_synhi');
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs.txt');
+        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_syntaxhighlighter.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
     }
 

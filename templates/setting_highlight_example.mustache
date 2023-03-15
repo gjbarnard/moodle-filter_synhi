@@ -39,9 +39,9 @@
         <head>
             <title>Example</title>
             {{#highlightdata}}
-                {{#thecss}}
-                    <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
-                {{/thecss}}
+            {{#thecss}}
+            <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
+            {{/thecss}}
             {{/highlightdata}}
             <style>
                 body .syntaxhighlighter {
@@ -53,12 +53,12 @@
             {{{code}}}
         </body>
         {{#highlightdata}}
-            {{#thejs}}
-                <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
-            {{/thejs}}
-            {{#theinit}}
-                <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
-            {{/theinit}}
+        {{#thejs}}
+        <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
+        {{/thejs}}
+        {{#theinit}}
+        <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
+        {{/theinit}}
         {{/highlightdata}}
     </html>
 " onload="resize_setting_highlight_example_frame(this)"></iframe>

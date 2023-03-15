@@ -109,22 +109,19 @@ class toolbox {
     /**
      * @var string Default example code.
      */
-    public const EXAMPLECODE = '
-    <pre><code class="brush: java">package test;
-
-    public class Test {
-        private final String name = "Java program";
-
-        public static void main (String args[]) {
-            Test us = new Test();
-            System.out.println(us.getName());
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-    </code></pre>';
+    public const EXAMPLECODE = '<pre><code data-enlighter-language="java" class="brush: java">'.PHP_EOL.
+    'package test;'.PHP_EOL.PHP_EOL.
+    'public class Test {'.PHP_EOL.
+    '    private final String name = "Java program";'.PHP_EOL.PHP_EOL.
+    '    public static void main (String args[]) {'.PHP_EOL.
+    '        Test us = new Test();'.PHP_EOL.
+    '        System.out.println(us.getName());'.PHP_EOL.
+    '    }'.PHP_EOL.PHP_EOL.
+    '    public String getName() {'.PHP_EOL.
+    '        return name;'.PHP_EOL.
+    '    }'.PHP_EOL.
+    '}'.PHP_EOL.
+    '</code></pre>';
 
     /**
      * This is a lonely object.
@@ -142,6 +139,63 @@ class toolbox {
             self::$instance = new self();
         }
         return self::$instance;
+    }
+
+    public function processtext(&$text, $codepos) {
+        $currentpos = $codepos;
+        $forwardpos = 0;
+        $temppos = 0;
+        $output = array();
+        $broken = false;
+
+        if ($codepos > 0) {
+            $output[] = mb_substr($text, 0, $codepos); // The markup up to the first 'code' tag.
+        }
+        while ($codepos !== false) {
+            $forwardpos = strpos($text, '>', $currentpos);
+            $temppos = strpos($text, '<', $currentpos + 1);
+            if (($forwardpos === false) || ($temppos == false) || ($forwardpos > $temppos)) {
+                /* If the forward position is greater than the temporary position then that
+                   means that the closing greater than sign is missing from the code tag =
+                   Broken markup. */
+                $broken = true;
+                break;
+            }
+            $forwardpos++; // Past the greater than of the start code tag.
+            $output[] = mb_substr($text, $currentpos, $forwardpos - $currentpos); // The start 'code' tag.
+            $currentpos = $forwardpos;
+            $forwardpos = strpos($text, '</code>', $currentpos);
+            if ($forwardpos === false) {
+                // Broken markup.
+                $broken = true;
+                break;
+            }
+            $output[] = htmlentities(mb_substr($text, $currentpos, $forwardpos - $currentpos)); // The contained code.
+            $output[] = '</code>'; // The end code tag.
+            $currentpos = $forwardpos + 7; // End of the contained code plus the end code tag length.
+
+            // Is there another bit of code?
+            $codepos = strpos($text, '<code', $currentpos);
+            if ($codepos !== false) {
+                // Yes.
+                $output[] = mb_substr($text, $currentpos, $codepos - $currentpos); // The markup to the next 'code' tag.
+                $currentpos = $codepos;
+            } else {
+                // No.
+                $rest = mb_substr($text, $currentpos); // The rest of the markup.
+                if (!empty ($rest)) {
+                    $output[] = $rest;
+                }
+            }
+        }
+
+        if ($broken) {
+            global $OUTPUT;
+            $context = new \stdClass;
+            $context->text = $text;
+            return $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
+        }
+        return implode($output);
     }
 
     /**
@@ -177,8 +231,20 @@ class toolbox {
         if (!empty($config->engine)) {
             $enginemethod = $config->engine.'_init';
 
+            // Note: To allow the iframe in the setting_highlight_example template to work, htmlentities is used.
             $data['highlightdata'] = $this->$enginemethod($config);
-            $data['code'] = htmlentities($config->codeexample);
+            $synpos = strpos($config->codeexample, '<code');
+            if ($synpos !== false) {
+                $data['code'] = htmlentities($this->processtext($config->codeexample, $synpos));
+            } else {
+                global $OUTPUT;
+                $context = new \stdClass;
+                $context->text = htmlentities($config->codeexample);
+                $data['code'] = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
+            }
+
+            //$data['code'] = htmlentities($config->codeexample);
+            //$data['code'] = $config->codeexample;
         }
 
         return $data;
@@ -209,10 +275,21 @@ class toolbox {
             $config = new \stdClass;
             $config->enlighterjsstyle = $style;
             $config->syntaxhighlighterstyle = $style;
+            $config->codeexample = get_config('filter_synhi', 'codeexample');
 
             $context = new \stdClass;
             $context->highlightdata = $this->$enginemethod($config);
-            $context->code = htmlentities(get_config('filter_synhi', 'codeexample'));
+            $synpos = strpos($config->codeexample, '<code');
+            if ($synpos !== false) {
+                $context->code = htmlentities($this->processtext($config->codeexample, $synpos));
+            } else {
+                global $OUTPUT;
+                $context = new \stdClass;
+                $context->text = htmlentities($config->codeexample);
+                $context->code = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
+            }
+            //$context->code = htmlentities(get_config('filter_synhi', 'codeexample'));
+            //$context->code = get_config('filter_synhi', 'codeexample');
 
             $PAGE->set_context(\context_system::instance());
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);

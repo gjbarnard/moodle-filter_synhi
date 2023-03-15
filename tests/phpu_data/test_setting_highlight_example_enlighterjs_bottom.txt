@@ -1,7 +1,7 @@
 
         </body>
-                <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js'></script>
-                <script type='text/javascript' charset='utf-8'>EnlighterJS.init('synhi pre', 'synhi code', {theme: 'godzilla', indent : 4});</script>
+        <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js'></script>
+        <script type='text/javascript' charset='utf-8'>EnlighterJS.init('code', null, {theme: 'godzilla', indent : 4});</script>
     </html>
 " onload="resize_setting_highlight_example_frame(this)"></iframe>
 <script>
