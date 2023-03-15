@@ -242,9 +242,6 @@ class toolbox {
                 $context->text = htmlentities($config->codeexample);
                 $data['code'] = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
             }
-
-            //$data['code'] = htmlentities($config->codeexample);
-            //$data['code'] = $config->codeexample;
         }
 
         return $data;
@@ -288,8 +285,6 @@ class toolbox {
                 $context->text = htmlentities($config->codeexample);
                 $context->code = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
             }
-            //$context->code = htmlentities(get_config('filter_synhi', 'codeexample'));
-            //$context->code = get_config('filter_synhi', 'codeexample');
 
             $PAGE->set_context(\context_system::instance());
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
