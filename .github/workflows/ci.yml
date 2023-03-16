@@ -74,7 +74,9 @@ jobs:
         env:
           DB: ${{ matrix.database }}
           MOODLE_BRANCH: ${{ matrix.moodle-branch }}
-          IGNORE_PATHS: 'javascript,tests/phpu_data,node_modules'
+          IGNORE_PATHS: 'javascript,node_modules'
+          CODECHECKER_IGNORE_PATHS: 'tests/phpu_data'
+          MUSTACHE_IGNORE_NAMES: 'setting_highlight.mustache,setting_highlight_example.mustache'
 
       - name: PHP Lint
         if: ${{ always() }}
