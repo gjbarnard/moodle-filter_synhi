@@ -40,12 +40,12 @@ class toolbox_test extends \advanced_testcase {
     /**
      * @var string EnlighterJS JS file.
      */
-    private const ENLIGHTERJSJS = '/filter/synhi/javascript/EnlighterJS_3_4_0/scripts/enlighterjs.min.js';
+    private const ENLIGHTERJSJS = '/filter/synhi/javascript/EnlighterJS_3_6_0/scripts/enlighterjs.min.js';
 
     /**
      * @var string EnlighterJS CSS file start.
      */
-    private const ENLIGHTERJSCSSPRE = '/filter/synhi/javascript/EnlighterJS_3_4_0/styles/enlighterjs.';
+    private const ENLIGHTERJSCSSPRE = '/filter/synhi/javascript/EnlighterJS_3_6_0/styles/enlighterjs.';
 
     /**
      * @var string EnlighterJS CSS file end.
