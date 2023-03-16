@@ -71,7 +71,7 @@ require(['jquery', 'core/ajax', 'core/notification', 'core/log'],
         }])[0].done(function(response) {
             log.debug(response.markup);
             // We have the data now update the UI.
-            $('#setting_highlight_example_frame').replaceWith(response.markup);
+            $('#setting_highlight_example_wrapper').replaceWith(response.markup);
         }).fail(function() {
                 Notification.exception(new Error('Failed to get highlighted markup'));
                 return;

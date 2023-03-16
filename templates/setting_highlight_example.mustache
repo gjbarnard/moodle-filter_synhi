@@ -32,38 +32,40 @@
         "theinit": "Init JS"
     }
 }}
-<iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Example</title>
-            {{#thecss}}
-            <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
-            {{/thecss}}
-            <style>
-                body .syntaxhighlighter {
-                    overflow: visible !important;
-                }
-                pre.synhi {
-                    font-size: inherit;
-                    margin: inherit;
-                    white-space: inherit;
-                }
-            </style>
-        </head>
-        <body>
-            {{{code}}}
-        </body>
-        {{#thejs}}
-        <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
-        {{/thejs}}
-        {{#theinit}}
-        <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
-        {{/theinit}}
-    </html>
-" onload="resize_setting_highlight_example_frame(this)"></iframe>
-<script>
-    function resize_setting_highlight_example_frame(obj) {
-        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-    }
-</script>
+<div id="setting_highlight_example_wrapper">
+    <iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Example</title>
+                {{#thecss}}
+                <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
+                {{/thecss}}
+                <style>
+                    body .syntaxhighlighter {
+                        overflow: visible !important;
+                    }
+                    pre.synhi {
+                        font-size: inherit;
+                        margin: inherit;
+                        white-space: inherit;
+                    }
+                </style>
+            </head>
+            <body>
+                {{{code}}}
+            </body>
+            {{#thejs}}
+            <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
+            {{/thejs}}
+            {{#theinit}}
+            <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
+            {{/theinit}}
+        </html>
+    " onload="resize_setting_highlight_example_frame(this)"></iframe>
+    <script>
+        function resize_setting_highlight_example_frame(obj) {
+            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+        }
+    </script>
+</div>

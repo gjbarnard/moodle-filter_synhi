@@ -133,7 +133,7 @@ class toolbox_test extends \advanced_testcase {
 
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
         $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt');
-        $theexpectedoutput .= '            &lt;pre&gt;&lt;code data-enlighter-language=&quot;java&quot; class=&quot;brush: java&quot;&gt;'.PHP_EOL;
+        $theexpectedoutput .= '                &lt;pre&gt;&lt;code data-enlighter-language=&quot;java&quot; class=&quot;brush: java&quot;&gt;'.PHP_EOL;
         $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
         $theexpectedoutput .= 'public class Test {'.PHP_EOL;
         $theexpectedoutput .= '    private final String name = &amp;quot;Java program&amp;quot;;'.PHP_EOL.PHP_EOL;
