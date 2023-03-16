@@ -47,7 +47,12 @@
         <div class="form-description">{{{description}}}</div>
         <div class="row">
             <div class="col-12">
+                {{#highlightdata}}
                 {{> filter_synhi/setting_highlight_example }}
+                {{/highlightdata}}
+                {{#broken}}
+                {{{broken}}}
+                {{/broken}}
             </div>
         </div>
     </div>

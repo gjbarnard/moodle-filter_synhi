@@ -27,22 +27,18 @@
     Example context (json):
     {
         "code": "<code>echo 'Code to highlight';</code>",
-        "highlightdata": {
-            "thejs": "Moodle url",
-            "thecss": "Moodle url",
-            "theinit": "Init JS"
-        }
+        "thejs": "Moodle url",
+        "thecss": "Moodle url",
+        "theinit": "Init JS"
     }
 }}
 <iframe id="setting_highlight_example_frame" style="border:0; width:100%;" srcdoc="
     <html>
         <head>
             <title>Example</title>
-            {{#highlightdata}}
             {{#thecss}}
             <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
             {{/thecss}}
-            {{/highlightdata}}
             <style>
                 body .syntaxhighlighter {
                     overflow: visible !important;
@@ -52,14 +48,12 @@
         <body>
             {{{code}}}
         </body>
-        {{#highlightdata}}
         {{#thejs}}
         <script type='text/javascript' charset='utf-8' src='{{{thejs}}}'></script>
         {{/thejs}}
         {{#theinit}}
         <script type='text/javascript' charset='utf-8'>{{{theinit}}}</script>
         {{/theinit}}
-        {{/highlightdata}}
     </html>
 " onload="resize_setting_highlight_example_frame(this)"></iframe>
 <script>

@@ -91,6 +91,15 @@ class admin_setting_highlight extends \admin_setting {
         $context->description = $this->description;
 
         $toolbox = \filter_synhi\toolbox::get_instance();
-        return $OUTPUT->render_from_template('filter_synhi/setting_highlight', $toolbox->setting_highlight());
+        $highlightcontext = $toolbox->setting_highlight();
+        if (!empty($highlightcontext)) {
+            if (empty($highlightcontext->broken)) {
+                $context->highlightdata = $highlightcontext;
+            } else {
+                $context->broken = $highlightcontext->broken;
+            }
+        }
+
+        return $OUTPUT->render_from_template('filter_synhi/setting_highlight', $context);
     }
 }
