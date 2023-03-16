@@ -6,6 +6,7 @@ Version 39.1.0 - TBR
    core branch number.  The 'version' property still needs to follow the Moodle way in order for the plugin to operate within the core
    API.
 2. Update EnlighterJS from 3.4.0 to 3.6.0.
+3. Minify Syntaxhighlighter with 'uglifyjs syntaxhighlighter.js -c -o syntaxhighlighter.min.js'.
 
 Version 3.7.1.2 - 22/05/21
 --------------------------
