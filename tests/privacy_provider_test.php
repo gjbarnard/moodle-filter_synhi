@@ -23,6 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
+namespace filter_synhi;
 use \filter_synhi\privacy\provider;
 
 /**
@@ -32,7 +33,7 @@ use \filter_synhi\privacy\provider;
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class filter_synhi_privacy_provider_test extends \core_privacy\tests\provider_testcase {
+class privacy_provider_test extends \core_privacy\tests\provider_testcase {
 
     /**
      * Set up.

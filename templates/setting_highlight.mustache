@@ -80,7 +80,7 @@ require(['jquery', 'core/ajax', 'core/notification', 'core/log'],
 
     log.debug($("#id_s_filter_synhi_engine").val());
     $('#id_s_filter_synhi_engine').change(function() {
-        log.debug( this.value );
+        log.debug(this.value);
 
         if (this.value == 'enlighterjs') {
             updateExample(this.value, $("#id_s_filter_synhi_enlighterjsstyle").val());

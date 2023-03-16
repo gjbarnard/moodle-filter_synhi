@@ -60,7 +60,15 @@ class filter_synhi extends moodle_text_filter {
                     $config = get_config('filter_synhi');
                     if (!empty($config->engine)) {
                         $toolbox = \filter_synhi\toolbox::get_instance();
-                        $text = $toolbox->processtext($text, $synpos);
+                        $markup = $toolbox->processtext($text, $synpos);
+                        if ($markup !== false) {
+                            $text = $markup;
+                        } else {
+                            global $OUTPUT;
+                            $context = new stdClass;
+                            $context->text = $text;
+                            $text = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
+                        }
                         if (!self::$done) {
                             $toolbox->highlight_page($config);
                             self::$done = true;

@@ -23,6 +23,11 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
+namespace filter_synhi;
+
+use \moodle_url;
+use \stdClass;
+
 /**
  * Toolbox unit tests for the SynHi filter.
  *
@@ -30,7 +35,7 @@
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class filter_synhi_toolbox_test extends advanced_testcase {
+class toolbox_test extends \advanced_testcase {
 
     /**
      * @var string EnlighterJS JS file.
@@ -110,9 +115,9 @@ class filter_synhi_toolbox_test extends advanced_testcase {
         $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
         $thecode = "&lt;code&gt;echo 'This is a test not a drill';&lt;/code&gt;";
 
-        $this->assertEquals($thecssurl, $thereturneddata['highlightdata']['thecss']);
-        $this->assertEquals($thejsurl, $thereturneddata['highlightdata']['thejs']);
-        $this->assertEquals($thecode, $thereturneddata['code']);
+        $this->assertEquals($thecssurl, $thereturneddata->thecss);
+        $this->assertEquals($thejsurl, $thereturneddata->thejs);
+        $this->assertEquals($thecode, $thereturneddata->code);
     }
 
     /**
@@ -172,8 +177,8 @@ class filter_synhi_toolbox_test extends advanced_testcase {
         $thecssurl = new moodle_url($csstarget);
         $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
 
-        $this->assertEquals($thecssurl, $thereturneddata['thecss']);
-        $this->assertEquals($thejsurl, $thereturneddata['thejs']);
+        $this->assertEquals($thecssurl, $thereturneddata->thecss);
+        $this->assertEquals($thejsurl, $thereturneddata->thejs);
     }
 
     /**
@@ -190,7 +195,7 @@ class filter_synhi_toolbox_test extends advanced_testcase {
         $thecssurl = new moodle_url($csstarget);
         $thejsurl = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
 
-        $this->assertEquals($thecssurl, $thereturneddata['thecss']);
-        $this->assertEquals($thejsurl, $thereturneddata['thejs']);
+        $this->assertEquals($thecssurl, $thereturneddata->thecss);
+        $this->assertEquals($thejsurl, $thereturneddata->thejs);
     }
 }

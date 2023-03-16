@@ -191,10 +191,7 @@ class toolbox {
         }
 
         if ($broken) {
-            global $OUTPUT;
-            $context = new stdClass;
-            $context->text = $text;
-            return $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
+            return false;
         }
         return implode($output);
     }
@@ -235,9 +232,18 @@ class toolbox {
             // Note: To allow the iframe in the setting_highlight_example template to work, htmlentities is used.
             $data = $this->$enginemethod($config);
             $synpos = strpos($config->codeexample, '<code');
+            $broken = false;
             if ($synpos !== false) {
-                $data->code = htmlentities($this->processtext($config->codeexample, $synpos));
+                $markup = $this->processtext($config->codeexample, $synpos);
+                if ($markup !== false) {
+                    $data->code = htmlentities($markup);
+                } else {
+                    $broken = true;
+                }
             } else {
+                $broken = true;
+            }
+            if ($broken) {
                 global $OUTPUT;
                 $context = new stdClass;
                 $context->text = htmlentities($config->codeexample);
