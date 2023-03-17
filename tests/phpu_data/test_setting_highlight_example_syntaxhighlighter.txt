@@ -5,16 +5,7 @@
             <head>
                 <title>Example</title>
                 <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/javascript/syntaxhighlighter_4_0_1_synhi1/styles/fadetogrey.css'>
-                <style>
-                    body .syntaxhighlighter {
-                        overflow: visible !important;
-                    }
-                    pre.synhi {
-                        font-size: inherit;
-                        margin: inherit;
-                        white-space: inherit;
-                    }
-                </style>
+                <link rel='stylesheet' type='text/css' href='https://www.example.com/moodle/filter/synhi/styles.css'>
             </head>
             <body>
                 &lt;code class=&quot;brush: php&quot;&gt;echo 'This is a test not a drill';&lt;/code&gt;

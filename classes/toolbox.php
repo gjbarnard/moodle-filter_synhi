@@ -106,6 +106,10 @@ class toolbox {
         'swift' => 'Swift'
     );
 
+    /**
+     * @var string SynHi styles CSS.
+     */
+    private const SYNHISTYLES = '/filter/synhi/styles.css';
 
     /**
      * @var string Default example code.
@@ -237,6 +241,7 @@ class toolbox {
                 $markup = $this->processtext($config->codeexample, $synpos);
                 if ($markup !== false) {
                     $data->code = htmlentities($markup);
+                    $data->synhicss = new moodle_url(self::SYNHISTYLES);
                 } else {
                     $broken = true;
                 }
@@ -285,6 +290,7 @@ class toolbox {
             $synpos = strpos($config->codeexample, '<code');
             if ($synpos !== false) {
                 $context->code = htmlentities($this->processtext($config->codeexample, $synpos));
+                $context->synhicss = new moodle_url(self::SYNHISTYLES);
             } else {
                 global $OUTPUT;
                 $context = new stdClass;
@@ -313,7 +319,7 @@ class toolbox {
         $data = new stdClass;
         $data->thejs = new moodle_url(self::ENLIGHTERJSJS);
         $data->thecss = new moodle_url(self::ENLIGHTERJSCSSPRE.$config->enlighterjsstyle.self::ENLIGHTERJSCSSPOST);
-        $data->theinit = "EnlighterJS.init('code', null, {theme: '".$config->enlighterjsstyle."', indent : 4});";
+        $data->theinit = "EnlighterJS.init('pre code', 'code', {theme: '".$config->enlighterjsstyle."', indent : 4});";
 
         return $data;
     }

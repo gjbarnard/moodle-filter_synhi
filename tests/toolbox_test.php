@@ -68,6 +68,11 @@ class toolbox_test extends \advanced_testcase {
     private const SYNTAXHIGHLIGHTERCSSPOST = '.css';
 
     /**
+     * @var string SynHi styles CSS.
+     */
+    private const SYNHISTYLES = '/filter/synhi/styles.css';
+
+    /**
      * Toolbox instance.
      *
      * @var toolbox $instance The instance.
@@ -110,11 +115,13 @@ class toolbox_test extends \advanced_testcase {
 
         $thereturneddata = $this->instance->setting_highlight();
 
+        $synhicssurl = new moodle_url(self::SYNHISTYLES);
         $csstarget = self::ENLIGHTERJSCSSPRE.'default'.self::ENLIGHTERJSCSSPOST;
         $thecssurl = new moodle_url($csstarget);
         $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
         $thecode = "&lt;code&gt;echo 'This is a test not a drill';&lt;/code&gt;";
 
+        $this->assertEquals($synhicssurl, $thereturneddata->synhicss);
         $this->assertEquals($thecssurl, $thereturneddata->thecss);
         $this->assertEquals($thejsurl, $thereturneddata->thejs);
         $this->assertEquals($thecode, $thereturneddata->code);

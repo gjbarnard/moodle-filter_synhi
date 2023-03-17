@@ -20,13 +20,16 @@
     Setting highlight example.
 
     Context variables required for this template:
-    * labelfor - id of the form element
-    * title - Setting title
-    * name - Setting name
+    * code - The code.
+    * synhicss - The SyhHi styles.
+    * thejs - The engine JS.
+    * thecss - The engine CSS.
+    * theinit - The engine init function.
 
     Example context (json):
     {
         "code": "<code>echo 'Code to highlight';</code>",
+        "synhicss": "Moodle url",
         "thejs": "Moodle url",
         "thecss": "Moodle url",
         "theinit": "Init JS"
@@ -41,16 +44,7 @@
                 {{#thecss}}
                 <link rel='stylesheet' type='text/css' href='{{{thecss}}}'>
                 {{/thecss}}
-                <style>
-                    body .syntaxhighlighter {
-                        overflow: visible !important;
-                    }
-                    pre.synhi {
-                        font-size: inherit;
-                        margin: inherit;
-                        white-space: inherit;
-                    }
-                </style>
+                <link rel='stylesheet' type='text/css' href='{{{synhicss}}}'>
             </head>
             <body>
                 {{{code}}}

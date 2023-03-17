@@ -16,3 +16,61 @@ pre.synhi {
 #page-admin-setting-filtersettingsynhi #admin-codeexample .form-defaultinfo br {
     display: none;
 }
+
+body .enlighter-toolbar .enlighter-tooltip {
+    padding: 8px 4px;
+    width: auto;
+}
+
+body .enlighter-toolbar-top .enlighter-tooltip {
+    bottom: auto;
+    top: 30px;
+}
+
+body .enlighter-btn-raw .enlighter-tooltip {
+    transform: translateX(-26%);
+}
+
+body .enlighter-btn-raw .enlighter-tooltip::after {
+    left: 40%;
+}
+
+body .enlighter-btn-copy .enlighter-tooltip {
+    transform: translateX(-35%);
+}
+
+body .enlighter-btn-copy .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+}
+
+body .enlighter-btn-window .enlighter-tooltip::after {
+    left: 47%;
+}
+
+body .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-10%);
+}
+
+body .enlighter-btn-website .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-toolbar-top .enlighter-tooltip::after {
+    border-color: transparent transparent #000 transparent;
+    margin-left: 0;
+    top: -10px;
+}
+
+body .enlighter-toolbar-bottom.enlighter-toolbar {
+    bottom: 10px;
+    right: 20px;
+    top: auto;
+}
+
+body .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-52%);
+}
