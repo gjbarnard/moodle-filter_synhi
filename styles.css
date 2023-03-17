@@ -9,10 +9,10 @@ pre.synhi {
     white-space: inherit;
 }
 
-#admin-codeexample .form-defaultinfo {
+#page-admin-setting-filtersettingsynhi #admin-codeexample .form-defaultinfo {
     white-space: pre-wrap;
 }
 
-#admin-codeexample .form-defaultinfo br {
+#page-admin-setting-filtersettingsynhi #admin-codeexample .form-defaultinfo br {
     display: none;
 }
