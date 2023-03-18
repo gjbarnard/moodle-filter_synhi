@@ -17,6 +17,7 @@ pre.synhi {
     display: none;
 }
 
+/* Englighter fixes */
 body .enlighter-toolbar .enlighter-tooltip {
     padding: 8px 4px;
     width: auto;
@@ -25,38 +26,6 @@ body .enlighter-toolbar .enlighter-tooltip {
 body .enlighter-toolbar-top .enlighter-tooltip {
     bottom: auto;
     top: 30px;
-}
-
-body .enlighter-btn-raw .enlighter-tooltip {
-    transform: translateX(-26%);
-}
-
-body .enlighter-btn-raw .enlighter-tooltip::after {
-    left: 40%;
-}
-
-body .enlighter-btn-copy .enlighter-tooltip {
-    transform: translateX(-35%);
-}
-
-body .enlighter-btn-copy .enlighter-tooltip::after {
-    left: 44%;
-}
-
-body .enlighter-btn-window .enlighter-tooltip {
-    transform: translateX(-38%);
-}
-
-body .enlighter-btn-window .enlighter-tooltip::after {
-    left: 47%;
-}
-
-body .enlighter-btn-website .enlighter-tooltip {
-    transform: translateX(-10%);
-}
-
-body .enlighter-btn-website .enlighter-tooltip::after {
-    left: 44%;
 }
 
 body .enlighter-toolbar-top .enlighter-tooltip::after {
@@ -71,6 +40,151 @@ body .enlighter-toolbar-bottom.enlighter-toolbar {
     top: auto;
 }
 
-body .enlighter-btn-collapse .enlighter-tooltip {
+/* Enlighter theme */
+body .enlighter-t-atomic .enlighter-btn-raw .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-atomic .enlighter-btn-raw .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-atomic .enlighter-btn-copy .enlighter-tooltip {
+    transform: translateX(-34%);
+}
+
+body .enlighter-t-atomic .enlighter-btn-copy .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-atomic .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-40%);
+}
+
+body .enlighter-t-atomic .enlighter-btn-window .enlighter-tooltip::after {
+    left: 50%;
+}
+
+body .enlighter-t-atomic .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-8%);
+}
+
+body .enlighter-t-atomic .enlighter-btn-website .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-atomic .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-50%);
+}
+
+body .enlighter-t-atomic .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 50%;
+}
+
+body .enlighter-t-beyond .enlighter-btn-raw .enlighter-tooltip {
+    transform: translateX(-34%);
+}
+
+body .enlighter-t-beyond .enlighter-btn-raw .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-beyond .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-beyond .enlighter-btn-window .enlighter-tooltip::after {
+    left: 42%;
+}
+
+body .enlighter-t-beyond .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-56%);
+}
+
+body .enlighter-t-beyond .enlighter-btn-website .enlighter-tooltip::after {
+    left: 65%;
+}
+
+body .enlighter-t-beyond .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-beyond .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 54%;
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-raw .enlighter-tooltip {
+    transform: translateX(-34%);
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-raw .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-copy .enlighter-tooltip {
+    transform: translateX(-36%);
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-copy .enlighter-tooltip::after {
+    left: 45%;
+}
+body .enlighter-t-bootstrap4 .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-window .enlighter-tooltip::after {
+    left: 42%;
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-9%);
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-website .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-50%);
+}
+
+body .enlighter-t-bootstrap4 .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 50%;
+}
+
+body .enlighter-t-dracula .enlighter-btn-raw .enlighter-tooltip {
+    transform: translateX(-26%);
+}
+
+body .enlighter-t-dracula .enlighter-btn-raw .enlighter-tooltip::after {
+    left: 40%;
+}
+
+body .enlighter-t-dracula .enlighter-btn-copy .enlighter-tooltip {
+    transform: translateX(-35%);
+}
+
+body .enlighter-t-dracula .enlighter-btn-copy .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-dracula .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+}
+
+body .enlighter-t-dracula .enlighter-btn-window .enlighter-tooltip::after {
+    left: 47%;
+}
+
+body .enlighter-t-dracula .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-10%);
+}
+
+body .enlighter-t-dracula .enlighter-btn-website .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-dracula .enlighter-btn-collapse .enlighter-tooltip {
     transform: translateX(-52%);
 }
+
