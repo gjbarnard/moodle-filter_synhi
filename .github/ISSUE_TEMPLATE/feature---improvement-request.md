@@ -21,7 +21,7 @@ Add any other context or screenshots about the feature request here.
 
 **Versions you are currently using (please complete the following information):**
  - Moodle: [e.g. 4.1]
- - Filter: [e.g. 401.0.1]
+ - Filter: [e.g. 39.1.0]
  - Browser and version [e.g. Chrome Version 108.0.5359.125 (Official Build) (64-bit) on Windows 10]
 
 ** Funding **
