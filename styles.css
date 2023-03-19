@@ -40,7 +40,9 @@ body .enlighter-toolbar-bottom.enlighter-toolbar {
     top: auto;
 }
 
-/* Enlighter theme */
+/* Enlighter themes:
+   Atomic */
+
 body .enlighter-t-atomic .enlighter-btn-raw .enlighter-tooltip {
     transform: translateX(-30%);
 }
@@ -66,11 +68,12 @@ body .enlighter-t-atomic .enlighter-btn-window .enlighter-tooltip::after {
 }
 
 body .enlighter-t-atomic .enlighter-btn-website .enlighter-tooltip {
-    transform: translateX(-8%);
+    transform: translateX(-36%);
+    width: 120px;
 }
 
 body .enlighter-t-atomic .enlighter-btn-website .enlighter-tooltip::after {
-    left: 44%;
+    left: 58%;
 }
 
 body .enlighter-t-atomic .enlighter-btn-collapse .enlighter-tooltip {
@@ -81,6 +84,7 @@ body .enlighter-t-atomic .enlighter-btn-collapse .enlighter-tooltip::after {
     left: 50%;
 }
 
+/* Beyond */
 body .enlighter-t-beyond .enlighter-btn-raw .enlighter-tooltip {
     transform: translateX(-34%);
 }
@@ -90,7 +94,8 @@ body .enlighter-t-beyond .enlighter-btn-raw .enlighter-tooltip::after {
 }
 
 body .enlighter-t-beyond .enlighter-btn-window .enlighter-tooltip {
-    transform: translateX(-30%);
+    transform: translateX(-49%);
+    width: 100px;
 }
 
 body .enlighter-t-beyond .enlighter-btn-window .enlighter-tooltip::after {
@@ -98,11 +103,12 @@ body .enlighter-t-beyond .enlighter-btn-window .enlighter-tooltip::after {
 }
 
 body .enlighter-t-beyond .enlighter-btn-website .enlighter-tooltip {
-    transform: translateX(-56%);
+    transform: translateX(-75%);
+    width: 108px;
 }
 
 body .enlighter-t-beyond .enlighter-btn-website .enlighter-tooltip::after {
-    left: 65%;
+    left: 81%;
 }
 
 body .enlighter-t-beyond .enlighter-btn-collapse .enlighter-tooltip {
@@ -113,6 +119,7 @@ body .enlighter-t-beyond .enlighter-btn-collapse .enlighter-tooltip::after {
     left: 54%;
 }
 
+/* Bootstrap 4 */
 body .enlighter-t-bootstrap4 .enlighter-btn-raw .enlighter-tooltip {
     transform: translateX(-34%);
 }
@@ -137,11 +144,12 @@ body .enlighter-t-bootstrap4 .enlighter-btn-window .enlighter-tooltip::after {
 }
 
 body .enlighter-t-bootstrap4 .enlighter-btn-website .enlighter-tooltip {
-    transform: translateX(-9%);
+    transform: translateX(-36%);
+    width: 108px;
 }
 
 body .enlighter-t-bootstrap4 .enlighter-btn-website .enlighter-tooltip::after {
-    left: 44%;
+    left: 57%;
 }
 
 body .enlighter-t-bootstrap4 .enlighter-btn-collapse .enlighter-tooltip {
@@ -152,6 +160,42 @@ body .enlighter-t-bootstrap4 .enlighter-btn-collapse .enlighter-tooltip::after {
     left: 50%;
 }
 
+/* Classic */
+body .enlighter-t-classic .enlighter-btn-raw .enlighter-tooltip {
+    transform: translateX(-32%);
+}
+
+body .enlighter-t-classic .enlighter-btn-raw .enlighter-tooltip::after {
+    left: 42%;
+}
+
+body .enlighter-t-classic .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-44%);
+    width: 100px;
+}
+
+body .enlighter-t-classic .enlighter-btn-window .enlighter-tooltip::after {
+    left: 50%;
+}
+
+body .enlighter-t-classic .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-76%);
+    width: 108px;
+}
+
+body .enlighter-t-classic .enlighter-btn-website .enlighter-tooltip::after {
+    left: 81%;
+}
+
+body .enlighter-t-classic .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-29%);
+}
+
+body .enlighter-t-classic .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
+
+/* Dracula - Where's Buffy?! */
 body .enlighter-t-dracula .enlighter-btn-raw .enlighter-tooltip {
     transform: translateX(-26%);
 }
@@ -161,30 +205,37 @@ body .enlighter-t-dracula .enlighter-btn-raw .enlighter-tooltip::after {
 }
 
 body .enlighter-t-dracula .enlighter-btn-copy .enlighter-tooltip {
-    transform: translateX(-35%);
-}
-
-body .enlighter-t-dracula .enlighter-btn-copy .enlighter-tooltip::after {
-    left: 44%;
-}
-
-body .enlighter-t-dracula .enlighter-btn-window .enlighter-tooltip {
     transform: translateX(-38%);
 }
 
+body .enlighter-t-dracula .enlighter-btn-copy .enlighter-tooltip::after {
+    left: 48%;
+}
+
+body .enlighter-t-dracula .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-32%);
+    width: 90px;
+}
+
 body .enlighter-t-dracula .enlighter-btn-window .enlighter-tooltip::after {
-    left: 47%;
+    left: 43%;
 }
 
 body .enlighter-t-dracula .enlighter-btn-website .enlighter-tooltip {
-    transform: translateX(-10%);
+    transform: translateX(-32%);
+    width: 108px;
 }
 
 body .enlighter-t-dracula .enlighter-btn-website .enlighter-tooltip::after {
-    left: 44%;
+    left: 54%;
 }
 
 body .enlighter-t-dracula .enlighter-btn-collapse .enlighter-tooltip {
     transform: translateX(-52%);
 }
+
+body .enlighter-t-dracula .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 51%;
+}
+
 
