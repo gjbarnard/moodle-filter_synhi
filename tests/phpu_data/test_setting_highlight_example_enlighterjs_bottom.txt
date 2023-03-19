@@ -1,7 +1,7 @@
 
             </body>
             <script type='text/javascript' charset='utf-8' src='https://www.example.com/moodle/filter/synhi/javascript/EnlighterJS_3_6_0/scripts/enlighterjs.min.js'></script>
-            <script type='text/javascript' charset='utf-8'>EnlighterJS.init('pre code', 'code', {theme: 'godzilla', indent : 4});</script>
+            <script type='text/javascript' charset='utf-8'>EnlighterJS.init('pre code', 'code', {theme: 'godzilla', indent : 4, collapse: true});</script>
         </html>
     " onload="resize_setting_highlight_example_frame(this)"></iframe>
     <script>

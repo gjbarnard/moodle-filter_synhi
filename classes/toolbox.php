@@ -319,7 +319,7 @@ class toolbox {
         $data = new stdClass;
         $data->thejs = new moodle_url(self::ENLIGHTERJSJS);
         $data->thecss = new moodle_url(self::ENLIGHTERJSCSSPRE.$config->enlighterjsstyle.self::ENLIGHTERJSCSSPOST);
-        $data->theinit = "EnlighterJS.init('pre code', 'code', {theme: '".$config->enlighterjsstyle."', indent : 4});";
+        $data->theinit = "EnlighterJS.init('pre code', 'code', {theme: '".$config->enlighterjsstyle."', indent : 4, collapse: true});";
 
         return $data;
     }
