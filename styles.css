@@ -238,4 +238,172 @@ body .enlighter-t-dracula .enlighter-btn-collapse .enlighter-tooltip::after {
     left: 51%;
 }
 
+/* Droide */
+body .enlighter-t-droide .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+    width: 90px;
+}
 
+body .enlighter-t-droide .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-droide .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-80%);
+    width: 132px;
+}
+
+body .enlighter-t-droide .enlighter-btn-website .enlighter-tooltip::after {
+    left: 84%;
+}
+
+body .enlighter-t-droide .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-droide .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
+
+/* Eclipse */
+body .enlighter-t-eclipse .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+    width: 90px;
+}
+
+body .enlighter-t-eclipse .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-eclipse .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-80%);
+    width: 132px;
+}
+
+body .enlighter-t-eclipse .enlighter-btn-website .enlighter-tooltip::after {
+    left: 84%;
+}
+
+body .enlighter-t-eclipse .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-eclipse .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
+
+/* Enlighter */
+body .enlighter-t-enlighter .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+    width: 90px;
+}
+
+body .enlighter-t-enlighter .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-enlighter .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-80%);
+    width: 132px;
+}
+
+body .enlighter-t-enlighter .enlighter-btn-website .enlighter-tooltip::after {
+    left: 84%;
+}
+
+body .enlighter-t-enlighter .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-enlighter .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
+
+/* Godzilla */
+body .enlighter-t-godzilla .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+    width: 90px;
+}
+
+body .enlighter-t-godzilla .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-godzilla .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-80%);
+    width: 132px;
+}
+
+body .enlighter-t-godzilla .enlighter-btn-website .enlighter-tooltip::after {
+    left: 84%;
+}
+
+body .enlighter-t-godzilla .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-godzilla .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
+
+/* Minimal */
+body .enlighter-t-minimal .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+    width: 90px;
+}
+
+body .enlighter-t-minimal .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-minimal .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-80%);
+    width: 132px;
+}
+
+body .enlighter-t-minimal .enlighter-btn-website .enlighter-tooltip::after {
+    left: 84%;
+}
+
+body .enlighter-t-minimal .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-minimal .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
+
+/* Monokai */
+body .enlighter-t-monokai .enlighter-btn-raw .enlighter-tooltip {
+    transform: translateX(-32%);
+}
+
+body .enlighter-t-monokai .enlighter-btn-raw .enlighter-tooltip::after {
+    left: 42%;
+}
+
+body .enlighter-t-monokai .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-30%);
+    width: 90px;
+}
+
+body .enlighter-t-monokai .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-monokai .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-48%);
+    width: 132px;
+}
+
+body .enlighter-t-monokai .enlighter-btn-website .enlighter-tooltip::after {
+    left: 66%;
+}
+
+body .enlighter-t-monokai .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-52%);
+}
+
+body .enlighter-t-monokai .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
