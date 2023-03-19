@@ -407,3 +407,57 @@ body .enlighter-t-monokai .enlighter-btn-collapse .enlighter-tooltip {
 body .enlighter-t-monokai .enlighter-btn-collapse .enlighter-tooltip::after {
     left: 52%;
 }
+
+/* Mow Two */
+body .enlighter-t-mowtwo .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+    width: 90px;
+}
+
+body .enlighter-t-mowtwo .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-mowtwo .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-80%);
+    width: 132px;
+}
+
+body .enlighter-t-mowtwo .enlighter-btn-website .enlighter-tooltip::after {
+    left: 84%;
+}
+
+body .enlighter-t-mowtwo .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-mowtwo .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
+
+/* Row Hammer */
+body .enlighter-t-rowhammer .enlighter-btn-window .enlighter-tooltip {
+    transform: translateX(-38%);
+    width: 90px;
+}
+
+body .enlighter-t-rowhammer .enlighter-btn-window .enlighter-tooltip::after {
+    left: 44%;
+}
+
+body .enlighter-t-rowhammer .enlighter-btn-website .enlighter-tooltip {
+    transform: translateX(-80%);
+    width: 132px;
+}
+
+body .enlighter-t-rowhammer .enlighter-btn-website .enlighter-tooltip::after {
+    left: 84%;
+}
+
+body .enlighter-t-rowhammer .enlighter-btn-collapse .enlighter-tooltip {
+    transform: translateX(-30%);
+}
+
+body .enlighter-t-rowhammer .enlighter-btn-collapse .enlighter-tooltip::after {
+    left: 52%;
+}
