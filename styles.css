@@ -18,6 +18,10 @@ pre.synhi {
 }
 
 /* Englighter fixes */
+body .enlighter-toolbar {
+    right: 30px;
+}
+
 body .enlighter-toolbar .enlighter-tooltip {
     padding: 8px 4px;
     width: auto;
@@ -36,7 +40,6 @@ body .enlighter-toolbar-top .enlighter-tooltip::after {
 
 body .enlighter-toolbar-bottom.enlighter-toolbar {
     bottom: 10px;
-    right: 20px;
     top: auto;
 }
 
