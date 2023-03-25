@@ -40,6 +40,10 @@ if ($ADMIN->fulltree) {
 
     // Readme.md.
     $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterreadme', '', '', 'Readme.md'));
+
+    // Changes.md.
+    $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterchanges',
+        get_string('informationchanges', 'filter_synhi'), '', 'Changes.md'));
 }
 $ADMIN->add('filter_synhi', $page);
 
