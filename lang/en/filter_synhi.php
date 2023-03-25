@@ -49,5 +49,18 @@ $string['informationheading'] = 'Information';
 $string['informationheadingdesc'] = 'Information about the filter.';
 $string['syntaxhighlighterinformation'] = 'For SyntaxHighlighter, surround your code with a \'pre\' tag and add the class="brush: alias" where \'alias\' (in brackets) is one of the following:<br><ul><li>ActionScript3 (as3, actionscript3)</li><li>Bash/shell (bash, shell)</li><li>ColdFusion (cf, coldfusion)</li><li>C# (c-sharp, csharp)</li><li>C++ (cpp, c)</li><li>CSS (css)</li><li>Delphi (delphi, pas, pascal)</li><li>Diff (diff, patch)</li><li>Erlang (erl, erlang)</li><li>Groovy (groovy)</li><li>JavaScript (js, jscript, javascript)</li><li>Java (java)</li><li>JavaFX (jfx, javafx)</li><li>Perl (perl, pl)</li><li>PHP (php)</li><li>Plain Text (plain, text)</li><li>PowerShell (ps, powershell)</li><li>Python (py, python)</li><li>Ruby (rails, ror, ruby)</li><li>Scala (scala)</li><li>SQL (sql)</li><li>Visual Basic (vb, vbnet)</li><li>XML (xml, xhtml, xslt, html, xhtml)</li></ul>';
 
+// Information settings.
+$string['information'] = 'Information';
+$string['informationsettings'] = 'Information settings';
+$string['informationsettingsdesc'] = 'SynHi filter information';
+$string['settings'] = 'Settings';
+$string['settingssettings'] = 'Settings settings';
+$string['settingssettingsdesc'] = 'SynHi filter settings';
+$string['versioninfo'] = 'Release {$a->release}, version {$a->version} on Moodle {$a->moodle}';
+$string['versionalpha'] = 'Alpha version - Almost certainly contains bugs.  This is a development version for developers \'only\'!  Don\'t even think of installing on a production server!';
+$string['versionbeta'] = 'Beta version - Likely to contain bugs.  Ready for testing by administrators on a test server only.';
+$string['versionrc'] = 'Release candidate version - May contain bugs.  Check completely on a test server before considering on a production server.';
+$string['versionstable'] = 'Stable version - Could contain bugs.  Check on a test server before installing on your production server.';
+
 // Privacy.
 $string['privacy:nop'] = 'The SynHi filter stores settings that pertain to its configuration.  None of the settings are related to a specific user.  It is your responsibilty to ensure that no user data is entered in any free text fields.  Setting a setting will result in that action being logged within the core Moodle logging system against the user whom changed it, this is outside of the filters control, please see the core logging system for privacy compliance for this.  Please examine the code carefully to be sure that it complies with your interpretation of your privacy laws.  I am not a lawyer and my analysis is based on my interpretation.  If you have any doubt then remove the filter forthwith.';
