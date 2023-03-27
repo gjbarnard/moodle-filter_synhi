@@ -51,7 +51,7 @@ class admin_setting_markdown extends \admin_setting {
     public function __construct($name, $visiblename, $description, $filename, $pluginpath) {
         $this->nosave = true;
         $this->filename = $filename;
-        $this->pluginpath = '/'.$pluginpath;
+        $this->pluginpath = $pluginpath;
         parent::__construct($name, $visiblename, $description, '');
     }
 
@@ -98,8 +98,8 @@ class admin_setting_markdown extends \admin_setting {
         $context->title = $this->visiblename;
         $context->description = $this->description;
 
-        if (file_exists("{$CFG->dirroot}{$this->pluginpath}/{$this->filename}")) {
-            $filecontents = file_get_contents($CFG->dirroot.$this->pluginpath.'/'.$this->filename);
+        if (file_exists("{$CFG->dirroot}/{$this->pluginpath}/{$this->filename}")) {
+            $filecontents = file_get_contents($CFG->dirroot.'/'.$this->pluginpath.'/'.$this->filename);
         } else {
             $filecontents = 'SynHi filter admin_setting_markdown -> file not found: '.$this->filename;
         }
@@ -136,7 +136,7 @@ class admin_setting_markdown extends \admin_setting {
                 if ($url[0] == '/') {
                     $hasslash = '';
                 }
-                $murl = new \moodle_url($this->pluginpath.$hasslash.$url);
+                $murl = new \moodle_url('/'.$this->pluginpath.$hasslash.$url);
                 $url = $murl->out(true);
             }
             return $url;
