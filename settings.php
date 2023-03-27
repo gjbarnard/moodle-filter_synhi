@@ -39,11 +39,11 @@ if ($ADMIN->fulltree) {
     $page->add(new \filter_synhi\admin_setting_information('filter_synhi/formatinformation', '', '', 39, 401));
 
     // Readme.md.
-    $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterreadme', '', '', 'Readme.md'));
+    $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterreadme', '', '', 'Readme.md', 'filter/synhi'));
 
     // Changes.md.
     $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterchanges',
-        get_string('informationchanges', 'filter_synhi'), '', 'Changes.md'));
+        get_string('informationchanges', 'filter_synhi'), '', 'Changes.md', 'filter/synhi'));
 }
 $ADMIN->add('filter_synhi', $page);
 

@@ -36,6 +36,9 @@ class admin_setting_markdown extends \admin_setting {
     /** @var string Filename */
     private $filename;
 
+    /** @var string Plugin path */
+    private $pluginpath;
+
     /**
      * Not a setting, just markup.
      *
@@ -43,10 +46,12 @@ class admin_setting_markdown extends \admin_setting {
      * @param string $visiblename Setting name on the device.
      * @param string $description Setting description on the device.
      * @param string $filename The file to show.
+     * @param string $pluginpath The plugin's path, without opening or closing slashes.
      */
-    public function __construct($name, $visiblename, $description, $filename) {
+    public function __construct($name, $visiblename, $description, $filename, $pluginpath) {
         $this->nosave = true;
         $this->filename = $filename;
+        $this->pluginpath = '/'.$pluginpath;
         parent::__construct($name, $visiblename, $description, '');
     }
 
@@ -93,13 +98,50 @@ class admin_setting_markdown extends \admin_setting {
         $context->title = $this->visiblename;
         $context->description = $this->description;
 
-        if (file_exists("{$CFG->dirroot}/filter/synhi/{$this->filename}")) {
-            $filecontents = file_get_contents($CFG->dirroot.'/filter/synhi/'.$this->filename);
+        if (file_exists("{$CFG->dirroot}{$this->pluginpath}/{$this->filename}")) {
+            $filecontents = file_get_contents($CFG->dirroot.$this->pluginpath.'/'.$this->filename);
         } else {
             $filecontents = 'SynHi filter admin_setting_markdown -> file not found: '.$this->filename;
         }
-        $context->markdown = format_text($filecontents, FORMAT_MARKDOWN);
+
+        if ($filecontents === '' or $filecontents === null) {
+            $context->markdown = '';
+        } else {
+            $context->markdown = $this->markdown_to_html($filecontents);
+        }
 
         return $OUTPUT->render_from_template('filter_synhi/synhi_admin_setting_markdown', $context);
+    }
+
+    /**
+     * Returns an HTML string from the supplied markdown.
+     * Replaces 'format_text($text, FORMAT_MARKDOWN)' call in order to process relative url's.
+     * Ref: https://michelf.ca/projects/php-markdown/configuration/
+     *
+     * @param string $markdown The markdown.
+     * @return string Returns an HTML string
+     */
+    private function markdown_to_html($markdown) {
+        global $CFG;
+
+        require_once($CFG->libdir .'/markdown/MarkdownInterface.php');
+        require_once($CFG->libdir .'/markdown/Markdown.php');
+        require_once($CFG->libdir .'/markdown/MarkdownExtra.php');
+
+        $parser = new \Michelf\MarkdownExtra;
+        $parser->url_filter_func = function ($url) {
+            if (strpos($url, '://') == false) {
+                // Relative url.
+                $hasslash = '/';
+                if ($url[0] == '/') {
+                    $hasslash = '';
+                }
+                $murl = new \moodle_url($this->pluginpath.$hasslash.$url);
+                $url = $murl->out(true);
+            }
+            return $url;
+        };
+
+        return format_text($parser->transform($markdown), FORMAT_HTML);
     }
 }
