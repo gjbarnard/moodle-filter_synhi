@@ -1,6 +1,5 @@
 Introduction
 ============
-SynHi Filter.
 
 A syntax highlighter filter for Moodle with the choice of either EnlighterJS or SyntaxHighlighter
 as the 'engine'.  The administrator has 'preview' settings to see what the look will be on example
@@ -22,13 +21,53 @@ Screenshots
 
 ![Highlight preview](/pix/synhi_admin_anim.gif "Previewing the engine and style before setting on the systems administration screen")
 
+Usage
+=====
+
+Prior to version 39.1.0, the 'pre' tag was accepted on its own for code to be highlighted.  This proved problematic with the need
+to have non-code preformatted but not highlighted.  To highlight code now, please use the 'code' tag, and surround with a 'pre' tag
+to indicate a block of code.  With 'EnlighterJS', using a 'code' tag on its own indicates 'inline' code.  'SyntaxHighlighter' will
+highlight the code in a block regardless of if there is an enclosing 'pre' tag.
+
+Please add any configuration attributes to the 'code' tag.  Such as '[EnlighterJS - HTML Attribute Options (local)](https://github.com/EnlighterJS/documentation/blob/master/development/Options.md#html-attribute-options-local)' or for SyntaxHighlighter, please look at the information on the settings page.
+
+For example
+-----------
+
+### Single line
+
+`<code data-enlighter-language="java" class="brush: java">System.out.println("SynHi");</code>`
+
+### Muiltiple lines
+
+```
+<pre><code data-enlighter-language="java" class="brush: java">
+   package test;
+
+   public class Test {
+      private final String name = "Java program";
+
+      public static void main (String args[]) {
+         Test us = new Test();
+         System.out.println(us.getName());
+      }
+
+      public String getName() {
+         return name;
+      }
+   }
+</code></pre>
+```
+
 Free Software
 =============
 The SynHi filter is 'free' software under the terms of the GNU GPLv3 License, please see 'COPYING.txt'.  It
 contains third party 'highlighers' which are licensed differenty, see 'Highlighters'.
 
 It can be obtained for free from:
-https://github.com/gjb2048/moodle-filter_synhi/releases
+
+- https://moodle.org/plugins/filter_synhi?lang=pl
+- https://github.com/gjb2048/moodle-filter_synhi/releases
 
 You have all the rights granted to you by the GPLv3 license.  If you are unsure about anything, then the
 FAQ - www.gnu.org/licenses/gpl-faq.html - is a good place to look.
@@ -41,8 +80,8 @@ benefits.
 
 Highlighters
 ------------
-EnlighterJS - https://github.com/EnlighterJS/EnlighterJS - Mozilla Public License 2.0 (MPL-2.0).
-SyntaxHighlighter - https://github.com/syntaxhighlighter/syntaxhighlighter - MIT licensed.
+- EnlighterJS - https://github.com/EnlighterJS/EnlighterJS - Mozilla Public License 2.0 (MPL-2.0).
+- SyntaxHighlighter - https://github.com/syntaxhighlighter/syntaxhighlighter - MIT licensed.
 
 Support
 =======
