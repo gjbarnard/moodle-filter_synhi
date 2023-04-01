@@ -1,6 +1,6 @@
 Version Information
 ===================
-Version 39.1.0 - TBR
+Version 39.1.0 - 01/04/23
 --------------------------
 1. Changed to semantic versioning 2.0.0 (https://semver.org/) for the release value, whereby the 'major' number is the minimum Moodle
    core branch number.  The 'version' property still needs to follow the Moodle way in order for the plugin to operate within the core
