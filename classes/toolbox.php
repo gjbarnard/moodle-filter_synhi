@@ -157,8 +157,8 @@ class toolbox {
             $output[] = mb_substr($text, 0, $codepos); // The markup up to the first 'code' tag.
         }
         while ($codepos !== false) {
-            $forwardpos = strpos($text, '>', $currentpos);
-            $temppos = strpos($text, '<', $currentpos + 1);
+            $forwardpos = mb_strpos($text, '>', $currentpos);
+            $temppos = mb_strpos($text, '<', $currentpos + 1);
             if (($forwardpos === false) || ($temppos == false) || ($forwardpos > $temppos)) {
                 /* If the forward position is greater than the temporary position then that
                    means that the closing greater than sign is missing from the code tag =
@@ -169,7 +169,7 @@ class toolbox {
             $forwardpos++; // Past the greater than of the start code tag.
             $output[] = mb_substr($text, $currentpos, $forwardpos - $currentpos); // The start 'code' tag.
             $currentpos = $forwardpos;
-            $forwardpos = strpos($text, '</code>', $currentpos);
+            $forwardpos = mb_strpos($text, '</code>', $currentpos);
             if ($forwardpos === false) {
                 // Broken markup.
                 $broken = true;
@@ -180,7 +180,7 @@ class toolbox {
             $currentpos = $forwardpos + 7; // End of the contained code plus the end code tag length.
 
             // Is there another bit of code?
-            $codepos = strpos($text, '<code', $currentpos);
+            $codepos = mb_strpos($text, '<code', $currentpos);
             if ($codepos !== false) {
                 // Yes.
                 $output[] = mb_substr($text, $currentpos, $codepos - $currentpos); // The markup to the next 'code' tag.

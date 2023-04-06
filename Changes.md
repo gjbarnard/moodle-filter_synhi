@@ -2,6 +2,7 @@ Version Information
 ===================
 Version 39.1.1 - TBR
 --------------------------
+1. Fix 'non latin characters before the code block break highlighting' - #12.
 
 Version 39.1.0 - 01/04/23
 --------------------------

@@ -55,7 +55,7 @@ class filter_synhi extends moodle_text_filter {
                 ($this->context->contextlevel <= CONTEXT_BLOCK)
                 ) {
                 // Do a quick check to see if we have a tag.
-                $synpos = strpos($text, '<code');
+                $synpos = mb_strpos($text, '<code');
                 if ($synpos !== false) {
                     $config = get_config('filter_synhi');
                     if (!empty($config->engine)) {
