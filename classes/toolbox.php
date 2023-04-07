@@ -175,7 +175,8 @@ class toolbox {
                 $broken = true;
                 break;
             }
-            $output[] = htmlentities(mb_substr($text, $currentpos, $forwardpos - $currentpos)); // The contained code.
+            // HTML entities looks strange but the editor appears to convert some but not all, so convert back then convert all.
+            $output[] = htmlentities(html_entity_decode(mb_substr($text, $currentpos, $forwardpos - $currentpos)));  // The contained code.
             $output[] = '</code>'; // The end code tag.
             $currentpos = $forwardpos + 7; // End of the contained code plus the end code tag length.
 
