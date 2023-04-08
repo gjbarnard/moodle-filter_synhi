@@ -146,6 +146,13 @@ class toolbox {
         return self::$instance;
     }
 
+    /**
+     * Processes the text containing the 'code' and makes it ready for the highlighter.
+     * @param $text The text to process.
+     * @param $codepos The position of the first 'code' tag.
+     *
+     * @return string|false The processed text or false if broken.
+     */
     public function processtext(&$text, $codepos) {
         $currentpos = $codepos;
         $forwardpos = 0;

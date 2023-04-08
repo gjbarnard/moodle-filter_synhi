@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+// @codeCoverageIgnoreStart
+
 /**
  * SynHi filter.
  *
@@ -139,8 +141,10 @@ class toolbox_test extends \advanced_testcase {
         set_config('codeexample', \filter_synhi\toolbox::EXAMPLECODE, 'filter_synhi');
 
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt');
-        $theexpectedoutput .= '                &lt;pre&gt;&lt;code data-enlighter-language=&quot;java&quot; class=&quot;brush: java&quot;&gt;'.PHP_EOL;
+        $theexpectedoutput = file_get_contents(
+            $CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt');
+        $theexpectedoutput .= '                &lt;pre&gt;&lt;code data-enlighter-language=&quot;java&quot; '.
+            'class=&quot;brush: java&quot;&gt;'.PHP_EOL;
         $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
         $theexpectedoutput .= 'public class Test {'.PHP_EOL;
         $theexpectedoutput .= '    private final String name = &amp;quot;Java program&amp;quot;;'.PHP_EOL.PHP_EOL;
@@ -152,7 +156,8 @@ class toolbox_test extends \advanced_testcase {
         $theexpectedoutput .= '        return name;'.PHP_EOL;
         $theexpectedoutput .= '    }'.PHP_EOL;
         $theexpectedoutput .= '}'.PHP_EOL.'&lt;/code&gt;&lt;/pre&gt;';
-        $theexpectedoutput .= file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_bottom.txt');
+        $theexpectedoutput .= file_get_contents(
+            $CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_bottom.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
 
         $engine = 'valenta';
@@ -166,7 +171,8 @@ class toolbox_test extends \advanced_testcase {
         $style = 'fadetogrey';
         set_config('codeexample', '<code class="brush: php">echo \'This is a test not a drill\';</code>', 'filter_synhi');
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
-        $theexpectedoutput = file_get_contents($CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_syntaxhighlighter.txt');
+        $theexpectedoutput = file_get_contents(
+            $CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_syntaxhighlighter.txt');
         $this->assertEquals($theexpectedoutput, $thereturneddata);
     }
 
@@ -206,3 +212,4 @@ class toolbox_test extends \advanced_testcase {
         $this->assertEquals($thejsurl, $thereturneddata->thejs);
     }
 }
+// @codeCoverageIgnoreEnd

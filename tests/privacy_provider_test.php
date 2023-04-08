@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+// @codeCoverageIgnoreStart
+
 /**
  * SynHi filter.
  *
@@ -51,3 +53,4 @@ class privacy_provider_test extends \core_privacy\tests\provider_testcase {
         $this->assertSame('privacy:nop', $result);
     }
 }
+// @codeCoverageIgnoreEnd

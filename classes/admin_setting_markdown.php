@@ -104,7 +104,7 @@ class admin_setting_markdown extends \admin_setting {
             $filecontents = 'SynHi filter admin_setting_markdown -> file not found: '.$this->filename;
         }
 
-        if ($filecontents === '' or $filecontents === null) {
+        if ($filecontents === '' || $filecontents === null) {
             $context->markdown = '';
         } else {
             $context->markdown = $this->markdown_to_html($filecontents);
