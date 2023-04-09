@@ -1,6 +1,6 @@
 Version Information
 ===================
-Version 39.1.1 - TBR
+Version 39.1.1 - 09/04/23
 --------------------------
 1. Fix 'non latin characters before the code block break highlighting' - #12.
 2. Fix 'Less than and greater than symbols not rendering correctly'.
