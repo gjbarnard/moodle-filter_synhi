@@ -24,6 +24,7 @@
  */
 
 $string['filtername'] = 'SynHi';
+$string['pluginname'] = 'SynHi';
 
 // Settings.
 $string['engine'] = 'Engine';
