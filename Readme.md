@@ -67,7 +67,7 @@ contains third party 'highlighers' which are licensed differenty, see 'Highlight
 It can be obtained for free from:
 
 - https://moodle.org/plugins/filter_synhi?lang=pl
-- https://github.com/gjb2048/moodle-filter_synhi/releases
+- https://github.com/gjbarnard/moodle-filter_synhi/releases
 
 You have all the rights granted to you by the GPLv3 license.  If you are unsure about anything, then the
 FAQ - www.gnu.org/licenses/gpl-faq.html - is a good place to look.
@@ -75,7 +75,7 @@ FAQ - www.gnu.org/licenses/gpl-faq.html - is a good place to look.
 If you reuse any of the code then I kindly ask that you make reference to the filter.
 
 If you make improvements or bug fixes then I would appreciate if you would send them back to me by forking from
-https://github.com/gjb2048/moodle-filter_synhi and doing a 'Pull Request' so that the rest of the Moodle community
+https://github.com/gjbarnard/moodle-filter_synhi and doing a 'Pull Request' so that the rest of the Moodle community
 benefits.
 
 Highlighters
@@ -94,8 +94,8 @@ Sponsorships
 If you'd like to sponsor, get support or fund improvements, then please do get in touch via:
 
 - gjbarnard | Gmail dt com address.
-- GitHub | Please outline your issue / improvement on '[GitHub](https://github.com/gjb2048/moodle-format_topcoll/issues)'.
-- @gjbarnard | '[Twitter](https://twitter.com/gjbarnard)'.
+- GitHub | Please outline your issue / improvement on '[GitHub](https://github.com/gjbarnard/moodle-filter_synhi /issues)'.
+- @gjbarnard | '[X](https://twitter.com/gjbarnard)'.
 
 Required version of Moodle
 ==========================
@@ -107,6 +107,7 @@ This version works with:
  - Moodle 4.0 version 2022041900.00 (Build: 20220419) and above within the 4.0 branch.
  - Moodle 4.1 version 2022112800.00 (Build: 20221128) and above within the 4.1 branch.
  - Moodle 4.2 version 2023042400.00 (Build: 20230424) and above within the 4.2 branch.
+ - Moodle 4.3 version 2023100900.00 (Build: 20231009) and above within the 4.3 branch.
 
 Installing Moodle links
 -----------------------
@@ -117,6 +118,7 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
  - [Moodle 4.0](https://docs.moodle.org/400/en/Installing_Moodle)
  - [Moodle 4.1](https://docs.moodle.org/401/en/Installing_Moodle)
  - [Moodle 4.2](https://docs.moodle.org/402/en/Installing_Moodle)
+ - [Moodle 4.3](https://docs.moodle.org/403/en/Installing_Moodle)
 
 Installation
 ============
@@ -159,7 +161,7 @@ It is essential that you provide as much information as possible, the critical i
 version.php file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
 can be really useful in visualising the issue along with any files you consider to be relevant.
 
-Report issues on: https://github.com/gjb2048/moodle-filter_synhi/issues
+Report issues on: https://github.com/gjbarnard/moodle-filter_synhi/issues
 
 Version Information
 ===================
@@ -175,6 +177,6 @@ Developed and maintained by
 G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.
 
 - Moodle profile | [Moodle.org](https://moodle.org/user/profile.php?id=442195)
-- @gjbarnard     | [Twitter](https://twitter.com/gjbarnard)
+- @gjbarnard     | [X](https://twitter.com/gjbarnard)
 - Web profile    | [About.me](https://about.me/gjbarnard)
 - Website        | [Website](https://gjbarnard.co.uk)
