@@ -101,16 +101,22 @@ Required version of Moodle
 ==========================
 This version works with:
 
-- Moodle 3.9 version 2020061500.00 (Build: 20200615) and above within the 3.9 branch.
-- Moodle 3.10 version 2020110900.00 (Build: 20201109) and above within the 3.10 branch.
-- Moodle 3.11 version 2021051700.00 (Build: 20210517) and above within the 3.11 branch.
-- Moodle 4.0 version 2022041900.00 (Build: 20220419) and above within the 4.0 branch.
-- Moodle 4.1 version 2022112800.00 (Build: 20221128) and above within the 4.1 branch.
+ - Moodle 3.9 version 2020061500.00 (Build: 20200615) and above within the 3.9 branch.
+ - Moodle 3.10 version 2020110900.00 (Build: 20201109) and above within the 3.10 branch.
+ - Moodle 3.11 version 2021051700.00 (Build: 20210517) and above within the 3.11 branch.
+ - Moodle 4.0 version 2022041900.00 (Build: 20220419) and above within the 4.0 branch.
+ - Moodle 4.1 version 2022112800.00 (Build: 20221128) and above within the 4.1 branch.
+ - Moodle 4.2 version 2023042400.00 (Build: 20230424) and above within the 4.2 branch.
 
-Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-[3.9](https://docs.moodle.org/39/en/Installing_Moodle), [3.10](https://docs.moodle.org/310/en/Installing_Moodle),
-[3.11](https://docs.moodle.org/311/en/Installing_Moodle), [4.0](https://docs.moodle.org/400/en/Installing_Moodle),
-or [4.1](https://docs.moodle.org/401/en/Installing_Moodle) respectively.
+Installing Moodle links
+-----------------------
+Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on:
+ - [Moodle 3.9](https://docs.moodle.org/39/en/Installing_Moodle)
+ - [Moodle 3.10](https://docs.moodle.org/310/en/Installing_Moodle)
+ - [Moodle 3.11](https://docs.moodle.org/311/en/Installing_Moodle)
+ - [Moodle 4.0](https://docs.moodle.org/400/en/Installing_Moodle)
+ - [Moodle 4.1](https://docs.moodle.org/401/en/Installing_Moodle)
+ - [Moodle 4.2](https://docs.moodle.org/402/en/Installing_Moodle)
 
 Installation
 ============
