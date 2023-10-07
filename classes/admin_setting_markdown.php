@@ -32,7 +32,6 @@ namespace filter_synhi;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class admin_setting_markdown extends \admin_setting {
-
     /** @var string Filename */
     private $filename;
 
@@ -91,7 +90,7 @@ class admin_setting_markdown extends \admin_setting {
      * @param string $query
      * @return string Returns an HTML string
      */
-    public function output_html($data, $query='') {
+    public function output_html($data, $query = '') {
         global $CFG, $OUTPUT;
 
         $context = new \stdClass();
@@ -99,9 +98,9 @@ class admin_setting_markdown extends \admin_setting {
         $context->description = $this->description;
 
         if (file_exists("{$CFG->dirroot}/{$this->pluginpath}/{$this->filename}")) {
-            $filecontents = file_get_contents($CFG->dirroot.'/'.$this->pluginpath.'/'.$this->filename);
+            $filecontents = file_get_contents($CFG->dirroot . '/' . $this->pluginpath . '/' . $this->filename);
         } else {
-            $filecontents = 'SynHi filter admin_setting_markdown -> file not found: '.$this->filename;
+            $filecontents = 'SynHi filter admin_setting_markdown -> file not found: ' . $this->filename;
         }
 
         if ($filecontents === '' || $filecontents === null) {
@@ -124,11 +123,11 @@ class admin_setting_markdown extends \admin_setting {
     private function markdown_to_html($markdown) {
         global $CFG;
 
-        require_once($CFG->libdir .'/markdown/MarkdownInterface.php');
-        require_once($CFG->libdir .'/markdown/Markdown.php');
-        require_once($CFG->libdir .'/markdown/MarkdownExtra.php');
+        require_once($CFG->libdir . '/markdown/MarkdownInterface.php');
+        require_once($CFG->libdir . '/markdown/Markdown.php');
+        require_once($CFG->libdir . '/markdown/MarkdownExtra.php');
 
-        $parser = new \Michelf\MarkdownExtra;
+        $parser = new \Michelf\MarkdownExtra();
         $parser->url_filter_func = function ($url) {
             if (strpos($url, '://') == false) {
                 // Relative url.
@@ -136,7 +135,7 @@ class admin_setting_markdown extends \admin_setting {
                 if ($url[0] == '/') {
                     $hasslash = '';
                 }
-                $murl = new \moodle_url('/'.$this->pluginpath.$hasslash.$url);
+                $murl = new \moodle_url('/' . $this->pluginpath . $hasslash . $url);
                 $url = $murl->out(true);
             }
             return $url;

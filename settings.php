@@ -28,12 +28,17 @@ $settings = null;
 $ADMIN->add('filtersettings', new admin_category('filter_synhi', get_string('filtername', 'filter_synhi')));
 
 // Information.
-$page = new admin_settingpage('filter_synhi_information',
-    get_string('information', 'filter_synhi'));
+$page = new admin_settingpage(
+    'filter_synhi_information',
+    get_string('information', 'filter_synhi')
+);
 
 if ($ADMIN->fulltree) {
-    $page->add(new admin_setting_heading('filter_synhi_information', '',
-        format_text(get_string('informationsettingsdesc', 'filter_synhi'), FORMAT_MARKDOWN)));
+    $page->add(new admin_setting_heading(
+        'filter_synhi_information',
+        '',
+        format_text(get_string('informationsettingsdesc', 'filter_synhi'), FORMAT_MARKDOWN)
+    ));
 
     // Information.
     $page->add(new \filter_synhi\admin_setting_information('filter_synhi/formatinformation', '', '', 39, 401));
@@ -42,8 +47,13 @@ if ($ADMIN->fulltree) {
     $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterreadme', '', '', 'Readme.md', 'filter/synhi'));
 
     // Changes.md.
-    $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterchanges',
-        get_string('informationchanges', 'filter_synhi'), '', 'Changes.md', 'filter/synhi'));
+    $page->add(new \filter_synhi\admin_setting_markdown(
+        'filter_synhi/filterchanges',
+        get_string('informationchanges', 'filter_synhi'),
+        '',
+        'Changes.md',
+        'filter/synhi'
+    ));
 }
 $ADMIN->add('filter_synhi', $page);
 
@@ -55,11 +65,15 @@ if ($ADMIN->fulltree) {
     $title = get_string('engine', 'filter_synhi');
     $description = get_string('enginedesc', 'filter_synhi');
     $default = 'enlighterjs';
-    $setting = new admin_setting_configselect($name, $title, $description, $default,
-        array(
+    $setting = new admin_setting_configselect(
+        $name,
+        $title,
+        $description,
+        $default,
+        [
             'enlighterjs' => get_string('enlighterjs', 'filter_synhi'),
-            'syntaxhighlighter' => get_string('syntaxhighlighter', 'filter_synhi')
-        )
+            'syntaxhighlighter' => get_string('syntaxhighlighter', 'filter_synhi'),
+        ]
     );
     $page->add($setting);
 
@@ -68,7 +82,11 @@ if ($ADMIN->fulltree) {
     $title = get_string('enlighterjsstyle', 'filter_synhi');
     $description = get_string('styledesc', 'filter_synhi');
     $default = 'enlighter';
-    $setting = new admin_setting_configselect($name, $title, $description, $default,
+    $setting = new admin_setting_configselect(
+        $name,
+        $title,
+        $description,
+        $default,
         \filter_synhi\toolbox::ENLIGHTERJSSTYLES
     );
     $page->add($setting);
@@ -78,7 +96,11 @@ if ($ADMIN->fulltree) {
     $title = get_string('syntaxhighlighterstyle', 'filter_synhi');
     $description = get_string('styledesc', 'filter_synhi');
     $default = 'default';
-    $setting = new admin_setting_configselect($name, $title, $description, $default,
+    $setting = new admin_setting_configselect(
+        $name,
+        $title,
+        $description,
+        $default,
         \filter_synhi\toolbox::SYNTAXHIGHLIGHTERSTYLES
     );
     $page->add($setting);
@@ -99,20 +121,28 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Information.
-    $page->add(new admin_setting_heading('filter_synhi_information_heading',
+    $page->add(new admin_setting_heading(
+        'filter_synhi_information_heading',
         get_string('informationheading', 'filter_synhi'),
-        format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_PLAIN)));
+        format_text(get_string('informationheadingdesc', 'filter_synhi'), FORMAT_PLAIN)
+    ));
 
-    $page->add(new admin_setting_description('filter_synhi_general_information',
+    $page->add(new admin_setting_description(
+        'filter_synhi_general_information',
         'generalinformation',
-        '<p>'.get_string('generalinformation', 'filter_synhi').'</p>'));
+        '<p>' . get_string('generalinformation', 'filter_synhi') . '</p>'
+    ));
 
-    $page->add(new admin_setting_description('filter_synhi_enlighter_information',
+    $page->add(new admin_setting_description(
+        'filter_synhi_enlighter_information',
         'enlighterinformation',
-        '<p>'.get_string('enlighterinformation', 'filter_synhi').'</p>'));
+        '<p>' . get_string('enlighterinformation', 'filter_synhi') . '</p>'
+    ));
 
-    $page->add(new admin_setting_description('filter_synhi_syntaxhighlighter_information',
+    $page->add(new admin_setting_description(
+        'filter_synhi_syntaxhighlighter_information',
         'syntaxhighlighterinformation',
-        '<p>'.get_string('syntaxhighlighterinformation', 'filter_synhi').'</p>'));
+        '<p>' . get_string('syntaxhighlighterinformation', 'filter_synhi') . '</p>'
+    ));
 }
 $ADMIN->add('filter_synhi', $page);

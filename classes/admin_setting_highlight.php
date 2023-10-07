@@ -34,7 +34,6 @@ namespace filter_synhi;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class admin_setting_highlight extends \admin_setting {
-
     /**
      * Not a setting, just text
      *
@@ -83,7 +82,7 @@ class admin_setting_highlight extends \admin_setting {
      * @param string $query
      * @return string Returns an HTML string
      */
-    public function output_html($data, $query='') {
+    public function output_html($data, $query = '') {
         global $OUTPUT;
 
         $context = new \stdClass();

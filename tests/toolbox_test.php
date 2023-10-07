@@ -27,8 +27,8 @@
 
 namespace filter_synhi;
 
-use \moodle_url;
-use \stdClass;
+use moodle_url;
+use stdClass;
 
 /**
  * Toolbox unit tests for the SynHi filter.
@@ -38,7 +38,6 @@ use \stdClass;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class toolbox_test extends \advanced_testcase {
-
     /**
      * @var string EnlighterJS JS file.
      */
@@ -118,7 +117,7 @@ class toolbox_test extends \advanced_testcase {
         $thereturneddata = $this->instance->setting_highlight();
 
         $synhicssurl = new moodle_url(self::SYNHISTYLES);
-        $csstarget = self::ENLIGHTERJSCSSPRE.'default'.self::ENLIGHTERJSCSSPOST;
+        $csstarget = self::ENLIGHTERJSCSSPRE . 'default' . self::ENLIGHTERJSCSSPOST;
         $thecssurl = new moodle_url($csstarget);
         $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
         $thecode = "&lt;code&gt;echo 'This is a test not a drill';&lt;/code&gt;";
@@ -142,22 +141,24 @@ class toolbox_test extends \advanced_testcase {
 
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
         $theexpectedoutput = file_get_contents(
-            $CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt');
-        $theexpectedoutput .= '                &lt;pre&gt;&lt;code data-enlighter-language=&quot;java&quot; '.
-            'class=&quot;brush: java&quot;&gt;'.PHP_EOL;
-        $theexpectedoutput .= 'package test;'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= 'public class Test {'.PHP_EOL;
-        $theexpectedoutput .= '    private final String name = &amp;quot;Java program&amp;quot;;'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= '    public static void main (String args[]) {'.PHP_EOL;
-        $theexpectedoutput .= '        Test us = new Test();'.PHP_EOL;
-        $theexpectedoutput .= '        System.out.println(us.getName());'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL.PHP_EOL;
-        $theexpectedoutput .= '    public String getName() {'.PHP_EOL;
-        $theexpectedoutput .= '        return name;'.PHP_EOL;
-        $theexpectedoutput .= '    }'.PHP_EOL;
-        $theexpectedoutput .= '}'.PHP_EOL.'&lt;/code&gt;&lt;/pre&gt;';
+            $CFG->dirroot . '/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_top.txt'
+        );
+        $theexpectedoutput .= '                &lt;pre&gt;&lt;code data-enlighter-language=&quot;java&quot; ' .
+            'class=&quot;brush: java&quot;&gt;' . PHP_EOL;
+        $theexpectedoutput .= 'package test;' . PHP_EOL . PHP_EOL;
+        $theexpectedoutput .= 'public class Test {' . PHP_EOL;
+        $theexpectedoutput .= '    private final String name = &amp;quot;Java program&amp;quot;;' . PHP_EOL . PHP_EOL;
+        $theexpectedoutput .= '    public static void main (String args[]) {' . PHP_EOL;
+        $theexpectedoutput .= '        Test us = new Test();' . PHP_EOL;
+        $theexpectedoutput .= '        System.out.println(us.getName());' . PHP_EOL;
+        $theexpectedoutput .= '    }' . PHP_EOL . PHP_EOL;
+        $theexpectedoutput .= '    public String getName() {' . PHP_EOL;
+        $theexpectedoutput .= '        return name;' . PHP_EOL;
+        $theexpectedoutput .= '    }' . PHP_EOL;
+        $theexpectedoutput .= '}' . PHP_EOL . '&lt;/code&gt;&lt;/pre&gt;';
         $theexpectedoutput .= file_get_contents(
-            $CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_bottom.txt');
+            $CFG->dirroot . '/filter/synhi/tests/phpu_data/test_setting_highlight_example_enlighterjs_bottom.txt'
+        );
         $this->assertEquals($theexpectedoutput, $thereturneddata);
 
         $engine = 'valenta';
@@ -172,7 +173,8 @@ class toolbox_test extends \advanced_testcase {
         set_config('codeexample', '<code class="brush: php">echo \'This is a test not a drill\';</code>', 'filter_synhi');
         $thereturneddata = $this->instance->setting_highlight_example($engine, $style);
         $theexpectedoutput = file_get_contents(
-            $CFG->dirroot.'/filter/synhi/tests/phpu_data/test_setting_highlight_example_syntaxhighlighter.txt');
+            $CFG->dirroot . '/filter/synhi/tests/phpu_data/test_setting_highlight_example_syntaxhighlighter.txt'
+        );
         $this->assertEquals($theexpectedoutput, $thereturneddata);
     }
 
@@ -181,12 +183,15 @@ class toolbox_test extends \advanced_testcase {
      */
     public function test_enlighterjs_init() {
         $this->set_up();
-        $thedata = new stdClass;
+        $thedata = new stdClass();
         $thedata->enlighterjsstyle = 'default';
-        $thereturneddata = self::call_method($this->instance, 'enlighterjs_init',
-            array($thedata));
+        $thereturneddata = self::call_method(
+            $this->instance,
+            'enlighterjs_init',
+            [$thedata]
+        );
 
-        $csstarget = self::ENLIGHTERJSCSSPRE.$thedata->enlighterjsstyle.self::ENLIGHTERJSCSSPOST;
+        $csstarget = self::ENLIGHTERJSCSSPRE . $thedata->enlighterjsstyle . self::ENLIGHTERJSCSSPOST;
         $thecssurl = new moodle_url($csstarget);
         $thejsurl = new moodle_url(self::ENLIGHTERJSJS);
 
@@ -199,12 +204,15 @@ class toolbox_test extends \advanced_testcase {
      */
     public function test_syntaxhighlighter_init() {
         $this->set_up();
-        $thedata = new stdClass;
+        $thedata = new stdClass();
         $thedata->syntaxhighlighterstyle = 'default';
-        $thereturneddata = self::call_method($this->instance, 'syntaxhighlighter_init',
-            array($thedata));
+        $thereturneddata = self::call_method(
+            $this->instance,
+            'syntaxhighlighter_init',
+            [$thedata]
+        );
 
-        $csstarget = self::SYNTAXHIGHLIGHTERCSSPRE.$thedata->syntaxhighlighterstyle.self::SYNTAXHIGHLIGHTERCSSPOST;
+        $csstarget = self::SYNTAXHIGHLIGHTERCSSPRE . $thedata->syntaxhighlighterstyle . self::SYNTAXHIGHLIGHTERCSSPOST;
         $thecssurl = new moodle_url($csstarget);
         $thejsurl = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
 

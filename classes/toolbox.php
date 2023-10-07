@@ -25,8 +25,8 @@
 
 namespace filter_synhi;
 
-use \stdClass;
-use \moodle_url;
+use stdClass;
+use moodle_url;
 
 /**
  * SynHi filter.
@@ -75,7 +75,7 @@ class toolbox {
     /**
      * @var string Enlighter JS styles.
      */
-    public const ENLIGHTERJSSTYLES = array(
+    public const ENLIGHTERJSSTYLES = [
         'atomic' => 'Atomic',
         'beyond' => 'Beyond',
         'bootstrap4' => 'Bootstrap 4',
@@ -88,13 +88,13 @@ class toolbox {
         'minimal' => 'Minimal',
         'monokai' => 'Monokai',
         'mowtwo' => 'Mow Two',
-        'rowhammer' => 'Row Hammer'
-    );
+        'rowhammer' => 'Row Hammer',
+    ];
 
     /**
      * @var string Syntax Highlighter styles.
      */
-    public const SYNTAXHIGHLIGHTERSTYLES = array(
+    public const SYNTAXHIGHLIGHTERSTYLES = [
         'default' => 'Default',
         'django' => 'Django',
         'eclipse' => 'Eclipse',
@@ -103,8 +103,8 @@ class toolbox {
         'mdultra' => 'MD ultra',
         'midnight' => 'Midnight',
         'rdark' => 'R Dark',
-        'swift' => 'Swift'
-    );
+        'swift' => 'Swift',
+    ];
 
     /**
      * @var string SynHi styles CSS.
@@ -114,18 +114,18 @@ class toolbox {
     /**
      * @var string Default example code.
      */
-    public const EXAMPLECODE = '<pre><code data-enlighter-language="java" class="brush: java">'.PHP_EOL.
-    'package test;'.PHP_EOL.PHP_EOL.
-    'public class Test {'.PHP_EOL.
-    '    private final String name = "Java program";'.PHP_EOL.PHP_EOL.
-    '    public static void main (String args[]) {'.PHP_EOL.
-    '        Test us = new Test();'.PHP_EOL.
-    '        System.out.println(us.getName());'.PHP_EOL.
-    '    }'.PHP_EOL.PHP_EOL.
-    '    public String getName() {'.PHP_EOL.
-    '        return name;'.PHP_EOL.
-    '    }'.PHP_EOL.
-    '}'.PHP_EOL.
+    public const EXAMPLECODE = '<pre><code data-enlighter-language="java" class="brush: java">' . PHP_EOL .
+    'package test;' . PHP_EOL . PHP_EOL .
+    'public class Test {' . PHP_EOL .
+    '    private final String name = "Java program";' . PHP_EOL . PHP_EOL .
+    '    public static void main (String args[]) {' . PHP_EOL .
+    '        Test us = new Test();' . PHP_EOL .
+    '        System.out.println(us.getName());' . PHP_EOL .
+    '    }' . PHP_EOL . PHP_EOL .
+    '    public String getName() {' . PHP_EOL .
+    '        return name;' . PHP_EOL .
+    '    }' . PHP_EOL .
+    '}' . PHP_EOL .
     '</code></pre>';
 
     /**
@@ -157,7 +157,7 @@ class toolbox {
         $currentpos = $codepos;
         $forwardpos = 0;
         $temppos = 0;
-        $output = array();
+        $output = [];
         $broken = false;
 
         if ($codepos > 0) {
@@ -183,7 +183,10 @@ class toolbox {
                 break;
             }
             // HTML entities looks strange but the editor appears to convert some but not all, so convert back then convert all.
-            $output[] = htmlentities(html_entity_decode(mb_substr($text, $currentpos, $forwardpos - $currentpos)));  // The contained code.
+            $output[] = htmlentities(
+                html_entity_decode(mb_substr($text, $currentpos, $forwardpos - $currentpos), ENT_COMPAT),
+                ENT_COMPAT
+            ); // The contained code.
             $output[] = '</code>'; // The end code tag.
             $currentpos = $forwardpos + 7; // End of the contained code plus the end code tag length.
 
@@ -196,7 +199,7 @@ class toolbox {
             } else {
                 // No.
                 $rest = mb_substr($text, $currentpos); // The rest of the markup.
-                if (!empty ($rest)) {
+                if (!empty($rest)) {
                     $output[] = $rest;
                 }
             }
@@ -216,10 +219,10 @@ class toolbox {
         if (!empty($config->engine)) {
             global $PAGE;
 
-            $enginemethod = $config->engine.'_init';
+            $enginemethod = $config->engine . '_init';
             $init = $this->$enginemethod($config);
 
-            $data = array('data' => array());
+            $data = ['data' => []];
             $data['data']['thecss'] = $init->thecss->out();
             $data['data']['thejs'] = $init->thejs->out();
             if (!empty($init->theinit)) {
@@ -235,11 +238,11 @@ class toolbox {
      * @return array The data.
      */
     public function setting_highlight() {
-        $data = new stdClass;
+        $data = new stdClass();
 
         $config = get_config('filter_synhi');
         if (!empty($config->engine)) {
-            $enginemethod = $config->engine.'_init';
+            $enginemethod = $config->engine . '_init';
 
             // Note: To allow the iframe in the setting_highlight_example template to work, htmlentities is used.
             $data = $this->$enginemethod($config);
@@ -248,7 +251,7 @@ class toolbox {
             if ($synpos !== false) {
                 $markup = $this->processtext($config->codeexample, $synpos);
                 if ($markup !== false) {
-                    $data->code = htmlentities($markup);
+                    $data->code = htmlentities($markup, ENT_COMPAT);
                     $data->synhicss = new moodle_url(self::SYNHISTYLES);
                 } else {
                     $broken = true;
@@ -258,8 +261,8 @@ class toolbox {
             }
             if ($broken) {
                 global $OUTPUT;
-                $context = new stdClass;
-                $context->text = htmlentities($config->codeexample);
+                $context = new stdClass();
+                $context->text = htmlentities($config->codeexample, ENT_COMPAT);
                 $data->broken = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
             }
         }
@@ -288,8 +291,8 @@ class toolbox {
         if ($proceed) {
             global $OUTPUT, $PAGE;
 
-            $enginemethod = $engine.'_init';
-            $config = new stdClass;
+            $enginemethod = $engine . '_init';
+            $config = new stdClass();
             $config->enlighterjsstyle = $style;
             $config->syntaxhighlighterstyle = $style;
             $config->codeexample = get_config('filter_synhi', 'codeexample');
@@ -297,12 +300,12 @@ class toolbox {
             $context = $this->$enginemethod($config);
             $synpos = strpos($config->codeexample, '<code');
             if ($synpos !== false) {
-                $context->code = htmlentities($this->processtext($config->codeexample, $synpos));
+                $context->code = htmlentities($this->processtext($config->codeexample, $synpos), ENT_COMPAT);
                 $context->synhicss = new moodle_url(self::SYNHISTYLES);
             } else {
                 global $OUTPUT;
-                $context = new stdClass;
-                $context->text = htmlentities($config->codeexample);
+                $context = new stdClass();
+                $context->text = htmlentities($config->codeexample, ENT_COMPAT);
                 $context->code = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
             }
 
@@ -310,7 +313,7 @@ class toolbox {
             $markup = $OUTPUT->render_from_template('filter_synhi/setting_highlight_example', $context);
         } else {
             $markup = '<p id="setting_highlight_example_frame">';
-            $markup .= 'Invalid parameters passed to \'setting_highlight_example(\''.$engine.'\', \''.$style.'\')\'</p>';
+            $markup .= 'Invalid parameters passed to \'setting_highlight_example(\'' . $engine . '\', \'' . $style . '\')\'</p>';
         }
 
         return $markup;
@@ -324,10 +327,10 @@ class toolbox {
      * @return stdClass CSS & JS file moodle_url's, and any initialisation JS in a string.
      */
     private function enlighterjs_init($config) {
-        $data = new stdClass;
+        $data = new stdClass();
         $data->thejs = new moodle_url(self::ENLIGHTERJSJS);
-        $data->thecss = new moodle_url(self::ENLIGHTERJSCSSPRE.$config->enlighterjsstyle.self::ENLIGHTERJSCSSPOST);
-        $data->theinit = "EnlighterJS.init('pre code', 'code', {theme: '".$config->enlighterjsstyle."', indent : 4, collapse: true});";
+        $data->thecss = new moodle_url(self::ENLIGHTERJSCSSPRE . $config->enlighterjsstyle . self::ENLIGHTERJSCSSPOST);
+        $data->theinit = "EnlighterJS.init('pre code', 'code', {theme: '" . $config->enlighterjsstyle . "', indent : 4, collapse: true});";
 
         return $data;
     }
@@ -340,9 +343,9 @@ class toolbox {
      * @return stdClass CSS & JS file moodle_url's, and any initialisation JS in a string.
      */
     private function syntaxhighlighter_init($config) {
-        $data = new stdClass;
+        $data = new stdClass();
         $data->thejs = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
-        $data->thecss = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE.$config->syntaxhighlighterstyle.self::SYNTAXHIGHLIGHTERCSSPOST);
+        $data->thecss = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE . $config->syntaxhighlighterstyle . self::SYNTAXHIGHLIGHTERCSSPOST);
 
         return $data;
     }

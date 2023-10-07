@@ -32,7 +32,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class filter_synhi extends moodle_text_filter {
-
     /**
      * @var bool $done - true if the engine has been initialised already.
      */
@@ -46,14 +45,15 @@ class filter_synhi extends moodle_text_filter {
      *
      * @return string text after processing.
      */
-    public function filter($text, array $options = array()) {
+    public function filter($text, array $options = []) {
         // Basic test to avoid work.
         if (is_string($text)) {
             global $PAGE;
-            if (($PAGE->pagelayout != 'admin') &&
+            if (
+                ($PAGE->pagelayout != 'admin') &&
                 ($this->context->contextlevel >= CONTEXT_COURSE) &&
                 ($this->context->contextlevel <= CONTEXT_BLOCK)
-                ) {
+            ) {
                 // Do a quick check to see if we have a tag.
                 $synpos = mb_strpos($text, '<code');
                 if ($synpos !== false) {
@@ -65,7 +65,7 @@ class filter_synhi extends moodle_text_filter {
                             $text = $markup;
                         } else {
                             global $OUTPUT;
-                            $context = new stdClass;
+                            $context = new stdClass();
                             $context->text = $text;
                             $text = $OUTPUT->render_from_template('filter_synhi/broken_markup', $context);
                         }

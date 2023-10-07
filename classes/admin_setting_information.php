@@ -32,7 +32,6 @@ namespace filter_synhi;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class admin_setting_information extends \admin_setting {
-
     /** @var int The minimum branch this is for. */
     protected $minbranch;
 
@@ -91,7 +90,7 @@ class admin_setting_information extends \admin_setting {
      * @param string $query
      * @return string Returns an HTML string
      */
-    public function output_html($data, $query='') {
+    public function output_html($data, $query = '') {
         global $CFG, $OUTPUT;
 
         $filter = \core_plugin_manager::instance()->get_present_plugins('filter');
@@ -103,19 +102,21 @@ class admin_setting_information extends \admin_setting {
         }
 
         $classes[] = 'fa fa-heart';
-        $attributes = array();
+        $attributes = [];
         $attributes['aria-hidden'] = 'true';
         $attributes['class'] = 'fa fa-heart';
         $attributes['title'] = get_string('love', 'filter_synhi');
-        $content = \html_writer::tag('span', $attributes['title'], array('class' => 'sr-only'));
+        $content = \html_writer::tag('span', $attributes['title'], ['class' => 'sr-only']);
         $content = \html_writer::tag('span', $content, $attributes);
-        $context['versioninfo'] = get_string('versioninfo', 'filter_synhi',
-            array(
+        $context['versioninfo'] = get_string(
+            'versioninfo',
+            'filter_synhi',
+            [
                 'moodle' => $CFG->release,
                 'release' => $plugininfo->release,
                 'version' => $plugininfo->version,
-                'love' => $content
-            )
+                'love' => $content,
+            ]
         );
 
         if (!empty($plugininfo->maturity)) {
@@ -123,25 +124,25 @@ class admin_setting_information extends \admin_setting {
                 case MATURITY_ALPHA:
                     $context['maturity'] = get_string('versionalpha', 'filter_synhi');
                     $context['maturityalert'] = 'danger';
-                break;
+                    break;
                 case MATURITY_BETA:
                     $context['maturity'] = get_string('versionbeta', 'filter_synhi');
                     $context['maturityalert'] = 'danger';
-                break;
+                    break;
                 case MATURITY_RC:
                     $context['maturity'] = get_string('versionrc', 'filter_synhi');
                     $context['maturityalert'] = 'warning';
-                break;
+                    break;
                 case MATURITY_STABLE:
                     $context['maturity'] = get_string('versionstable', 'filter_synhi');
                     $context['maturityalert'] = 'info';
-                break;
+                    break;
             }
         }
 
         if (($CFG->branch < $this->minbranch) || ($CFG->branch > $this->maxbranch)) {
-            $context['versioncheck'] = 'Release '.$plugininfo->release.', version '.$plugininfo->version;
-            $context['versioncheck'] .= ' is incompatible with Moodle '.$CFG->release;
+            $context['versioncheck'] = 'Release ' . $plugininfo->release . ', version ' . $plugininfo->version;
+            $context['versioncheck'] .= ' is incompatible with Moodle ' . $CFG->release;
             $context['versioncheck'] .= ', please get the correct version from ';
             $context['versioncheck'] .= '<a href="https://moodle.org/plugins/filter_synhi" target="_blank">Moodle.org</a>.  ';
             $context['versioncheck'] .= 'If none is available, then please consider supporting the format by funding it.  ';
