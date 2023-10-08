@@ -151,13 +151,13 @@ Uninstallation
 Reporting Issues
 ================
 Before reporting an issue, please ensure that you are running the current version for your release of Moodle.  It is essential
-that you are operating the required version of Moodle as stated at the top - this is because the theme relies on core
+that you are operating the required version of Moodle as stated at the top - this is because the filter relies on core
 functionality that is out of its control.
 
 I operate a policy that I will fix all genuine issues for free.  Improvements are at my discretion.  I am happy to make bespoke
 customisations / improvements for a negotiated fee.
 
-It is essential that you provide as much information as possible, the critical information being the contents of the theme's
+It is essential that you provide as much information as possible, the critical information being the contents of the filter's
 version.php file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
 can be really useful in visualising the issue along with any files you consider to be relevant.
 
