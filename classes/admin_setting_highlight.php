@@ -37,9 +37,9 @@ class admin_setting_highlight extends \admin_setting {
     /**
      * Not a setting, just text
      *
-     * @param string $name
-     * @param string $visiblename
-     * @param string $description
+     * @param string $name Name of the setting.
+     * @param string $visiblename Visible name of the setting.
+     * @param string $description Description of the setting.
      */
     public function __construct($name, $visiblename, $description) {
         $this->nosave = true;

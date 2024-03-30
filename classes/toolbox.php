@@ -330,7 +330,8 @@ class toolbox {
         $data = new stdClass();
         $data->thejs = new moodle_url(self::ENLIGHTERJSJS);
         $data->thecss = new moodle_url(self::ENLIGHTERJSCSSPRE . $config->enlighterjsstyle . self::ENLIGHTERJSCSSPOST);
-        $data->theinit = "EnlighterJS.init('pre code', 'code', {theme: '" . $config->enlighterjsstyle . "', indent : 4, collapse: true});";
+        $data->theinit = "EnlighterJS.init('pre code', 'code', {theme: '" .
+            $config->enlighterjsstyle . "', indent : 4, collapse: true});";
 
         return $data;
     }
@@ -345,7 +346,8 @@ class toolbox {
     private function syntaxhighlighter_init($config) {
         $data = new stdClass();
         $data->thejs = new moodle_url(self::SYNTAXHIGHLIGHTERJS);
-        $data->thecss = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE . $config->syntaxhighlighterstyle . self::SYNTAXHIGHLIGHTERCSSPOST);
+        $data->thecss = new moodle_url(self::SYNTAXHIGHLIGHTERCSSPRE .
+            $config->syntaxhighlighterstyle . self::SYNTAXHIGHLIGHTERCSSPOST);
 
         return $data;
     }
