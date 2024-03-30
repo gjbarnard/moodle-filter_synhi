@@ -32,10 +32,14 @@ namespace filter_synhi;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class admin_setting_markdown extends \admin_setting {
-    /** @var string Filename */
+    /**
+     * @var string Filename
+     */
     private $filename;
 
-    /** @var string Plugin path */
+    /**
+     * @var string Plugin path
+     */
     private $pluginpath;
 
     /**

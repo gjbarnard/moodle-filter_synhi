@@ -32,10 +32,14 @@ namespace filter_synhi;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 class admin_setting_information extends \admin_setting {
-    /** @var int The minimum branch this is for. */
+    /**
+     * @var int The minimum branch this is for.
+     */
     protected $minbranch;
 
-    /** @var int The maximum branch this is for. */
+    /**
+     * @var int The maximum branch this is for.
+     */
     protected $maxbranch;
 
     /**
