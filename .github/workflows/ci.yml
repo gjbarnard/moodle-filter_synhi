@@ -27,8 +27,10 @@ jobs:
         include:
           - moodle-branch: 'MOODLE_402_STABLE'
             php: '8.0'
+            database: mariadb
           - moodle-branch: 'main'
             php: '8.2'
+            database: mariadb
 
     steps:
       - name: Check out repository code
