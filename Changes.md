@@ -1,5 +1,11 @@
 Version Information
 ===================
+
+Version 402.1.0 - TBR
+--------------------------
+1. Improve settings UI.
+2. Minimal version is now M4.2 - due to changes in core external API and to make use of tabs for settings.
+
 Version 39.1.2 - 08/10/23
 --------------------------
 1. Add missing 'pluginname' from language file.

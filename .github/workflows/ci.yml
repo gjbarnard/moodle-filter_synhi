@@ -22,7 +22,7 @@ jobs:
       fail-fast: true
       matrix:
         php: ['8.0', '8.2']
-        moodle-branch: ['MOODLE_403_STABLE']
+        moodle-branch: ['MOODLE_402_STABLE', 'main']
         database: [mariadb]
 
     steps:

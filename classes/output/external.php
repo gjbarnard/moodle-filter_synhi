@@ -25,6 +25,11 @@
 
 namespace filter_synhi\output;
 
+use core_external\external_api;
+use core_external\external_function_parameters;
+use core_external\external_single_structure;
+use core_external\external_value;
+
 /**
  * SynHi filter.
  *
@@ -33,7 +38,7 @@ namespace filter_synhi\output;
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class external extends \core\output\external {
+class external extends external_api {
     /**
      * Return generated markup.
      *
@@ -66,11 +71,11 @@ class external extends \core\output\external {
      * @return external_function_parameters
      */
     public static function setting_highlight_example_parameters() {
-        return new \external_function_parameters(
+        return new external_function_parameters(
             [
-                    'engine' => new \external_value(PARAM_TEXT, 'Engine', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
-                    'style' => new \external_value(PARAM_TEXT, 'Style', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
-                ]
+                'engine' => new external_value(PARAM_TEXT, 'Engine', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
+                'style' => new external_value(PARAM_TEXT, 'Style', VALUE_REQUIRED, null, NULL_NOT_ALLOWED),
+            ]
         );
     }
 
@@ -80,9 +85,9 @@ class external extends \core\output\external {
      * @return external_description
      */
     public static function setting_highlight_example_returns() {
-        return new \external_single_structure(
+        return new external_single_structure(
             [
-                    'markup' => new \external_value(PARAM_RAW, 'Markup'),
+                'markup' => new external_value(PARAM_RAW, 'Markup'),
             ],
             'Mustache template'
         );
