@@ -9,7 +9,8 @@ or
 Windows\
 
 vendor/bin/phpunit filter/synhi/tests/toolbox_test.php
-vendor\bin\phpunit filter/synhi/tests/toolbox_test.phpor
+or
+vendor\bin\phpunit filter/synhi/tests/toolbox_test.php
 
 
 vendor/bin/phpunit filter/synhi/tests/privacy_provider_test.php

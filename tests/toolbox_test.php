@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-// @codeCoverageIgnoreStart
-
 /**
  * SynHi filter.
  *
@@ -37,7 +35,7 @@ use stdClass;
  * @copyright  &copy; 2020-onwards G J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class toolbox_test extends \advanced_testcase {
+final class toolbox_test extends \advanced_testcase {
     /**
      * @var string EnlighterJS JS file.
      */
@@ -108,7 +106,7 @@ class toolbox_test extends \advanced_testcase {
     /**
      * Test the setting highlight.
      */
-    public function test_setting_highlight() {
+    public function test_setting_highlight(): void {
         $this->set_up();
         set_config('engine', 'enlighterjs', 'filter_synhi');
         set_config('enlighterjsstyle', 'default', 'filter_synhi');
@@ -131,7 +129,7 @@ class toolbox_test extends \advanced_testcase {
     /**
      * Test the setting highlight.
      */
-    public function test_setting_highlight_example() {
+    public function test_setting_highlight_example(): void {
         global $CFG;
 
         $this->set_up();
@@ -181,7 +179,7 @@ class toolbox_test extends \advanced_testcase {
     /**
      * Test the enlighterjs init.
      */
-    public function test_enlighterjs_init() {
+    public function test_enlighterjs_init(): void {
         $this->set_up();
         $thedata = new stdClass();
         $thedata->enlighterjsstyle = 'default';
@@ -202,7 +200,7 @@ class toolbox_test extends \advanced_testcase {
     /**
      * Test the syntaxhighlighter init.
      */
-    public function test_syntaxhighlighter_init() {
+    public function test_syntaxhighlighter_init(): void {
         $this->set_up();
         $thedata = new stdClass();
         $thedata->syntaxhighlighterstyle = 'default';
@@ -220,4 +218,3 @@ class toolbox_test extends \advanced_testcase {
         $this->assertEquals($thejsurl, $thereturneddata->thejs);
     }
 }
-// @codeCoverageIgnoreEnd

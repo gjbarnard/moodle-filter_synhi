@@ -33,12 +33,16 @@ namespace filter_synhi;
  */
 class admin_setting_markdown extends \admin_setting {
     /**
-     * @var string Filename
+     * Filename.
+     *
+     * @var string
      */
     private $filename;
 
     /**
-     * @var string Plugin path
+     * Plugin path.
+     *
+     * @var string
      */
     private $pluginpath;
 
