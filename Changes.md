@@ -1,7 +1,7 @@
 Version Information
 ===================
 
-Version 402.1.0 - TBR
+Version 402.1.0 - 22/04/24
 --------------------------
 1. Improve settings UI.
 2. Minimal version is now M4.2 - due to changes in core external API and to make use of tabs for settings.
