@@ -22,33 +22,26 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-/* jshint ignore:start */
-define(['jquery', 'core/log'], function($, log) {
-    "use strict"; // jshint ;_;
+import $ from 'jquery';
+import log from 'core/log';
 
-    log.debug('SynHi AMD');
+var done = false;
 
-    var done = false;
-
-    $(document).ready(function() {
-        log.debug('SynHi AMD document ready');
-    });
-
-    return {
-        init: function(data) {
-            log.debug('SynHi AMD init');
-
-            if (!done) {
-                var $body = $('body');
-                $body.append('<script type="text/javascript" charset="utf-8" src="' + data.thejs + '"></script>');
-                if (data.theinit) {
-                    $body.append('<script type="text/javascript" charset="utf-8">' + data.theinit + '</script>');
-                }
-                $('head').append('<link rel="stylesheet" type="text/css" href="' + data.thecss + '">');
-
-                done = true;
-            }
+/**
+ * Init.
+ *
+ * @param {array} data The urls to use.
+ */
+export const init = (data) => {
+    log.debug('SynHi ES6 init');
+    if (!done) {
+        var $body = $('body');
+        $body.append('<script type="text/javascript" charset="utf-8" src="' + data.thejs + '"></script>');
+        if (data.theinit) {
+            $body.append('<script type="text/javascript" charset="utf-8">' + data.theinit + '</script>');
         }
-    };
-});
-/* jshint ignore:end */
+        $('head').append('<link rel="stylesheet" type="text/css" href="' + data.thecss + '">');
+
+        done = true;
+    }
+};
