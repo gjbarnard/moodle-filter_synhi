@@ -33,7 +33,7 @@ namespace filter_synhi;
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class text_filter extends \core_filters\text_filter {
+class text_filter extends \moodle_text_filter {
     /**
      * @var bool $done - true if the engine has been initialised already.
      */
