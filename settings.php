@@ -39,7 +39,7 @@ if ($ADMIN->fulltree) {
     ));
 
     // Information.
-    $page->add(new \filter_synhi\admin_setting_information('filter_synhi/formatinformation', '', '', 402, 404));
+    $page->add(new \filter_synhi\admin_setting_information('filter_synhi/formatinformation', '', '', 402, 405));
 
     // Readme.md.
     $page->add(new \filter_synhi\admin_setting_markdown('filter_synhi/filterreadme', '', '', 'Readme.md', 'filter/synhi'));
