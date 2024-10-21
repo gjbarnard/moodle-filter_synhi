@@ -15,7 +15,10 @@
     " onload="resize_setting_highlight_example_frame(this)"></iframe>
     <script>
         function resize_setting_highlight_example_frame(obj) {
-            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+            // Not sure why can be 0!
+            if (obj.contentWindow.document.documentElement.scrollHeight > 0) {
+                obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+            }
         }
     </script>
 </div>
