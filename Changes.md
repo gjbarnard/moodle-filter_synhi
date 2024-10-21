@@ -5,6 +5,7 @@ Version 402.1.1 - In development
 --------------------------------
 1. M4.5 compatibility - https://moodledev.io/docs/4.5/devupdate#filter-plugins
 2. M4.4 compatibility in M4.5 - MDL-82427 core: Update namespace of core_filters classes.
+3. Fix example not showing.
 
 Version 402.1.0 - 22/04/24
 --------------------------

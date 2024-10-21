@@ -42,7 +42,7 @@ $string['codeexample'] = 'Code';
 $string['codeexampledesc'] = 'Code to use in the example.  Note: Save to use in the example.';
 
 $string['syntaxhighlighterexample'] = 'Example';
-$string['syntaxhighlighterexampledesc'] = 'from the \'codeexample\' setting...';
+$string['syntaxhighlighterexampledesc'] = 'From the \'codeexample\' setting...';
 
 // Information.
 $string['brokenmarkup'] = 'The markup is broken, highlighting will be wrong.';
