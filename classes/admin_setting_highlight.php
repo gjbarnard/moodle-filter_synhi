@@ -25,6 +25,8 @@
 
 namespace filter_synhi;
 
+use stdClass;
+
 /**
  * SynHi admin_setting_highlight based on admin_setting_description by Amaia Anabitarte.
  *
@@ -85,11 +87,11 @@ class admin_setting_highlight extends \admin_setting {
     public function output_html($data, $query = '') {
         global $OUTPUT;
 
-        $context = new \stdClass();
+        $context = new stdClass();
         $context->title = $this->visiblename;
         $context->description = $this->description;
 
-        $toolbox = \filter_synhi\toolbox::get_instance();
+        $toolbox = toolbox::get_instance();
         $highlightcontext = $toolbox->setting_highlight();
         if (!empty($highlightcontext)) {
             if (empty($highlightcontext->broken)) {

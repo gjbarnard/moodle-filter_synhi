@@ -25,6 +25,8 @@
 
 namespace filter_synhi;
 
+use core_plugin_manager;
+
 /**
  * Setting that displays information.  Based on admin_setting_description in adminlib.php.
  *
@@ -97,11 +99,11 @@ class admin_setting_information extends \admin_setting {
     public function output_html($data, $query = '') {
         global $CFG, $OUTPUT;
 
-        $filter = \core_plugin_manager::instance()->get_present_plugins('filter');
+        $filter = core_plugin_manager::instance()->get_present_plugins('filter');
         if (!empty($filter['synhi'])) {
             $plugininfo = $filter['synhi'];
         } else {
-            $plugininfo = \core_plugin_manager::instance()->get_plugin_info('filter_synhi');
+            $plugininfo = core_plugin_manager::instance()->get_plugin_info('filter_synhi');
             $plugininfo->version = $plugininfo->versiondisk;
         }
 

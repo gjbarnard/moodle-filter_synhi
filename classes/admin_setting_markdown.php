@@ -25,6 +25,8 @@
 
 namespace filter_synhi;
 
+use moodle_url;
+
 /**
  * Setting that displays markdown files.  Based on admin_setting_description in adminlib.php.
  *
@@ -143,7 +145,7 @@ class admin_setting_markdown extends \admin_setting {
                 if ($url[0] == '/') {
                     $hasslash = '';
                 }
-                $murl = new \moodle_url('/' . $this->pluginpath . $hasslash . $url);
+                $murl = new moodle_url('/' . $this->pluginpath . $hasslash . $url);
                 $url = $murl->out(true);
             }
             return $url;
