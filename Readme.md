@@ -104,6 +104,7 @@ This version works with:
  - Moodle 4.2 version 2023042400.00 (Build: 20230424) and above within the 4.2 branch.
  - Moodle 4.3 version 2023100900.00 (Build: 20231009) and above within the 4.3 branch.
  - Moodle 4.4 version 2024042200.00 (Build: 20240422) and above within the 4.4 branch.
+ - Moodle 4.5 version 2024100700.00 (Build: 20241007) and above within the 4.5 branch.
 
 Installing Moodle links
 -----------------------
@@ -111,6 +112,7 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
  - [Moodle 4.2](https://docs.moodle.org/402/en/Installing_Moodle)
  - [Moodle 4.3](https://docs.moodle.org/403/en/Installing_Moodle)
  - [Moodle 4.4](https://docs.moodle.org/404/en/Installing_Moodle)
+ - [Moodle 4.4](https://docs.moodle.org/405/en/Installing_Moodle)
 
 Installation
 ============
