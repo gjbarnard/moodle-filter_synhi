@@ -58,7 +58,7 @@ if ($ADMIN->fulltree) {
 $ADMIN->add('filter_synhi', $page);
 
 // Settings.
-$page = new admin_settingpage('filter_synhi_settings', get_string('settings', 'filter_synhi'));
+$page = new admin_settingpage('filtersettingsynhi', get_string('settings', 'filter_synhi'));
 if ($ADMIN->fulltree) {
     // Engine.
     $name = 'filter_synhi/engine';
