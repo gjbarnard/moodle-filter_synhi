@@ -1,5 +1,8 @@
 Version Information
 ===================
+Version 39.1.3 - TBR
+--------------------------
+
 Version 39.1.2 - 08/10/23
 --------------------------
 1. Add missing 'pluginname' from language file.
