@@ -24,16 +24,14 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
-$settings = null;
-$ADMIN->add('filtersettings', new admin_category('filter_synhi', get_string('filtername', 'filter_synhi')));
-
-// Information.
-$page = new admin_settingpage(
-    'filter_synhi_information',
-    get_string('information', 'filter_synhi')
-);
-
 if ($ADMIN->fulltree) {
+    $settings = new theme_boost_admin_settingspage_tabs('filtersettingsynhi', get_string('filtername', 'filter_synhi'));
+
+    // Information.
+    $page = new admin_settingpage(
+        'filter_synhi_information',
+        get_string('information', 'filter_synhi')
+    );
     $page->add(new admin_setting_heading(
         'filter_synhi_information',
         '',
@@ -54,12 +52,11 @@ if ($ADMIN->fulltree) {
         'Changes.md',
         'filter/synhi'
     ));
-}
-$ADMIN->add('filter_synhi', $page);
 
-// Settings.
-$page = new admin_settingpage('filter_synhi_settings', get_string('settings', 'filter_synhi'));
-if ($ADMIN->fulltree) {
+    $settings->add($page);
+
+    // Settings.
+    $page = new admin_settingpage('filter_synhi_settings', get_string('settings', 'filter_synhi'));
     // Engine.
     $name = 'filter_synhi/engine';
     $title = get_string('engine', 'filter_synhi');
@@ -144,5 +141,6 @@ if ($ADMIN->fulltree) {
         'syntaxhighlighterinformation',
         '<p>' . get_string('syntaxhighlighterinformation', 'filter_synhi') . '</p>'
     ));
+
+    $settings->add($page);
 }
-$ADMIN->add('filter_synhi', $page);

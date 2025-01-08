@@ -2,6 +2,7 @@ Version Information
 ===================
 Version 39.1.3 - TBR
 --------------------------
+1. Fix 'admin/filters.php settings link leads nowhere' - #13.
 
 Version 39.1.2 - 08/10/23
 --------------------------
