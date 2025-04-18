@@ -1,6 +1,10 @@
 Version Information
 ===================
 
+Version 500.1.0 - 21/04/2025
+----------------------------
+1. M5.0 compatibility.
+
 Version 402.1.1 - 24/10/2024
 ----------------------------
 1. M4.5 compatibility - https://moodledev.io/docs/4.5/devupdate#filter-plugins

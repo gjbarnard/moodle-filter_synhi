@@ -133,9 +133,9 @@ class admin_setting_markdown extends \admin_setting {
     private function markdown_to_html($markdown) {
         global $CFG;
 
-        require_once($CFG->libdir . '/markdown/MarkdownInterface.php');
-        require_once($CFG->libdir . '/markdown/Markdown.php');
-        require_once($CFG->libdir . '/markdown/MarkdownExtra.php');
+        require_once($CFG->libdir . '/markdown/Michelf/MarkdownInterface.php');
+        require_once($CFG->libdir . '/markdown/Michelf/Markdown.php');
+        require_once($CFG->libdir . '/markdown/Michelf/MarkdownExtra.php');
 
         $parser = new \Michelf\MarkdownExtra();
         $parser->url_filter_func = function ($url) {

@@ -94,25 +94,19 @@ Sponsorships
 If you'd like to sponsor, get support or fund improvements, then please do get in touch via:
 
 - gjbarnard | Gmail dt com address.
-- GitHub | Please outline your issue / improvement on '[GitHub](https://github.com/gjbarnard/moodle-filter_synhi /issues)'.
-- @gjbarnard | '[X](https://twitter.com/gjbarnard)'.
+- My website eMail | contact at gjbarnard dt co dt uk.
+- GitHub | Please outline your issue / improvement on '[GitHub](https://github.com/gjbarnard/moodle-filter_synhi/issues)'.
 
 Required version of Moodle
 ==========================
 This version works with:
 
- - Moodle 4.2 version 2023042400.00 (Build: 20230424) and above within the 4.2 branch.
- - Moodle 4.3 version 2023100900.00 (Build: 20231009) and above within the 4.3 branch.
- - Moodle 4.4 version 2024042200.00 (Build: 20240422) and above within the 4.4 branch.
- - Moodle 4.5 version 2024100700.00 (Build: 20241007) and above within the 4.5 branch.
+ - Moodle 5.0 version 2025041400.00 (Build: 20250414) and above within the MOODLE_500_STABLE branch.
 
 Installing Moodle links
 -----------------------
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on:
- - [Moodle 4.2](https://docs.moodle.org/402/en/Installing_Moodle)
- - [Moodle 4.3](https://docs.moodle.org/403/en/Installing_Moodle)
- - [Moodle 4.4](https://docs.moodle.org/404/en/Installing_Moodle)
- - [Moodle 4.5](https://docs.moodle.org/405/en/Installing_Moodle)
+ - [Moodle 5.0](https://docs.moodle.org/500/en/Installing_Moodle)
 
 Installation
 ============
@@ -171,6 +165,5 @@ Developed and maintained by
 G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.
 
 - Moodle profile | [Moodle.org](https://moodle.org/user/profile.php?id=442195)
-- @gjbarnard     | [X](https://twitter.com/gjbarnard)
 - Web profile    | [About.me](https://about.me/gjbarnard)
 - Website        | [Website](https://gjbarnard.co.uk)

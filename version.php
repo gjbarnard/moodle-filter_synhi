@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2024033001;
-$plugin->requires = 2023042400.00; // 4.2 (Build: 20230424).
-$plugin->supported = [402, 405];
+$plugin->version = 2025041800;
+$plugin->requires = 2025041400.00; // 5.0 (Build: 20250414).
+$plugin->supported = [500, 500];
 $plugin->component = 'filter_synhi';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '402.1.1';
+$plugin->release = '500.1.0';
