@@ -112,7 +112,7 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
  - [Moodle 4.2](https://docs.moodle.org/402/en/Installing_Moodle)
  - [Moodle 4.3](https://docs.moodle.org/403/en/Installing_Moodle)
  - [Moodle 4.4](https://docs.moodle.org/404/en/Installing_Moodle)
- - [Moodle 4.4](https://docs.moodle.org/405/en/Installing_Moodle)
+ - [Moodle 4.5](https://docs.moodle.org/405/en/Installing_Moodle)
 
 Installation
 ============
