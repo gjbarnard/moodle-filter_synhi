@@ -3,6 +3,7 @@ Version Information
 
 Version 500.1.1 - 
 ----------------------------
+1. Prevent autolinking.
 
 Version 500.1.0 - 21/04/2025
 ----------------------------
