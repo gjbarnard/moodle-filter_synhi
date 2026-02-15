@@ -1,6 +1,9 @@
 Version Information
 ===================
 
+Version 402.1.2 - 
+----------------------------
+
 Version 402.1.1 - 24/10/2024
 ----------------------------
 1. M4.5 compatibility - https://moodledev.io/docs/4.5/devupdate#filter-plugins

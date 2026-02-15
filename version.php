@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2024033001;
-$plugin->requires = 2023042400.00; // 4.2 (Build: 20230424).
+$plugin->version = 2024033002;
+$plugin->requires = 2023042400.00; // 4.2 (Build: 20230424).  phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 $plugin->supported = [402, 405];
 $plugin->component = 'filter_synhi';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '402.1.1';
+$plugin->release = '402.1.2';
