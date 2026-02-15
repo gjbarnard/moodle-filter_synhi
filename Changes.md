@@ -3,6 +3,7 @@ Version Information
 
 Version 402.1.2 - 
 ----------------------------
+1. Prevent autolinking.
 
 Version 402.1.1 - 24/10/2024
 ----------------------------
