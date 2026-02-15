@@ -67,7 +67,7 @@ class text_filter extends \moodle_text_filter {
                         $toolbox = \filter_synhi\toolbox::get_instance();
                         $markup = $toolbox->processtext($text, $synpos);
                         if ($markup !== false) {
-                            $text = '<span class="nolink">'.$markup.'</span>';
+                            $text = '<span class="nolink">' . $markup . '</span>';
                         } else {
                             global $OUTPUT;
                             $context = new stdClass();
