@@ -102,11 +102,13 @@ Required version of Moodle
 This version works with:
 
  - Moodle 5.0 version 2025041400.00 (Build: 20250414) and above within the MOODLE_500_STABLE branch.
+ - Moodle 5.1 version 2025100600.00 (Build: 20251006) and above within the MOODLE_501_STABLE branch.
 
 Installing Moodle links
 -----------------------
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on:
  - [Moodle 5.0](https://docs.moodle.org/500/en/Installing_Moodle)
+ - [Moodle 5.1](https://docs.moodle.org/501/en/Installing_Moodle)
 
 Installation
 ============

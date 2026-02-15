@@ -4,6 +4,7 @@ Version Information
 Version 500.1.1 - 
 ----------------------------
 1. Prevent autolinking.
+2. Checked on Moodle 5.1.
 
 Version 500.1.0 - 21/04/2025
 ----------------------------
