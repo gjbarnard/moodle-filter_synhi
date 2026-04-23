@@ -1,6 +1,5 @@
 Introduction
 ============
-
 A syntax highlighter filter for Moodle with the choice of either EnlighterJS or SyntaxHighlighter
 as the 'engine'.  The administrator has 'preview' settings to see what the look will be on example
 code before the saving.
@@ -10,7 +9,7 @@ Specifically between the [Course and Block contexts](https://docs.moodle.org/39/
 
 Features
 ========
-* Syntax Highlighting.
+ - Syntax Highlighting.
 
 Screenshots
 -----------
@@ -23,7 +22,6 @@ Screenshots
 
 Usage
 =====
-
 Prior to version 39.1.0, the 'pre' tag was accepted on its own for code to be highlighted.  This proved problematic with the need
 to have non-code preformatted but not highlighted.  To highlight code now, please use the 'code' tag, and surround with a 'pre' tag
 to indicate a block of code.  With 'EnlighterJS', using a 'code' tag on its own indicates 'inline' code.  'SyntaxHighlighter' will
@@ -33,7 +31,6 @@ Please add any configuration attributes to the 'code' tag.  Such as '[EnlighterJ
 
 For example
 -----------
-
 ### Single line
 
 `<code data-enlighter-language="java" class="brush: java">System.out.println("SynHi");</code>`
@@ -100,15 +97,16 @@ If you'd like to sponsor, get support or fund improvements, then please do get i
 Required version of Moodle
 ==========================
 This version works with:
-
  - Moodle 5.0 version 2025041400.00 (Build: 20250414) and above within the MOODLE_500_STABLE branch.
  - Moodle 5.1 version 2025100600.00 (Build: 20251006) and above within the MOODLE_501_STABLE branch.
+ - Moodle 5.2 version 2026042000.00 (Build: 20260420) and above within the MOODLE_502_STABLE branch.
 
 Installing Moodle links
 -----------------------
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on:
  - [Moodle 5.0](https://docs.moodle.org/500/en/Installing_Moodle)
  - [Moodle 5.1](https://docs.moodle.org/501/en/Installing_Moodle)
+ - [Moodle 5.2](https://docs.moodle.org/502/en/Installing_Moodle)
 
 Installation
 ============
@@ -155,12 +153,11 @@ Report issues on: https://github.com/gjbarnard/moodle-filter_synhi/issues
 
 Version Information
 ===================
-See Changes.md
+See [Changes.md](Changes.md).
 
 Refs
 ====
-
-iframe resize: https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using
+ - iframe resize: https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using
 
 Developed and maintained by
 ===========================

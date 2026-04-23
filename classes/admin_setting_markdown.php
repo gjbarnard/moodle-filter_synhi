@@ -131,12 +131,6 @@ class admin_setting_markdown extends \admin_setting {
      * @return string Returns an HTML string
      */
     private function markdown_to_html($markdown) {
-        global $CFG;
-
-        require_once($CFG->libdir . '/markdown/Michelf/MarkdownInterface.php');
-        require_once($CFG->libdir . '/markdown/Michelf/Markdown.php');
-        require_once($CFG->libdir . '/markdown/Michelf/MarkdownExtra.php');
-
         $parser = new \Michelf\MarkdownExtra();
         $parser->url_filter_func = function ($url) {
             if (strpos($url, '://') == false) {
