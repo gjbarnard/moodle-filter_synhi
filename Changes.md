@@ -1,7 +1,7 @@
 Version Information
 ===================
 
-Version 500.1.2 - 
+Version 500.1.2 - 24/04/2026
 ----------------------------
 1. Checked on Moodle 5.2.
 2. Fixed markdown classes duplication of inclusion.
