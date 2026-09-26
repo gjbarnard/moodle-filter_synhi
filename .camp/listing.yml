@@ -1,0 +1,18 @@
+name: filter_synhi
+summary: A syntax highlighter filter for Moodle.
+description: |
+  A syntax highlighter filter for Moodle with the choice of either EnlighterJS or SyntaxHighlighter
+  as the 'engine'.  The administrator has 'preview' settings to see what the look will be on example
+  code before the saving.
+labels:
+  - fully-free
+  - donation-supported
+  - commercial-support-available
+screenshots:
+  - path: .camp/screenshots/SynHi_Logo.png
+    caption: Logo
+links:
+  docs: https://github.com/gjbarnard/moodle-filter_synhi/blob/main/Readme.md
+  changelog: https://github.com/gjbarnard/moodle-filter_synhi/blob/main/Changes.md
+  issues: https://github.com/gjbarnard/moodle-filter_synhi/issues
+  donate: https://github.com/gjbarnard/moodle-filter_synhi/blob/main/Information.md
