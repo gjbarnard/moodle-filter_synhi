@@ -1,6 +1,10 @@
 Version Information
 ===================
 
+Version 500.1.3 - 19/10/2026
+----------------------------
+1. Checked on Moodle 5.3.
+
 Version 500.1.2 - 24/04/2026
 ----------------------------
 1. Checked on Moodle 5.2.

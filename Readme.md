@@ -100,6 +100,7 @@ This version works with:
  - Moodle 5.0 version 2025041400.00 (Build: 20250414) and above within the MOODLE_500_STABLE branch.
  - Moodle 5.1 version 2025100600.00 (Build: 20251006) and above within the MOODLE_501_STABLE branch.
  - Moodle 5.2 version 2026042000.00 (Build: 20260420) and above within the MOODLE_502_STABLE branch.
+ - Moodle 5.3 version 2026100500.00 (Build: 20261005) and above within the MOODLE_503_STABLE branch.
 
 Installing Moodle links
 -----------------------
@@ -107,6 +108,7 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
  - [Moodle 5.0](https://docs.moodle.org/500/en/Installing_Moodle)
  - [Moodle 5.1](https://docs.moodle.org/501/en/Installing_Moodle)
  - [Moodle 5.2](https://docs.moodle.org/502/en/Installing_Moodle)
+ - [Moodle 5.3](https://docs.moodle.org/503/en/Installing_Moodle)
 
 Installation
 ============
